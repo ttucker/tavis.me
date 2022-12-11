@@ -19,10 +19,10 @@ export default function Projects() {
       <Hero imgSrc={projectsImg} loading={loading} />
       <Navigation />
       <main>
-        <article className={loading ? `off` : `on`}>
+        <article className={loading ? 'off' : 'on'}>
             <h3>Projects</h3>
             <h4>@Apptio</h4>
-            <p>Most of my tenure has been devoted to helping build Apptio's latest product.</p>
+            <p>Most of my tenure has been devoted to helping build Apptio&#39;s latest product.</p>
             <dl>
                 <dt><Link key="it-planning" href="http://www.apptio.com/applications/it-planning">Product Marketing Page</Link></dt>
                 <dd>Apptio IT Planning Foundation</dd>
@@ -32,7 +32,7 @@ export default function Projects() {
                             along with Visual Designer and another front end developer</li>
                         <li>Primary front end developer for tablet-up responsive web app</li>
                         <li>Filled the role of part engineer, part UX advocate/expert during development</li>
-                        <li>Implemented Zurb's Foundation HTML/SCSS/CSS/JS library within Java backend</li>
+                        <li>Implemented Zurb&#39;s Foundation HTML/SCSS/CSS/JS library within Java backend</li>
                         <li>Learned basics of Knockout.js/Durandal.js data-bindings</li>
                         <li>Built various charts/diagrams using Highcharts and D3 SVG frameworks</li>
                     </ul>
@@ -58,7 +58,7 @@ export default function Projects() {
                 <dd>
                     <ul>
                         <li>HTML/CSS front-end development</li>
-                        <li>Primary developer for company's largest website project</li>
+                        <li>Primary developer for company&#39;s largest website project</li>
                     </ul>
                 </dd>
                 <dt><Link key="sandy-lane" href="http://www.sandylane.com">www.sandylane.com</Link></dt>
@@ -122,7 +122,7 @@ export default function Projects() {
                 <dd>
                     <ul>
                         <li>Designed and developed website for sports cartoonist and radio personality</li>
-                        <li>Gained design experience bringing artist's creative vision to life</li>
+                        <li>Gained design experience bringing artist&#39;s creative vision to life</li>
                     </ul>
                 </dd>
             </dl>

@@ -19,10 +19,10 @@ export default function Resume() {
       <Hero imgSrc={servicesImg} loading={loading} />
       <Navigation />
       <main>
-        <article className={loading ? `off` : `on`}>
+        <article className={loading ? 'off' : 'on'}>
             <h3>Services</h3>
-            <h4>Here's how I can help you.</h4>
-            <p>Whether you're an interactive media agency looking for a full-time developer or a small business owner that needs an
+            <h4>Here&#39;s how I can help you.</h4>
+            <p>Whether you&#39;re an interactive media agency looking for a full-time developer or a small business owner that needs an
                 online presence, we should talk. Though my primary area of <Link key="projects" href="/projects">experience</Link> and interest lies in translating
                 static website designs into dynamic user interfaces, I could:</p>
             <ul>

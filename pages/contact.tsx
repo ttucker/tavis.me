@@ -19,7 +19,7 @@ export default function Contact() {
       <Hero imgSrc={contactImg} loading={loading} />
       <Navigation />
       <main>
-        <article className={loading ? `off` : `on`}>
+        <article className={loading ? 'off' : 'on'}>
           <h3>Contact</h3>
           <h4>Please do get in touch.</h4>
           <p>I hope to have a handy contact form here for your convenience soon, but in the meantime try me via:</p>

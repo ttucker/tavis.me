@@ -19,7 +19,7 @@ export default function Resume() {
       <Hero imgSrc={resumeImg} loading={loading} />
       <Navigation />
       <main>
-        <article className={loading ? `off` : `on`}>
+        <article className={loading ? 'off' : 'on'}>
             <h3>Resumé</h3>
 
             <h4>Objective</h4>
@@ -135,7 +135,7 @@ export default function Resume() {
                 </dd>
             </dl>
             <p><i>References will be provided upon request. Additional URLs, demos and code samples can also be made available. Please contact for more information.</i></p>
-            <p><i>I normally try to save trees, but here's a semi-hidden <Link key="resume" href="/Tavis Tucker - resume.pdf" rel="nofollow">printable version</Link> for your convenience.</i></p>
+            <p><i>I normally try to save trees, but here&#39;s a semi-hidden <Link key="resume" href="/Tavis Tucker - resume.pdf" rel="nofollow">printable version</Link> for your convenience.</i></p>
             {
                 /*
                     References
