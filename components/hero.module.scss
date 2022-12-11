@@ -1,0 +1,40 @@
+.hero {
+	background: #000;
+	height: 150px;
+	position: relative;
+	transition: opacity .75s ease;
+
+	img {
+		object-fit: cover;
+		object-position: top;
+		opacity: .7;
+	}
+
+	&.loading {
+		opacity: 0;
+		background-color: green;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.hero {
+		height: 100%;
+		position: fixed;
+		width: 100%;
+
+		img {
+			object-position: center;
+		}
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.hero {
+		background: #fff;
+		opacity: .9;
+
+		img {
+			opacity: 0.9;
+		}
+	}
+}
