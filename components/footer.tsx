@@ -11,6 +11,7 @@ export default function Footer() {
                     <li><Link key="email" href="mailto:tavis.tucker@gmail.com?subject=Getting in touch...">Email</Link></li>
                     <li><Link key="discord" href="https://discord.com/users/1043695714024312872">Discord</Link></li>
                     <li><Link key="linkedin" href="https://www.linkedin.com/in/tavistucker">LinkedIn</Link></li>
+                    <li><Link key="github" href="https://github.com/ttucker/tavis.me">Github</Link></li>
                 </ul>
             </nav>
             <small>© {copyright} Tavis Tucker</small>
