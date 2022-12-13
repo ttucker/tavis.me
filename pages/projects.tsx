@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import Navigation from '../components/header'
-import Hero from '../components/hero'
-import Footer from '../components/footer'
-import projectsImg from '../public/projects.jpg'
+import { useEffect, useState } from "react"
+import Head from "next/head"
+import Link from "next/link"
+import Navigation from "../components/header"
+import Hero from "../components/hero"
+import Footer from "../components/footer"
+import projectsImg from "../public/projects.jpg"
 
 export default function Projects() {
   const [loading, setLoading] = useState(true)
@@ -19,7 +19,7 @@ export default function Projects() {
       <Hero imgSrc={projectsImg} loading={loading} />
       <Navigation />
       <main>
-        <article className={loading ? 'off' : 'on'}>
+        <article className={loading ? "off" : "on"}>
             <h3>Projects</h3>
             <h4>@Apptio</h4>
             <p>Most of my tenure has been devoted to helping build Apptio&#39;s latest product.</p>

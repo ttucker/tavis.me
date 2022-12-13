@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import Navigation from '../components/header'
-import Hero from '../components/hero'
-import Footer from '../components/footer'
-import resumeImg from '../public/resume.jpg'
+import { useEffect, useState } from "react"
+import Head from "next/head"
+import Link from "next/link"
+import Navigation from "../components/header"
+import Hero from "../components/hero"
+import Footer from "../components/footer"
+import resumeImg from "../public/resume.jpg"
 
 export default function Resume() {
   const [loading, setLoading] = useState(true)
@@ -19,7 +19,7 @@ export default function Resume() {
       <Hero imgSrc={resumeImg} loading={loading} />
       <Navigation />
       <main>
-        <article className={loading ? 'off' : 'on'}>
+        <article className={loading ? "off" : "on"}>
             <h3>Resumé</h3>
 
             <h4>Objective</h4>

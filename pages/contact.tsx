@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import Navigation from '../components/header'
-import Hero from '../components/hero'
-import Footer from '../components/footer'
-import contactImg from '../public/contact.jpg'
+import { useEffect, useState } from "react"
+import Head from "next/head"
+import Link from "next/link"
+import Navigation from "../components/header"
+import Hero from "../components/hero"
+import Footer from "../components/footer"
+import contactImg from "../public/contact.jpg"
 
 export default function Contact() {
   const [loading, setLoading] = useState(true)
@@ -19,7 +19,7 @@ export default function Contact() {
       <Hero imgSrc={contactImg} loading={loading} />
       <Navigation />
       <main>
-        <article className={loading ? 'off' : 'on'}>
+        <article className={loading ? "off" : "on"}>
           <h3>Contact</h3>
           <h4>Please do get in touch.</h4>
           <p>I hope to have a handy contact form here for your convenience soon, but in the meantime try me via:</p>

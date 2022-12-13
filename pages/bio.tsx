@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import Navigation from '../components/header'
-import Hero from '../components/hero'
-import Footer from '../components/footer'
-import bioImg from '../public/bio.jpg'
+import { useEffect, useState } from "react"
+import Head from "next/head"
+import Link from "next/link"
+import Navigation from "../components/header"
+import Hero from "../components/hero"
+import Footer from "../components/footer"
+import bioImg from "../public/bio.jpg"
 
 export default function Bio() {
   const [loading, setLoading] = useState(true)

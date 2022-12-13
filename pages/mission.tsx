@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import Navigation from '../components/header'
-import Hero from '../components/hero'
-import Footer from '../components/footer'
-import missionImg from '../public/mission.jpg'
+import { useEffect, useState } from "react"
+import Head from "next/head"
+import Link from "next/link"
+import Navigation from "../components/header"
+import Hero from "../components/hero"
+import Footer from "../components/footer"
+import missionImg from "../public/mission.jpg"
 
 export default function Mission() {
   const [loading, setLoading] = useState(true)
@@ -19,7 +19,7 @@ export default function Mission() {
       <Hero imgSrc={missionImg} loading={loading} />
       <Navigation />
       <main>
-        <article className={loading ? 'off' : 'on'}>
+        <article className={loading ? "off" : "on"}>
           <h3>Mission</h3>
           <h4>Make a difference.</h4>
           <p>More than anything, I want to help make the world a better place with the work I do and the way I live, be a vessel of change for the greater good. Or something like that.</p>

@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import styles from './footer.module.scss'
+import Link from "next/link"
+import styles from "./footer.module.scss"
 
 export default function Footer() {
     const copyright = new Date().getFullYear()
