@@ -26,7 +26,8 @@ export default function Mission() {
           <h4>Seek new challenges.</h4>
           <p>Each day, I want to use less carbon and more of my abilities, to work with like-minded people that are passionate about the work they do, whatever it might be.</p>
           <h4>Help others succeed.</h4>
-          <p>I&#39;m ready to work hard for you and bring a wealth of <Link key="services" href="/services">knowledge</Link> and <Link key="projects" href="/projects">skills</Link> to the table, so if you have an opportunity that might be of interest, please <Link key="contact" href="/contact">get in touch</Link>.</p>
+          <p>I&#39;m ready to work hard for you and bring a wealth of <Link key="services" href="/services">knowledge</Link> and <Link key="projects" href="/projects">skills</Link> to 
+            the table, so if you have an opportunity that might be of interest, please <Link key="contact" href="/contact">get in touch</Link>.</p>
         </article>
       </main>
       <Footer />

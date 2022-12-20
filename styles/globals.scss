@@ -9,7 +9,6 @@ html {
 	background-color: rgba(42, 42, 48, .8);
 	color: #fff;
     color-scheme: dark;
-	font-family:  PT Sans, Trebuchet MS, Geneva, Helvetica Neue, sans-serif;
 	font-size: 14px;
 }
 
@@ -51,7 +50,7 @@ article {
 	}
 
 	h3, h4, ol, ul, dl, p, pre { margin: 0 4% 16px; }
-	h3, h4 { font-size: 28px; font-weight: normal; margin-bottom: 10px; text-transform: uppercase; }
+	h3, h4 { font-size: 28px; margin-bottom: 10px; text-transform: uppercase; }
 	h4 { font-size: 18px; text-transform: none; }
 	ol, ul { padding-left: 28px; }
 	ul { list-style-type: square; }

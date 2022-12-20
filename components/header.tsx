@@ -1,19 +1,16 @@
 import Link from "next/link"
 import { useRouter } from "next/router";
 import styles from "./header.module.scss"
+import { cardo } from "../pages/_app"
 
-interface HeaderProps {
-    currentPage?: string
-}
-
-export default function Header({ currentPage }: HeaderProps) {
+export default function Header() {
     const router = useRouter();
     const currentRoute = router.pathname;
     
     return (
         <header className={styles.header}>
             <Link href="/">
-				<h1>tavis.me</h1>
+				<h1 className={cardo.className}>tavis.me</h1>
 				<h2>The Curriculum Vitae</h2>
 			</Link>
             <nav>
