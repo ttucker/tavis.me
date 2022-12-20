@@ -2,6 +2,7 @@ import Link from "next/link"
 import { useRouter } from "next/router";
 import styles from "./header.module.scss"
 import { cardo } from "../pages/_app"
+import { ptSans } from "../pages/_app"
 
 export default function Header() {
     const router = useRouter();
@@ -11,7 +12,7 @@ export default function Header() {
         <header className={styles.header}>
             <Link href="/">
 				<h1 className={cardo.className}>tavis.me</h1>
-				<h2>The Curriculum Vitae</h2>
+				<h2 className={ptSans.className}>The Curriculum Vitae</h2>
 			</Link>
             <nav>
                 <ul>

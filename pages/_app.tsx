@@ -5,7 +5,7 @@ import { PT_Sans } from '@next/font/google'
 import { Cardo } from '@next/font/google'
 import "../styles/globals.scss"
 
-const ptSans = PT_Sans({ weight: "400", fallback: ["Trebuchet MS", "Geneva", "Helvetica Neue", "sans-serif"] })
+export const ptSans = PT_Sans({ weight: "400", fallback: ["Trebuchet MS", "Geneva", "Helvetica Neue", "sans-serif"] })
 export const cardo = Cardo({ weight: "400", fallback: ["Times", "Times New Roman", "serif"] })
 
 export default function App({ Component, pageProps }: AppProps) {
