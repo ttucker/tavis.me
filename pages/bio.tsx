@@ -38,7 +38,7 @@ export default function Bio() {
             building software as well as better UX and interaction design skills, but I soon found myself wanting a fully remote role without the Seattle area traffic.</p>
           <p>That brought me to <Link key="tenable" href="https://www.tenable.com">Tenable</Link> in 2015, where I was able to bootstrap multiple new products including Dashboards, 
             Reporting, PCI ASV and MSSP offerings for <Link key="tenable-io" href="https://www.tenable.com/products/tenable-io">Tenable.io</Link>. Most recently, I helped deliver a complete 
-            redesign for the next major version release of <Link key="tenable-io" href="https://www.tenable.com/products/tenable-sc">Tenable.sc</Link> by implementing design system tokens 
+            redesign for the next major version release of <Link key="tenable-sc" href="https://www.tenable.com/products/tenable-sc">Tenable.sc</Link> by implementing design system tokens 
             throughout all UI components and styling them to meet Figma specifications. At Tenable, while I was building features and creating components within the company&#39;s design system, 
             most of my coding utilized React, Redux, Styled Components and CSS/SCSS, but I also became familiar with Lit web components, Nx, Webpack, Jenkins CI/CD and e2e testing with Sauce Labs 
             and Webdriver.io as well. I&#39;m very grateful for the amazing people I worked with and the opportunities I had to grow my skillset and responsibilities, but now, I&#39;m <Link key="mission" href="/mission">ready to move on</Link>.</p>
