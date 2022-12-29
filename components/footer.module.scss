@@ -6,7 +6,7 @@
 	justify-content: space-between;
 
 	* {
-		font-size: 11px;
+		font-size: 12px;
 		line-height: 22px;
 	}
 
@@ -29,7 +29,7 @@
 
 	small {
 		color: rgba(255, 255, 255, .5);
-		font-size: 11px;
+		font-size: 12px;
 		line-height: 28px;
 		text-shadow: 1px 1px rgba(0, 0, 0, .3);
 	}
@@ -42,6 +42,10 @@
         position: fixed;
         width: 100%;
 
+        * {
+            font-size: 11px;
+        }
+    
         nav {
             order: 1;
             width: auto;
