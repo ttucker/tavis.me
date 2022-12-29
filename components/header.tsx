@@ -1,12 +1,12 @@
 import Link from "next/link"
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"
 import styles from "./header.module.scss"
 import { cardo } from "../pages/_app"
 import { ptSans } from "../pages/_app"
 
 export default function Header() {
-    const router = useRouter();
-    const currentRoute = router.pathname;
+    const router = useRouter()
+    const currentRoute = router.pathname
     
     return (
         <header className={styles.header}>
