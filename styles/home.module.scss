@@ -7,7 +7,7 @@
 		display: block;
 		position: fixed;
 		left: 47%;
-		bottom: 150%;
+		// bottom: 150%;
 		color: #141414;
 		font-size: 25px;
 		letter-spacing: 2px;
@@ -37,13 +37,13 @@
 		}
 	}
 
-	.on {
-		bottom: 67%;
-		transition: bottom .375s ease;
-	}
+	// .on {
+	// 	bottom: 67%;
+	// 	transition: bottom .375s ease;
+	// }
 
-	.off {
-		bottom: 150%;
-		transition: bottom .375s ease-in;
-	}
+	// .off {
+	// 	bottom: 150%;
+	// 	transition: bottom .375s ease-in;
+	// }
 }

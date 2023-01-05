@@ -1,25 +1,18 @@
-import { useEffect, useState } from "react"
 import Head from "next/head"
 import Link from "next/link"
-import Navigation from "../components/header"
+import Header from "../components/header"
 import Hero from "../components/hero"
 import Footer from "../components/footer"
 import bioImg from "../public/bio.jpg"
 
 export default function Bio() {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    setLoading(false)
-  }, [])
-
   return (
     <>
       <Head><title>Bio | tavis.me | Tavis Tucker</title></Head>
-      <Hero imgSrc={bioImg} loading={loading} />
-      <Navigation />
+      <Hero imgSrc={bioImg} />
+      <Header />
       <main>
-        <article className={loading ? "off" : "on"}>
+        <article>
           <h3>Bio</h3>
           <h4>My name is Tavis Tucker, and tavis.me is my portfolio site.</h4>
           <p>I attended Western Maryland College (now <Link key="mcdaniel" href="https://www.mcdaniel.edu">McDaniel College</Link>) where I graduated <i>cum laude</i> with

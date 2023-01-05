@@ -1,25 +1,18 @@
-import { useEffect, useState } from "react"
 import Head from "next/head"
 import Link from "next/link"
-import Navigation from "../components/header"
+import Header from "../components/header"
 import Hero from "../components/hero"
 import Footer from "../components/footer"
 import resumeImg from "../public/resume.jpg"
 
 export default function Resume() {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    setLoading(false)
-  }, [])
-
   return (
     <>
       <Head><title>Resumé | tavis.me | Tavis Tucker</title></Head>
-      <Hero imgSrc={resumeImg} loading={loading} />
-      <Navigation />
+      <Hero imgSrc={resumeImg} />
+      <Header />
       <main>
-        <article className={loading ? "off" : "on"}>
+        <article>
             <h3>Resumé</h3>
 
             <h4>About</h4>

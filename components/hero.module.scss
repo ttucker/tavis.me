@@ -2,18 +2,17 @@
 	background: #000;
 	height: 150px;
 	position: relative;
-	transition: opacity .75s ease;
+	//transition: opacity .75s ease;
 
 	img {
 		object-fit: cover;
 		object-position: top;
-		opacity: .7;
+		//opacity: .7;
 	}
 
-	&.loading {
-		opacity: 0;
-		background-color: green;
-	}
+	// &.loading {
+	// 	opacity: 0;
+	// }
 }
 
 @media screen and (min-width: 768px) {
@@ -33,8 +32,8 @@
 		background: #fff;
 		opacity: .9;
 
-		img {
-			opacity: 0.9;
-		}
+		// img {
+		// 	opacity: 0.9;
+		// }
 	}
 }
