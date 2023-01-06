@@ -2,17 +2,12 @@
 	background: #000;
 	height: 150px;
 	position: relative;
-	//transition: opacity .75s ease;
+	opacity: .75;
 
 	img {
 		object-fit: cover;
 		object-position: top;
-		//opacity: .7;
 	}
-
-	// &.loading {
-	// 	opacity: 0;
-	// }
 }
 
 @media screen and (min-width: 768px) {
@@ -31,9 +26,5 @@
 	.hero {
 		background: #fff;
 		opacity: .9;
-
-		// img {
-		// 	opacity: 0.9;
-		// }
 	}
 }

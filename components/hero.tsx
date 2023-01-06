@@ -15,13 +15,14 @@ export default function Hero({ currentPage = "home", imgSrc }: HeroProps) {
             opacity: 0
         },
         loaded: {
-            opacity: lightMode ? 0.9 : 0.7
+            opacity: lightMode ? 0.9 : 0.75 // would be good to use CSS variables here and in the module.scss for DRYness
         },
         exit: {
             opacity: 0
         }
     }
 
+    // this will only work on page load which will have to be good enough until a proper theme switch/override exists
     useEffect(() => {
         setLightMode(window.matchMedia("(prefers-color-scheme:light)").matches)
     }, [])
@@ -33,7 +34,7 @@ export default function Hero({ currentPage = "home", imgSrc }: HeroProps) {
             initial="initial"
             animate="loaded"
             exit="exit"
-            transition={{ ease: "easeIn", duration: .25, delay: .25 }}>
+            transition={{ ease: "easeIn", duration: .375 }}>
             <Image src={imgSrc} alt={currentPage} fill priority quality="100" />
         </motion.figure>
     )
