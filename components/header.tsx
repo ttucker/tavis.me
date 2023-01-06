@@ -13,9 +13,9 @@ export default function Header({ setLoading }: HeaderProps) {
     return (
         <header className={styles.header}>
             <Link href="/">
-				<h1 className={cardo.className}>tavis.me</h1>
-				<h2 className={ptSans.className}>The Curriculum Vitae</h2>
-			</Link>
+                <h1 className={cardo.className}>tavis.me</h1>
+                <h2 className={ptSans.className}>The Curriculum Vitae</h2>
+            </Link>
             <nav>
                 <ul>
                     <li key="bio"><Link href="/bio" className={path === "/bio" ? "current" : ""}>Bio</Link></li>

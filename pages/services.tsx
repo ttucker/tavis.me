@@ -2,6 +2,7 @@ import Head from "next/head"
 import Link from "next/link"
 import Header from "../components/header"
 import Hero from "../components/hero"
+import Article from "../components/article"
 import Footer from "../components/footer"
 import servicesImg from "../public/services.jpg"
 
@@ -12,7 +13,7 @@ export default function Resume() {
       <Hero imgSrc={servicesImg} />
       <Header />
       <main>
-        <article>
+        <Article>
             <h3>Services</h3>
             <h4>Here&#39;s how I can help you.</h4>
             <p>Whether you&#39;re an interactive media agency looking for a full-time developer or a small business owner that needs an
@@ -28,7 +29,7 @@ export default function Resume() {
                 <li>Bring your new and interesting idea to life</li>
             </ul>
             <p>Need help? <Link key="contact" href="/contact">Get in touch</Link> and let&#39;s start a conversation!</p>
-        </article>
+        </Article>
       </main>
       <Footer />
     </>

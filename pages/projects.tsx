@@ -2,6 +2,7 @@ import Head from "next/head"
 import Link from "next/link"
 import Header from "../components/header"
 import Hero from "../components/hero"
+import Article from "../components/article"
 import Footer from "../components/footer"
 import projectsImg from "../public/projects.jpg"
 
@@ -12,7 +13,7 @@ export default function Projects() {
       <Hero imgSrc={projectsImg} />
       <Header />
       <main>
-        <article>
+        <Article>
             <h3>Projects</h3>
             <h4>@Apptio</h4>
             <p>Most of my tenure has been devoted to helping build Apptio&#39;s latest product.</p>
@@ -119,7 +120,7 @@ export default function Projects() {
                     </ul>
                 </dd>
             </dl>
-        </article>
+        </Article>
       </main>
       <Footer />
     </>

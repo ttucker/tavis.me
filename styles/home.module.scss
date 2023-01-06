@@ -1,49 +1,38 @@
 .blockquote {
-	display: none;
+    display: none;
 }
 
 @media screen and (min-width: 768px) {
-	.blockquote {
-		display: block;
-		position: fixed;
-		left: 47%;
-		// bottom: 150%;
-		color: #141414;
-		font-size: 25px;
-		letter-spacing: 2px;
-		line-height: 25px;
-		text-align: center;
-		text-shadow: 1px 1px rgba(255, 255, 255, .2);
-		text-transform: uppercase;
+    .blockquote {
+        display: block;
+        position: fixed;
+        left: 47%;
+        color: #141414;
+        font-size: 25px;
+        letter-spacing: 2px;
+        line-height: 25px;
+        text-align: center;
+        text-shadow: 1px 1px rgba(255, 255, 255, .2);
+        text-transform: uppercase;
 
-		@media (prefers-color-scheme: light) {
-			color: rgba(0, 0, 0, 0.7);
-		}
+        @media (prefers-color-scheme: light) {
+            color: rgba(0, 0, 0, 0.7);
+        }
 
-		&:first-letter {
-			margin-left: -200px;
-		}
+        &:first-letter {
+            margin-left: -200px;
+        }
 
-		i {
-			display: block;
-			text-transform: lowercase;
-			font-size: 50px;
-			letter-spacing: 0;
-			line-height: 46px;
+        i {
+            display: block;
+            text-transform: lowercase;
+            font-size: 50px;
+            letter-spacing: 0;
+            line-height: 46px;
 
-			&:first-letter {
-				margin-left: -125px;
-			}
-		}
-	}
-
-	// .on {
-	// 	bottom: 67%;
-	// 	transition: bottom .375s ease;
-	// }
-
-	// .off {
-	// 	bottom: 150%;
-	// 	transition: bottom .375s ease-in;
-	// }
+            &:first-letter {
+                margin-left: -125px;
+            }
+        }
+    }
 }

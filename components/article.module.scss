@@ -1,0 +1,64 @@
+.article {
+    background-color: rgba(50, 50, 50, .7);
+    color: #ccc;
+    padding: 10px 0;
+    width: 100%;
+
+    a, a:hover, a:active {
+        color: #ff4444;
+        text-shadow: none;
+
+        &:hover {
+            color: #ff7777;
+        }
+
+        &:active {
+            color: #ff9999;
+        }
+    }
+
+    h3, h4, ol, ul, dl, p, pre { margin: 0 4% 16px; }
+    h3, h4 { font-size: 28px; font-weight: 400; margin-bottom: 10px; text-transform: uppercase; }
+    h4 { font-size: 18px; text-transform: none; }
+    ol, ul { padding-left: 28px; }
+    ul { list-style-type: square; }
+    dl, dd ul { margin-top: 10px; }
+    dd ul { margin-left: 0; }
+    dt { clear: right; float: right; }
+    sup { line-height: 0; }
+}
+
+/* into desktop land */
+@media screen and (min-width: 768px) {
+    .article {
+        font-size: 100%;
+        line-height: 1.5;
+        padding: 20px 0 30px;
+        position: absolute;
+        top: 11%;
+
+        h3, h4, ol, ul, dl, p, pre {
+            margin-left: 5%;
+            margin-right: 3%;
+        }
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .article {
+        background-color: rgba(237, 237, 237, .7);
+        color: #454545;
+
+        a, a:hover, a:active {
+            color: #840000;
+
+            &:hover {
+                color: #e00000;
+            }
+
+            &:active {
+                color: #ff4e4e;
+            }
+        }
+    }
+}

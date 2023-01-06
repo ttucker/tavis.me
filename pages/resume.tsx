@@ -2,6 +2,7 @@ import Head from "next/head"
 import Link from "next/link"
 import Header from "../components/header"
 import Hero from "../components/hero"
+import Article from "../components/article"
 import Footer from "../components/footer"
 import resumeImg from "../public/resume.jpg"
 
@@ -12,7 +13,7 @@ export default function Resume() {
       <Hero imgSrc={resumeImg} />
       <Header />
       <main>
-        <article>
+        <Article>
             <h3>Resumé</h3>
 
             <h4>About</h4>
@@ -157,7 +158,7 @@ export default function Resume() {
                     Contact details will be provided upon request.
                 */
             }
-        </article>
+        </Article>
       </main>
       <Footer />
     </>

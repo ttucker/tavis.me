@@ -12,7 +12,7 @@ export default function Home() {
     initial: {
       bottom: "150%"
     },
-    on: {
+    animate: {
       bottom: "67%"
     },
     exit: {
@@ -28,7 +28,7 @@ export default function Home() {
         variants={motionStates}
         transition={{ ease: "easeOut", duration: .4, delay: .2 }}
         initial="initial"
-        animate="on"
+        animate="animate"
         exit="exit"
         className={`${styles.blockquote} ${cardo.className}`}>
           Hello and <i>welcome</i> to my website

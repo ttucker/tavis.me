@@ -14,7 +14,7 @@ export default function Hero({ currentPage = "home", imgSrc }: HeroProps) {
         initial: {
             opacity: 0
         },
-        loaded: {
+        animate: {
             opacity: lightMode ? 0.9 : 0.75 // would be good to use CSS variables here and in the module.scss for DRYness
         },
         exit: {
@@ -32,7 +32,7 @@ export default function Hero({ currentPage = "home", imgSrc }: HeroProps) {
             className={styles.hero}
             variants={motionStates}
             initial="initial"
-            animate="loaded"
+            animate="animate"
             exit="exit"
             transition={{ ease: "easeIn", duration: .375 }}>
             <Image src={imgSrc} alt={currentPage} fill priority quality="100" />
