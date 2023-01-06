@@ -1,25 +1,19 @@
-import { useEffect, useState } from "react"
 import Head from "next/head"
 import Link from "next/link"
-import Navigation from "../components/header"
+import Header from "../components/header"
 import Hero from "../components/hero"
+import Article from "../components/article"
 import Footer from "../components/footer"
 import bioImg from "../public/bio.jpg"
 
 export default function Bio() {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    setLoading(false)
-  }, [])
-
   return (
     <>
       <Head><title>Bio | tavis.me | Tavis Tucker</title></Head>
-      <Hero imgSrc={bioImg} loading={loading} />
-      <Navigation />
+      <Hero imgSrc={bioImg} />
+      <Header />
       <main>
-        <article className={loading ? "off" : "on"}>
+        <Article>
           <h3>Bio</h3>
           <h4>My name is Tavis Tucker, and tavis.me is my portfolio site.</h4>
           <p>I attended Western Maryland College (now <Link key="mcdaniel" href="https://www.mcdaniel.edu">McDaniel College</Link>) where I graduated <i>cum laude</i> with
@@ -42,7 +36,7 @@ export default function Bio() {
             throughout all UI components and styling them to meet Figma specifications. At Tenable, while I was building features and creating components within the company&#39;s design system, 
             most of my coding utilized React, Redux, Styled Components and CSS/SCSS, but I also became familiar with Lit web components, Nx, Webpack, Jenkins CI/CD and e2e testing with Sauce Labs 
             and Webdriver.io as well. I&#39;m very grateful for the amazing people I worked with and the opportunities I had to grow my skillset and responsibilities, but now, I&#39;m <Link key="mission" href="/mission">ready to move on</Link>.</p>
-        </article>
+        </Article>
       </main>
       <Footer />
     </>
