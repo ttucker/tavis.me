@@ -29,9 +29,6 @@ a {
     }
 }
 
-/* this has the effect of disabling the motion page transitions on mobile by hiding the element that is inserted into the DOM during animation */
-main:nth-of-type(2) { display: none; }
-
 /* into desktop land */
 @media screen and (min-width: 768px) {
     html {
@@ -45,9 +42,6 @@ main:nth-of-type(2) { display: none; }
         max-width: 800px;
         right: 0;
         width: 55%;
-
-        /* this has the effect of enabling the motion page transitions on mobile by displaying the element that is inserted into the DOM during animation */
-        &:nth-of-type(2) { display: block; }
     }
 }
 

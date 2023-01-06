@@ -8,9 +8,6 @@
         object-fit: cover;
         object-position: top;
     }
-
-    /* this has the effect of disabling the motion page transitions on mobile by hiding the element that is inserted into the DOM during animation */
-    &:nth-of-type(2) { display: none; }
 }
 
 @media screen and (min-width: 768px) {
@@ -22,9 +19,6 @@
         img {
             object-position: center;
         }
-
-        /* this has the effect of enabling the motion page transitions on mobile by displaying the element that is inserted into the DOM during animation */
-        &:nth-of-type(2) { display: block; }
     }
 }
 

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import Head from "next/head"
 import { motion } from "framer-motion"
 import { cardo } from "./_app"
@@ -8,6 +9,7 @@ import Footer from "../components/footer"
 import homeImg from "../public/home.jpg"
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false)
   const motionStates = {
     initial: {
       bottom: "150%"
@@ -20,18 +22,23 @@ export default function Home() {
     }
   }
 
+  // this will only work on page load which will have to be good enough
+  useEffect(() => {
+    setIsMobile(window.matchMedia("(max-width: 768px)").matches)
+  }, [])
+
   return (
     <>
       <Head><title>Home | tavis.me | Tavis Tucker</title></Head>
       <Hero imgSrc={homeImg} />
       <motion.blockquote
-        variants={motionStates}
+        variants={!isMobile ? motionStates : undefined}
         transition={{ ease: "easeOut", duration: .4, delay: .2 }}
         initial="initial"
         animate="animate"
         exit="exit"
         className={`${styles.blockquote} ${cardo.className}`}>
-          Hello and <i>welcome</i> to my website
+        Hello and <i>welcome</i> to my website
       </motion.blockquote>
       <Header />
       <Footer />

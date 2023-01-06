@@ -10,6 +10,7 @@ interface HeroProps {
 
 export default function Hero({ currentPage = "home", imgSrc }: HeroProps) {
     const [lightMode, setLightMode] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
     const motionStates = {
         initial: {
             opacity: 0
@@ -25,12 +26,13 @@ export default function Hero({ currentPage = "home", imgSrc }: HeroProps) {
     // this will only work on page load which will have to be good enough until a proper theme switch/override exists
     useEffect(() => {
         setLightMode(window.matchMedia("(prefers-color-scheme:light)").matches)
+        setIsMobile(window.matchMedia("(max-width: 768px)").matches)
     }, [])
 
     return (
         <motion.figure
             className={styles.hero}
-            variants={motionStates}
+            variants={!isMobile ? motionStates : undefined}
             initial="initial"
             animate="animate"
             exit="exit"

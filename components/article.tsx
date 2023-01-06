@@ -9,18 +9,15 @@ interface ArticleProps {
 
 export default function Article({children}: ArticleProps) {
     const [isMobile, setIsMobile] = useState(false)
-    let motionStates = {
+    const motionStates = {
         initial: {
-            opacity: Number(!isMobile),
-            top: isMobile ? "auto" : "100%"
+            top: "100%"
         },
         animate: {
-            opacity: 1,
-            top: isMobile ? "auto" : "11%"
+            top: "11%"
         },
         exit: {
-            opacity: Number(!isMobile),
-            top: isMobile ? "auto" : "-200%"
+            top: "-100%"
         }
     }
 
@@ -32,7 +29,7 @@ export default function Article({children}: ArticleProps) {
     return (
         <motion.article
             className={styles.article}
-            variants={motionStates}
+            variants={!isMobile ? motionStates : undefined}
             initial="initial"
             animate="animate"
             exit="exit"
