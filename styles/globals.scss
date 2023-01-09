@@ -29,6 +29,16 @@ a {
     }
 }
 
+// This is a hack related to https://github.com/vercel/next.js/issues/17464
+// The styles isolated in module CSS files are removed from the DOM too early during page transitions,
+// causing the homepage tagline to appear undesirably when transitioning to interior pages. This effectively 
+// breaks the exit transitions from homepage to interior pages and vice versa, though interior page transitions
+// are working as expected. If the bug is ever fixed, then we should be able to remove this rule and undo the
+// changes made to home.module.scss and article.module.scss as part of this workaround.
+blockquote, article {
+    display: none;
+}
+
 /* into desktop land */
 @media screen and (min-width: 768px) {
     html {
