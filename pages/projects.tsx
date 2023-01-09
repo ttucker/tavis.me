@@ -15,8 +15,41 @@ export default function Projects() {
       <main>
         <Article>
             <h3>Projects</h3>
+
+            <h4>@Tenable</h4>
+            <p>I was fortunate to have many opportunities at Tenable to bootstrap several new features and applications.</p>
+            <dl>
+                <dt><Link key="tenable-io" href="https://www.tenable.com/products/tenable-io">Product Marketing Page</Link></dt>
+                <dd>Tenable.io</dd>
+                <dd>
+                    <ul>
+                        <li>Worked with team members to develop first Tenable design system and component library</li>
+                        <li>Created custom dashboard and reporting functionality including user-configured visualizations and drag and drop</li>
+                        <li>Greenfield engineering for PCI ASV and MSSP features</li>
+                    </ul>
+                </dd>
+
+                <dt><Link key="tenable-sc" href="https://www.tenable.com/products/tenable-sc">Product Marketing Page</Link></dt>
+                <dd>Tenable.sc</dd>
+                <dd>
+                    <ul>
+                        <li>Applied design system tokens to reskin existing UI components and deliver full application redesign for first major version release in eight years</li>
+                        <li>Established standards for thorough code review and positive collaboration between disparate teams</li>
+                    </ul>
+                </dd>
+
+                <dd>Tenable Cloud</dd>
+                <dd>
+                    <ul>
+                        <li>Worked to create API key generation and CAPTCHA features</li>
+                        <li>Developed custom AsciiDoc to HTML conversion for online API documentation</li>
+                        <li>Researched and prototyped native web components to vet the possibility of migrating</li>
+                    </ul>
+                </dd>
+            </dl>
+
             <h4>@Apptio</h4>
-            <p>Most of my tenure has been devoted to helping build Apptio&#39;s latest product.</p>
+            <p>Most of my tenure was devoted to helping build Apptio&#39;s latest product.</p>
             <dl>
                 <dt><Link key="it-planning" href="http://www.apptio.com/applications/it-planning">Product Marketing Page</Link></dt>
                 <dd>Apptio IT Planning Foundation</dd>
@@ -34,9 +67,17 @@ export default function Projects() {
             </dl>
 
             <h4>@Sabre</h4>
-            <p>These are some still-active projects I originally developed while at Sabre Hospitality Solutions.</p>
+            <p>These are some projects I developed at Sabre Hospitality Solutions, though most have since been redeveloped.</p>
             <dl>
-                <dt><Link key="trump" href="http://www.trumphotelcollection.com">www.trumphotelcollection.com</Link></dt>
+                <dt><Link key="sandy-lane" href="https://www.sandylane.com/barbados-golf/green-monkey-golf-course">sandylane.com</Link></dt>
+                <dd>Sandy Lane</dd>
+                <dd>St. James, Barbados, West Indies</dd>
+                <dd>
+                    <ul>
+                        <li>XML/XSLT website framework</li>
+                        <li>jQuery scripting for scaling, automatic pagination and interactive golf course map</li>
+                    </ul>
+                </dd>
                 <dd>Trump Hotel Collection</dd>
                 <dd>New York, New York</dd>
                 <dd>
@@ -46,8 +87,7 @@ export default function Projects() {
                         <li>Developed PHP and XSLT template logic</li>
                     </ul>
                 </dd>
-                <dt><Link key="destination-hotels" href="http://www.destinationhotels.com">www.destinationhotels.com</Link></dt>
-                <dd>Destination Hotels & Resorts</dd>
+                <dd>Destination Hotels &amp; Resorts</dd>
                 <dd>Englewood, Colorado</dd>
                 <dd>
                     <ul>
@@ -55,18 +95,6 @@ export default function Projects() {
                         <li>Primary developer for company&#39;s largest website project</li>
                     </ul>
                 </dd>
-                <dt><Link key="sandy-lane" href="http://www.sandylane.com">www.sandylane.com</Link></dt>
-                <dd>Sandy Lane</dd>
-                <dd>St. James, Barbados, West Indies</dd>
-                <dd>
-                    <ul>
-                        <li>XML/XSLT website framework</li>
-                        <li>jQuery scripting for scaling, automatic pagination and interactive golf course map</li>
-                    </ul>
-                </dd>
-                <dt>
-                    <Link key="press-release" href="http://www.sabrehospitality.com/press/grand-millennium-kuala-lumpur-debuts-integrated-facebook-hotel-booking-system">Press Release</Link> | <Link key="montage" href="https://www.facebook.com/MontageBeverlyHills/app_388250147877485">Example App</Link>
-                </dt>
                 <dd>Facebook Booking Widget</dd>
                 <dd>
                     <ul>
