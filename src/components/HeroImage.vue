@@ -27,7 +27,7 @@ onMounted(() => {
 
 <style scoped>
 .hero {
-  background: oklch(0 0 0);
+  background: var(--hero-fallback-bg);
   height: 150px;
   margin: 0;
   opacity: 0;
@@ -60,17 +60,9 @@ onMounted(() => {
 }
 
 @media (prefers-color-scheme: light) {
-  :global(html:not([data-theme='dark']) .hero) {
-    background: oklch(1 0 0);
-  }
-
   :global(html:not([data-theme='dark']) .hero.visible) {
     opacity: 0.9;
   }
-}
-
-:global(html[data-theme='light'] .hero) {
-  background: oklch(1 0 0);
 }
 
 :global(html[data-theme='light'] .hero.visible) {

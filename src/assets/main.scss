@@ -1,6 +1,7 @@
 :root {
   --app-bg-mobile: oklch(0.37 0.01 285 / 0.8);
   --app-bg-desktop: oklch(0.33 0 0);
+  --hero-fallback-bg: oklch(0.18 0 0);
   --app-text: oklch(1 0 0);
   --app-color-scheme: dark;
 
@@ -214,6 +215,7 @@ main {
 }
 
 .route-stage {
+  background-color: var(--hero-fallback-bg);
   min-height: 100vh;
   overflow: hidden;
   position: relative;
@@ -273,6 +275,7 @@ a {
   :root:not([data-theme='dark']) {
     --app-bg-mobile: oklch(0.84 0 0 / 0.6);
     --app-bg-desktop: oklch(0.84 0 0 / 0.6);
+    --hero-fallback-bg: oklch(0.94 0.01 95 / 0.85);
     --app-color-scheme: light;
 
     --link-color: oklch(0.1776 0 0);
@@ -287,6 +290,7 @@ a {
 :root[data-theme='light'] {
   --app-bg-mobile: oklch(0.84 0 0 / 0.6);
   --app-bg-desktop: oklch(0.84 0 0 / 0.6);
+  --hero-fallback-bg: oklch(0.94 0.01 95 / 0.85);
   --app-color-scheme: light;
 
   --link-color: oklch(0.1776 0 0);
