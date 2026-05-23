@@ -38,7 +38,7 @@ const toggleMenu = () => {
     </button>
     <button :aria-label="themeToggleLabel" class="theme-toggle" type="button" @click="toggleTheme">
       <span class="theme-icon sun" :class="{ active: isDarkTheme }" aria-hidden="true">☀</span>
-      <span class="theme-icon moon" :class="{ active: !isDarkTheme }" aria-hidden="true">☾</span>
+      <span class="theme-icon moon" :class="{ active: !isDarkTheme }" aria-hidden="true">☽</span>
     </button>
     <nav id="primary-navigation" aria-label="Primary" class="primary-nav" :class="{ open: isMenuOpen }">
       <ul>
@@ -195,6 +195,10 @@ const toggleMenu = () => {
     background-color: oklch(1 0 0 / 0.3);
   }
 
+  :global(html:not([data-theme='dark']) .header > a) {
+    text-shadow: 1px 1px oklch(1 0 0 / 0.55);
+  }
+
   :global(html:not([data-theme='dark']) .header > a *) {
     color: oklch(0 0 0 / 0.7);
   }
@@ -215,6 +219,10 @@ const toggleMenu = () => {
 
 :global(html[data-theme='light'] .header) {
   background-color: oklch(1 0 0 / 0.3);
+}
+
+:global(html[data-theme='light'] .header > a) {
+  text-shadow: 1px 1px oklch(1 0 0 / 0.55);
 }
 
 :global(html[data-theme='light'] .header > a *) {
