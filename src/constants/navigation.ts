@@ -37,5 +37,15 @@ export const MAIN_NAV_ITEMS = [
   },
 ] as const
 
+export const HERO_IMAGE_SRCS = [
+  '/home.jpg',
+  '/bio.jpg',
+  '/mission.jpg',
+  '/projects.jpg',
+  '/services.jpg',
+  '/contact.jpg',
+  '/resume.jpg',
+] as const
+
 export type MainNavItem = (typeof MAIN_NAV_ITEMS)[number]
 export type MainNavName = MainNavItem['name']

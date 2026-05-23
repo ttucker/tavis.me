@@ -23,12 +23,22 @@ import { RouterView } from 'vue-router'
 
 import SiteFooter from './components/SiteFooter.vue'
 import SiteHeader from './components/SiteHeader.vue'
+import { HERO_IMAGE_SRCS } from './constants/navigation'
 import { isBackNavigation } from './router'
 
 const isMobileViewport = ref(false)
 
+const preloadHeroImages = () => {
+  for (const src of HERO_IMAGE_SRCS) {
+    const image = new Image()
+    image.decoding = 'async'
+    image.src = src
+  }
+}
+
 onMounted(() => {
   isMobileViewport.value = window.matchMedia('(max-width: 767px)').matches
+  preloadHeroImages()
 })
 
 const transitionDuration = computed(() => {
