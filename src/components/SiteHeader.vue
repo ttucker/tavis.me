@@ -196,7 +196,7 @@ const toggleMenu = () => {
   }
 
   :global(html:not([data-theme='dark']) .header > a) {
-    text-shadow: 1px 1px oklch(1 0 0 / 0.35);
+    text-shadow: 1px 1px oklch(1 0 0 / 0.25);
   }
 
   :global(html:not([data-theme='dark']) .header > a *) {
@@ -222,7 +222,7 @@ const toggleMenu = () => {
 }
 
 :global(html[data-theme='light'] .header > a) {
-  text-shadow: 1px 1px oklch(1 0 0 / 0.35);
+  text-shadow: 1px 1px oklch(1 0 0 / 0.25);
 }
 
 :global(html[data-theme='light'] .header > a *) {
