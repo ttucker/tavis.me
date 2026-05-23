@@ -1,0 +1,285 @@
+:root {
+  --app-bg-mobile: oklch(0.37 0.01 285 / 0.8);
+  --app-bg-desktop: oklch(0.33 0 0);
+  --app-text: oklch(1 0 0);
+  --app-color-scheme: dark;
+
+  --link-color: oklch(0.81 0 0);
+  --link-color-hover: oklch(1 0 0 / 0.9);
+  --link-color-active: oklch(1 0 0);
+  --link-shadow: 1px 1px oklch(0 0 0 / 0.2);
+  --link-shadow-hover: 1px 1px oklch(0 0 0 / 0.5);
+  --link-shadow-active: 1px 1px oklch(0.84 0 0 / 0.4);
+
+  --enter-curve: cubic-bezier(0.22, 1, 0.36, 1);
+  --leave-curve: cubic-bezier(0.55, 0, 0.8, 0.25);
+
+  --article-enter-duration: 0.62s;
+  --article-leave-duration: 0.58s;
+  --article-rest-top: 11%;
+
+  --quote-enter-duration: 0.62s;
+  --quote-leave-duration: 0.55s;
+  --quote-enter-delay: 0.1s;
+
+  --hero-enter-duration: 0.58s;
+  --hero-leave-duration: 0.5s;
+
+  --reduced-fade-enter-duration: 0.35s;
+  --reduced-fade-leave-duration: 0.25s;
+}
+
+@mixin motion($name, $article-enter-from, $article-leave-to, $quote-enter-from, $quote-leave-to) {
+  .#{$name}-enter-active,
+  .#{$name}-leave-active {
+    inset: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .#{$name}-enter-active {
+    .article {
+      transition: top var(--article-enter-duration) var(--enter-curve);
+    }
+
+    .blockquote {
+      transition: transform var(--quote-enter-duration) var(--enter-curve) var(--quote-enter-delay);
+    }
+
+    .hero {
+      transition: opacity var(--hero-enter-duration) var(--enter-curve);
+    }
+  }
+
+  .#{$name}-leave-active {
+    pointer-events: none;
+
+    .article {
+      transition: top var(--article-leave-duration) var(--leave-curve);
+    }
+
+    .blockquote {
+      transition: transform var(--quote-leave-duration) var(--leave-curve);
+    }
+
+    .hero {
+      transition: opacity var(--hero-leave-duration) var(--leave-curve);
+    }
+  }
+
+  .#{$name}-enter-from {
+    .article {
+      top: $article-enter-from !important;
+    }
+
+    .blockquote {
+      transform: translateY($quote-enter-from) !important;
+    }
+
+    .hero {
+      opacity: 0 !important;
+    }
+  }
+
+  .#{$name}-enter-to,
+  .#{$name}-leave-from {
+    .article {
+      top: var(--article-rest-top) !important;
+    }
+
+    .blockquote {
+      transform: translateY(0) !important;
+    }
+  }
+
+  .#{$name}-leave-to {
+    .article {
+      top: $article-leave-to !important;
+    }
+
+    .blockquote {
+      transform: translateY($quote-leave-to) !important;
+    }
+
+    .hero {
+      opacity: 0 !important;
+    }
+  }
+}
+
+@mixin motion-reduced($name) {
+  .#{$name}-enter-active,
+  .#{$name}-leave-active {
+    inset: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .#{$name}-enter-active {
+    .article,
+    .blockquote,
+    .hero {
+      transition: opacity var(--reduced-fade-enter-duration) ease-out;
+    }
+  }
+
+  .#{$name}-leave-active {
+    pointer-events: none;
+
+    .article,
+    .blockquote,
+    .hero {
+      transition: opacity var(--reduced-fade-leave-duration) ease-in;
+    }
+  }
+
+  .#{$name}-enter-from,
+  .#{$name}-leave-to {
+    .article,
+    .blockquote,
+    .hero {
+      opacity: 0 !important;
+    }
+  }
+
+  .#{$name}-enter-to,
+  .#{$name}-leave-from {
+    .article,
+    .blockquote,
+    .hero {
+      opacity: 1 !important;
+    }
+  }
+
+  .#{$name}-enter-from,
+  .#{$name}-enter-to,
+  .#{$name}-leave-from,
+  .#{$name}-leave-to {
+    .article {
+      top: var(--article-rest-top) !important;
+    }
+
+    .blockquote {
+      transform: translateY(0) !important;
+    }
+  }
+}
+
+@font-face {
+  font-family: PTSansCustom;
+  font-style: normal;
+  font-weight: 400;
+  src: url('/PTSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: CardoCustom;
+  font-style: normal;
+  font-weight: 400;
+  src: url('/Cardo-Regular.woff2') format('woff2');
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--app-bg-mobile);
+  color: var(--app-text);
+  color-scheme: var(--app-color-scheme);
+  font-family: PTSansCustom, 'Trebuchet MS', Geneva, 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-width: 320px;
+}
+
+#app,
+main {
+  min-height: 100vh;
+}
+
+.app-shell,
+.route-page {
+  min-height: 100vh;
+}
+
+.route-stage {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+main {
+  width: 100%;
+}
+
+ul,
+ol {
+  list-style-position: outside;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  text-shadow: var(--link-shadow);
+  transition: color 0.25s ease;
+
+  &:hover,
+  &.current {
+    color: var(--link-color-hover);
+    text-shadow: var(--link-shadow-hover);
+  }
+
+  &:active {
+    color: var(--link-color-active);
+    text-shadow: var(--link-shadow-active);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    background-color: var(--app-bg-desktop);
+    overflow-y: scroll;
+  }
+
+  main {
+    height: 100vh;
+    max-width: 800px;
+    position: absolute;
+    right: 0;
+    width: 55%;
+  }
+
+  @include motion('forward', 105%, -115%, -220vh, -220vh);
+  @include motion('back', -105%, 115%, -220vh, 220vh);
+}
+
+@media screen and (min-width: 768px) and (prefers-reduced-motion: reduce) {
+  @include motion-reduced('forward');
+  @include motion-reduced('back');
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --app-bg-mobile: oklch(0.84 0 0 / 0.6);
+    --app-bg-desktop: oklch(0.84 0 0 / 0.6);
+    --app-color-scheme: light;
+
+    --link-color: oklch(0.18 0 0);
+    --link-color-hover: oklch(0.45 0 0 / 0.95);
+    --link-color-active: oklch(0.94 0 0);
+    --link-shadow: 1px 1px oklch(0.74 0 0 / 0.25);
+    --link-shadow-hover: 1px 1px oklch(0.53 0 0 / 0.2);
+    --link-shadow-active: 1px 1px oklch(0.74 0 0 / 0.25);
+  }
+}

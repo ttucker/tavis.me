@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Vue Migration of tavis.me
 
-## Getting Started
+This workspace contains a Vue 3 migration of the original Next.js/React site. It is set up with Vite, TypeScript, Vue Router, Pinia, ESLint, Prettier, and Yarn project policy configuration.
 
-First, run the development server:
+Status: verified locally with `yarn install`, `yarn build`, and `yarn dev`.
 
-```bash
-npm run dev
-# or
+## Included
+
+- Vue routes for Home, Bio, Mission, Projects, Services, Contact, and Resume
+- Shared site components for header, hero, article, and footer
+- Original site copy, links, and static assets migrated from the legacy site
+- TypeScript and Vite configuration
+- ESLint and Prettier setup
+- VS Code task for `yarn dev`
+- Yarn project configuration isolated from the parent workspace
+
+## Local development
+
+From the workspace root:
+
+```sh
+yarn install
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The Vite dev server runs at:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:5173/
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Build
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+For a production build:
 
-## Learn More
+```sh
+yarn build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- A local `yarn.lock` file is included so this Vue app is treated as its own Yarn project rather than part of the parent `tavis.me` package.
+- If Node and Yarn were installed through `nvm`, make sure your shell loads `nvm` so `node` and `yarn` are on `PATH` before running commands.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Migration note
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The migrated Vue app is complete at the route/content level. Additional enhancement work can focus on behavior parity details such as richer transition choreography and any remaining visual polish.
