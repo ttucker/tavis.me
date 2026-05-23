@@ -60,12 +60,20 @@ onMounted(() => {
 }
 
 @media (prefers-color-scheme: light) {
-  .hero {
+  :global(html:not([data-theme='dark']) .hero) {
     background: oklch(1 0 0);
   }
 
-  .hero.visible {
+  :global(html:not([data-theme='dark']) .hero.visible) {
     opacity: 0.9;
   }
+}
+
+:global(html[data-theme='light'] .hero) {
+  background: oklch(1 0 0);
+}
+
+:global(html[data-theme='light'] .hero.visible) {
+  opacity: 0.9;
 }
 </style>

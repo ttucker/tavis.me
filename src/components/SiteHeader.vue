@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
 import { MAIN_NAV_ITEMS } from '../constants/navigation'
+import { useTheme } from '../composables/useTheme'
 
 const route = useRoute()
 const isMenuOpen = ref(false)
+const { isDarkTheme, toggleTheme } = useTheme()
+
+const themeToggleLabel = computed(() => {
+  return isDarkTheme.value ? 'Switch to light theme' : 'Switch to dark theme'
+})
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
@@ -29,6 +35,10 @@ const toggleMenu = () => {
       <span></span>
       <span></span>
       <span></span>
+    </button>
+    <button :aria-label="themeToggleLabel" class="theme-toggle" type="button" @click="toggleTheme">
+      <span class="theme-icon sun" :class="{ active: isDarkTheme }" aria-hidden="true">☀</span>
+      <span class="theme-icon moon" :class="{ active: !isDarkTheme }" aria-hidden="true">☾</span>
     </button>
     <nav id="primary-navigation" aria-label="Primary" class="primary-nav" :class="{ open: isMenuOpen }">
       <ul>
@@ -94,7 +104,7 @@ const toggleMenu = () => {
   min-width: 40px;
   padding: 0;
   position: absolute;
-  right: 12px;
+  right: 10px;
   top: 11px;
 }
 
@@ -117,6 +127,39 @@ const toggleMenu = () => {
 
 .is-menu-open .menu-toggle span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
+}
+
+.theme-toggle {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: oklch(0.8452 0 0);
+  cursor: pointer;
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  padding: 0;
+  position: absolute;
+  right: 52px;
+  top: 11px;
+  width: 40px;
+}
+
+.theme-icon {
+  font-size: 20px;
+  left: 50%;
+  line-height: 1;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(90deg) scale(0.85);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.theme-icon.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
 }
 
 .primary-nav {
@@ -148,22 +191,47 @@ const toggleMenu = () => {
 }
 
 @media (prefers-color-scheme: light) {
-  .header {
+  :global(html:not([data-theme='dark']) .header) {
     background-color: oklch(1 0 0 / 0.3);
   }
 
-  .header > a * {
+  :global(html:not([data-theme='dark']) .header > a *) {
     color: oklch(0 0 0 / 0.7);
   }
 
-  .menu-toggle span {
+  :global(html:not([data-theme='dark']) .menu-toggle span) {
     background-color: oklch(0 0 0 / 0.7);
   }
 
-  .primary-nav {
+  :global(html:not([data-theme='dark']) .theme-toggle) {
+    color: oklch(0 0 0 / 0.7);
+  }
+
+  :global(html:not([data-theme='dark']) .primary-nav) {
     border-color: oklch(0 0 0 / 0.6);
     box-shadow: inset 0 0 55px 20px oklch(0.53 0 0 / 0.4);
   }
+}
+
+:global(html[data-theme='light'] .header) {
+  background-color: oklch(1 0 0 / 0.3);
+}
+
+:global(html[data-theme='light'] .header > a *) {
+  color: oklch(0 0 0 / 0.7);
+}
+
+:global(html[data-theme='light'] .menu-toggle span) {
+  background-color: oklch(0 0 0 / 0.7);
+}
+
+:global(html[data-theme='light'] .theme-toggle) {
+  color: oklch(0 0 0 / 0.7);
+}
+
+:global(html[data-theme='light'] .primary-nav) {
+  border-color: oklch(0 0 0 / 0.6);
+  box-shadow: inset 0 0 55px 20px oklch(0.53 0 0 / 0.4);
 }
 
 @media screen and (min-width: 768px) {
@@ -178,6 +246,15 @@ const toggleMenu = () => {
 
   .menu-toggle {
     display: none;
+  }
+
+  .theme-toggle {
+    bottom: 36px;
+    color: oklch(1 0 0 / 0.7);
+    left: 50%;
+    right: auto;
+    top: auto;
+    transform: translateX(-50%);
   }
 
   .header > a {
@@ -228,14 +305,33 @@ const toggleMenu = () => {
   }
 
   @media (prefers-color-scheme: light) {
-    .primary-nav {
+    :global(html:not([data-theme='dark']) .primary-nav) {
       background-color: oklch(1 0 0 / 0.2);
       box-shadow: inset 0 0 80px 0 oklch(0 0 0 / 0.3);
     }
 
-    .header > a * {
+    :global(html:not([data-theme='dark']) .header > a *) {
       color: oklch(0 0 0 / 0.7);
     }
+
+    :global(html:not([data-theme='dark']) .theme-toggle) {
+      color: oklch(0 0 0 / 0.7);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :global(html[data-theme='light'] .primary-nav) {
+    background-color: oklch(1 0 0 / 0.2);
+    box-shadow: inset 0 0 80px 0 oklch(0 0 0 / 0.3);
+  }
+
+  :global(html[data-theme='light'] .header > a *) {
+    color: oklch(0 0 0 / 0.7);
+  }
+
+  :global(html[data-theme='light'] .theme-toggle) {
+    color: oklch(0 0 0 / 0.7);
   }
 }
 </style>

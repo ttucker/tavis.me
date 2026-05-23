@@ -270,7 +270,7 @@ a {
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme='dark']) {
     --app-bg-mobile: oklch(0.84 0 0 / 0.6);
     --app-bg-desktop: oklch(0.84 0 0 / 0.6);
     --app-color-scheme: light;
@@ -282,4 +282,17 @@ a {
     --link-shadow-hover: 1px 1px oklch(0.53 0 0 / 0.2);
     --link-shadow-active: 1px 1px oklch(0.74 0 0 / 0.25);
   }
+}
+
+:root[data-theme='light'] {
+  --app-bg-mobile: oklch(0.84 0 0 / 0.6);
+  --app-bg-desktop: oklch(0.84 0 0 / 0.6);
+  --app-color-scheme: light;
+
+  --link-color: oklch(0.1776 0 0);
+  --link-color-hover: oklch(0.45 0 0 / 0.95);
+  --link-color-active: oklch(0.94 0 0);
+  --link-shadow: 1px 1px oklch(0.74 0 0 / 0.25);
+  --link-shadow-hover: 1px 1px oklch(0.53 0 0 / 0.2);
+  --link-shadow-active: 1px 1px oklch(0.74 0 0 / 0.25);
 }

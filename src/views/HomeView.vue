@@ -53,9 +53,13 @@ import HeroImage from '../components/HeroImage.vue'
   }
 
   @media (prefers-color-scheme: light) {
-    .blockquote {
+    :global(html:not([data-theme='dark']) .blockquote) {
       color: oklch(0 0 0 / 0.7);
     }
+  }
+
+  :global(html[data-theme='light'] .blockquote) {
+    color: oklch(0 0 0 / 0.7);
   }
 }
 </style>

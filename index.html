@@ -3,6 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      ;(() => {
+        const storageKey = 'tavis-theme-preference'
+
+        try {
+          const storedTheme = window.localStorage.getItem(storageKey)
+          const fallbackTheme = window.matchMedia('(prefers-color-scheme: light)').matches
+            ? 'light'
+            : 'dark'
+          const resolvedTheme = storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : fallbackTheme
+
+          document.documentElement.dataset.theme = resolvedTheme
+          document.documentElement.style.colorScheme = resolvedTheme
+        } catch {
+          // Ignore storage access failures and keep default dark theme.
+        }
+      })()
+    </script>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>Tavis</title>
     <meta

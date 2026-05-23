@@ -3,7 +3,10 @@ import './assets/main.scss'
 import { createApp } from 'vue'
 
 import App from './App.vue'
+import { initTheme } from './composables/useTheme'
 import router from './router'
+
+initTheme()
 
 const app = createApp(App)
 
