@@ -18,7 +18,7 @@ import HeroImage from '../components/HeroImage.vue'
 
 @media screen and (min-width: 768px) {
   .blockquote {
-    color: oklch(0.24 0 0);
+    color: oklch(0.1913 0 0);
     display: block;
     font-family: CardoCustom, Times, 'Times New Roman', serif;
     font-size: 25px;
@@ -40,6 +40,8 @@ import HeroImage from '../components/HeroImage.vue'
 
   .blockquote i {
     display: block;
+    font-style: italic;
+    font-synthesis: style;
     font-size: 50px;
     letter-spacing: 0;
     line-height: 46px;

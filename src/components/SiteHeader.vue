@@ -1,18 +1,36 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
 import { MAIN_NAV_ITEMS } from '../constants/navigation'
 
 const route = useRoute()
+const isMenuOpen = ref(false)
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
 </script>
 
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'is-menu-open': isMenuOpen }">
     <RouterLink to="/">
       <h1>tavis.me</h1>
       <h2>The Curriculum Vitae</h2>
     </RouterLink>
-    <nav aria-label="Primary">
+    <button
+      aria-controls="primary-navigation"
+      :aria-expanded="isMenuOpen"
+      aria-label="Toggle navigation menu"
+      class="menu-toggle"
+      type="button"
+      @click="toggleMenu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="primary-navigation" aria-label="Primary" class="primary-nav" :class="{ open: isMenuOpen }">
       <ul>
         <li v-for="item in MAIN_NAV_ITEMS" :key="item.to">
           <RouterLink :to="item.to" :class="{ current: route.path === item.to }">{{ item.label }}</RouterLink>
@@ -22,17 +40,23 @@ const route = useRoute()
   </header>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .header {
   background-color: oklch(0 0 0 / 0.5);
   color: oklch(1 0 0);
+  min-height: 62px;
   text-transform: uppercase;
   z-index: 5;
 }
 
 .header > a {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  height: 62px;
+  justify-content: center;
   left: 10px;
-  padding: 4px 0;
+  padding: 0;
   position: absolute;
   text-shadow: 1px 1px oklch(0 0 0 / 0.1);
   top: 0;
@@ -56,7 +80,46 @@ const route = useRoute()
   letter-spacing: 1.9px;
 }
 
-.header nav {
+.menu-toggle {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  min-height: 40px;
+  min-width: 40px;
+  padding: 0;
+  position: absolute;
+  right: 12px;
+  top: 11px;
+}
+
+.menu-toggle span {
+  background-color: oklch(0 0 0 / 0.7);
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  width: 22px;
+}
+
+.is-menu-open .menu-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.is-menu-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.is-menu-open .menu-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.primary-nav {
   background-color: oklch(0.58 0 0 / 0.25);
   border-top-color: oklch(1 0 0 / 0.1);
   border-bottom-color: oklch(1 0 0 / 0.25);
@@ -65,7 +128,13 @@ const route = useRoute()
   box-shadow: inset 0 0 55px 20px oklch(0 0 0 / 0.6);
   font-size: 13px;
   letter-spacing: 1px;
-  padding: 12px 0;
+  display: none;
+  margin-top: 62px;
+  padding: 8px 0 12px;
+}
+
+.primary-nav.open {
+  display: block;
 }
 
 .header li {
@@ -75,7 +144,7 @@ const route = useRoute()
 
 .header li a {
   display: block;
-  padding: 16px 0 16px 20px;
+  padding: 14px 10px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -83,7 +152,11 @@ const route = useRoute()
     background-color: oklch(1 0 0 / 0.3);
   }
 
-  .header nav {
+  .menu-toggle span {
+    background-color: oklch(0 0 0 / 0.7);
+  }
+
+  .primary-nav {
     border-color: oklch(0 0 0 / 0.6);
     box-shadow: inset 0 0 55px 20px oklch(0.53 0 0 / 0.4);
   }
@@ -99,9 +172,18 @@ const route = useRoute()
     width: 240px;
   }
 
+  .menu-toggle {
+    display: none;
+  }
+
   .header > a {
+    align-items: initial;
     display: block;
+    height: auto;
+    justify-content: initial;
     margin: 32px 0 24px;
+    min-height: 0;
+    padding: 4px 0;
     position: static;
     text-shadow: 1px 1px oklch(0 0 0 / 0.2);
   }
@@ -115,13 +197,15 @@ const route = useRoute()
     letter-spacing: 2.25px;
   }
 
-  .header nav {
+  .primary-nav {
+    display: block;
     background-color: oklch(0 0 0 / 0.2);
     border-color: oklch(1 0 0 / 0.25);
     box-shadow: inset 0 0 40px 10px oklch(0 0 0 / 0.3);
     font-size: 14px;
     line-height: 32px;
     margin: 0 28px;
+    margin-top: 0;
     padding: 15px 25px;
   }
 
@@ -135,7 +219,7 @@ const route = useRoute()
   }
 
   @media (prefers-color-scheme: light) {
-    .header nav {
+    .primary-nav {
       background-color: oklch(1 0 0 / 0.2);
       box-shadow: inset 0 0 80px 0 oklch(0 0 0 / 0.3);
     }

@@ -4,9 +4,9 @@
     <div class="route-stage">
       <RouterView v-slot="{ Component, route }">
         <Transition
-          appear
+          :appear="!isMobileViewport"
           :name="isBackNavigation ? 'back' : 'forward'"
-          :duration="{ enter: 800, leave: 650 }"
+          :duration="transitionDuration"
           @after-enter="handleAfterEnter"
         >
           <component :is="Component" :key="route.fullPath" class="route-page" />
@@ -18,11 +18,26 @@
 </template>
 
 <script setup lang="ts">
+import { computed, onMounted, ref } from 'vue'
 import { RouterView } from 'vue-router'
 
 import SiteFooter from './components/SiteFooter.vue'
 import SiteHeader from './components/SiteHeader.vue'
 import { isBackNavigation } from './router'
+
+const isMobileViewport = ref(false)
+
+onMounted(() => {
+  isMobileViewport.value = window.matchMedia('(max-width: 767px)').matches
+})
+
+const transitionDuration = computed(() => {
+  if (isMobileViewport.value) {
+    return { enter: 0, leave: 0 }
+  }
+
+  return { enter: 800, leave: 650 }
+})
 
 const handleAfterEnter = () => {
   isBackNavigation.value = false
