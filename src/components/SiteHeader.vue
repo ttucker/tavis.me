@@ -63,20 +63,20 @@ const toggleMenu = () => {
 }
 
 .header > a * {
-  color: oklch(0 0 0 / 0.7);
+  color: oklch(0.8452 0 0);
   margin: 0;
   text-align: center;
 }
 
 .header h1 {
   font-family: CardoCustom, Times, 'Times New Roman', serif;
-  font-size: 30px;
+  font-size: 28px;
   letter-spacing: 3px;
-  line-height: 26px;
+  line-height: 24px;
 }
 
 .header h2 {
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 1.9px;
 }
 
@@ -99,7 +99,7 @@ const toggleMenu = () => {
 }
 
 .menu-toggle span {
-  background-color: oklch(0 0 0 / 0.7);
+  background-color: oklch(0.8452 0 0);
   border-radius: 1px;
   display: block;
   height: 2px;
@@ -152,6 +152,10 @@ const toggleMenu = () => {
     background-color: oklch(1 0 0 / 0.3);
   }
 
+  .header > a * {
+    color: oklch(0 0 0 / 0.7);
+  }
+
   .menu-toggle span {
     background-color: oklch(0 0 0 / 0.7);
   }
@@ -186,6 +190,11 @@ const toggleMenu = () => {
     padding: 4px 0;
     position: static;
     text-shadow: 1px 1px oklch(0 0 0 / 0.2);
+  }
+
+  .header h1 {
+    font-size: 30px;
+    line-height: 26px;
   }
 
   .header > a * {
