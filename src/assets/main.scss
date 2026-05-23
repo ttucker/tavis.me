@@ -4,7 +4,7 @@
   --app-text: oklch(1 0 0);
   --app-color-scheme: dark;
 
-  --link-color: oklch(0.81 0 0);
+  --link-color: oklch(0.8047 0 0);
   --link-color-hover: oklch(1 0 0 / 0.9);
   --link-color-active: oklch(1 0 0);
   --link-shadow: 1px 1px oklch(0 0 0 / 0.2);
@@ -193,10 +193,10 @@ html {
   color-scheme: var(--app-color-scheme);
   font-family: PTSansCustom, 'Trebuchet MS', Geneva, 'Helvetica Neue', sans-serif;
   font-size: 14px;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+  font-synthesis: weight style small-caps;
+  text-rendering: auto;
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
 }
 
 body {
@@ -275,7 +275,7 @@ a {
     --app-bg-desktop: oklch(0.84 0 0 / 0.6);
     --app-color-scheme: light;
 
-    --link-color: oklch(0.18 0 0);
+    --link-color: oklch(0.1776 0 0);
     --link-color-hover: oklch(0.45 0 0 / 0.95);
     --link-color-active: oklch(0.94 0 0);
     --link-shadow: 1px 1px oklch(0.74 0 0 / 0.25);

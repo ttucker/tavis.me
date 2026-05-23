@@ -7,7 +7,7 @@
 <style scoped>
 .article {
   background-color: oklch(0.32 0 0 / 0.7);
-  color: oklch(0.84 0 0);
+  color: oklch(0.8452 0 0);
   display: block;
   padding: 10px 0;
   width: 100%;
@@ -36,7 +36,7 @@
 .article :deep(dl),
 .article :deep(p),
 .article :deep(pre) {
-  margin: 0 4% 16px;
+  margin: 0 10px 16px;
 }
 
 .article :deep(h3),
@@ -103,7 +103,7 @@
 @media (prefers-color-scheme: light) {
   .article {
     background-color: oklch(0.94 0 0 / 0.7);
-    color: oklch(0.43 0 0);
+    color: oklch(0.3904 0 0);
   }
 
   .article :deep(a),
