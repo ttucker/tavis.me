@@ -22,3 +22,9 @@
 import ContentArticle from '../components/ContentArticle.vue'
 import HeroImage from '../components/HeroImage.vue'
 </script>
+
+<style lang="scss" scoped>
+:deep(.hero img) { 
+  object-position: center;
+}
+</style>

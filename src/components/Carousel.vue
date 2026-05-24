@@ -191,7 +191,7 @@ function go(nextIndex: number) {
 }
 
 :global(html[data-theme='light'] .chev) {
-  background: oklch(1 0 0 / 0.9);
+  background: oklch(0.9 0 0 / 0.9);
   border-color: oklch(0 0 0 / 0.08);
   color: oklch(0.2 0 0);
 }

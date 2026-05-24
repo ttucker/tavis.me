@@ -151,10 +151,6 @@
             </dl>
           </Slide>
         </Carousel>
-
-        <p>
-          Note: websites below have undergone redevelopment since my involvement, so I take no credit for them in their current state! Sample code can be provided if requested.
-        </p>
       </ContentArticle>
     </main>
   </div>
