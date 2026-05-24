@@ -3,11 +3,13 @@ import { onMounted, ref } from 'vue'
 
 interface HeroImageProps {
   currentPage?: string
+  fullHeight?: boolean
   imgSrc: string
 }
 
 withDefaults(defineProps<HeroImageProps>(), {
   currentPage: 'home',
+  fullHeight: false,
 })
 
 const isMobile = ref(false)
@@ -20,7 +22,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <figure class="hero" :class="{ visible: isVisible, mobile: isMobile }">
+  <figure class="hero" :class="{ visible: isVisible, mobile: isMobile, 'hero--full-height': fullHeight }">
     <img :src="imgSrc" :alt="currentPage" />
   </figure>
 </template>
@@ -28,7 +30,7 @@ onMounted(() => {
 <style scoped>
 .hero {
   background: var(--hero-fallback-bg);
-  height: 150px;
+  height: 200px;
   margin: 0;
   opacity: 0;
   position: relative;
@@ -45,6 +47,16 @@ onMounted(() => {
 
 .hero.visible {
   opacity: 0.75;
+}
+
+.hero.hero--full-height {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero.hero--full-height img {
+  object-fit: cover;
+  object-position: center;
 }
 
 @media screen and (min-width: 768px) {

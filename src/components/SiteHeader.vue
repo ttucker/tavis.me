@@ -6,7 +6,7 @@ import { MAIN_NAV_ITEMS } from '../constants/navigation'
 import { useTheme } from '../composables/useTheme'
 
 const route = useRoute()
-const isMenuOpen = ref(false)
+const isMenuOpen = ref(true)
 const { isDarkTheme, toggleTheme } = useTheme()
 
 const themeToggleLabel = computed(() => {
@@ -81,12 +81,14 @@ const toggleMenu = () => {
 .header h1 {
   font-family: CardoCustom, Times, 'Times New Roman', serif;
   font-size: 28px;
+  font-weight: 400;
   letter-spacing: 3px;
   line-height: 24px;
 }
 
 .header h2 {
   font-size: 11px;
+  font-weight: 400;
   letter-spacing: 1.9px;
 }
 
