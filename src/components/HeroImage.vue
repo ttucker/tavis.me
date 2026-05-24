@@ -39,6 +39,7 @@ onMounted(() => {
 }
 
 .hero img {
+  display: block;
   height: 100%;
   object-fit: cover;
   object-position: top;
@@ -61,7 +62,8 @@ onMounted(() => {
 
 @media screen and (min-width: 768px) {
   .hero {
-    height: 100%;
+    height: 100vh;
+    inset: 0;
     position: fixed;
     width: 100%;
   }
