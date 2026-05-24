@@ -11,7 +11,7 @@
   display: block;
   padding: 10px 0;
   width: 100%;
-  will-change: top;
+  will-change: transform;
 }
 
 .article :deep(a),
@@ -86,6 +86,7 @@
     padding: 20px 0 30px;
     position: absolute;
     top: 11%;
+    transform: translateY(0);
   }
 
   .article :deep(h3),
