@@ -46,7 +46,7 @@ const transitionDuration = computed(() => {
     return { enter: 0, leave: 0 }
   }
 
-  return { enter: 800, leave: 650 }
+  return { enter: 800, leave: 500 }
 })
 
 const handleAfterEnter = () => {
