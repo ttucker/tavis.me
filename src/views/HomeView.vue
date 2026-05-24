@@ -29,7 +29,7 @@ import HeroImage from '../components/HeroImage.vue'
   text-align: center;
   text-shadow: 1px 1px oklch(1 0 0 / 0.2);
   text-transform: uppercase;
-  top: 20%;
+  top: 42%;
   transform: translate(-50%, -50%);
   width: min(92vw, 640px);
 }
