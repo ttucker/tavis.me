@@ -37,8 +37,8 @@ const preloadHeroImages = () => {
 }
 
 onMounted(() => {
-  isMobileViewport.value = window.matchMedia('(max-width: 767px)').matches
   preloadHeroImages()
+  isMobileViewport.value = window.matchMedia('(max-width: 767px)').matches
 })
 
 const transitionDuration = computed(() => {

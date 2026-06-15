@@ -1,28 +1,24 @@
 <template>
   <div class="carousel" @keydown.left.prevent="prev" @keydown.right.prevent="next" tabindex="0">
-    <button class="chev left" @click="prev" aria-label="Previous slide">
-      <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" /></svg>
-    </button>
+    <div class="chev-overlay" aria-hidden="true">
+      <button class="chev left" @click="prev" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" /></svg>
+      </button>
 
-    <div class="viewport">
-      <div class="viewport-stack">
-        <div v-for="(slide, i) in slides" :key="`sizer-${i}`" class="sizer-slide" aria-hidden="true">
-          <VNodeRenderer :vnode="slide" />
-        </div>
-
-        <div class="viewport-stage">
-          <Transition name="fade" mode="out-in">
-            <div v-if="activeSlide" :key="index" class="active-slide">
-              <VNodeRenderer :vnode="activeSlide" />
-            </div>
-          </Transition>
-        </div>
-      </div>
+      <button class="chev right" @click="next" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" /></svg>
+      </button>
     </div>
 
-    <button class="chev right" @click="next" aria-label="Next slide">
-      <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" /></svg>
-    </button>
+    <div class="viewport">
+      <div class="viewport-stage">
+        <Transition name="fade">
+          <div v-if="activeSlide" :key="index" class="active-slide">
+            <VNodeRenderer :vnode="activeSlide" />
+          </div>
+        </Transition>
+      </div>
+    </div>
 
     <div class="dots" v-if="slidesCount > 1">
       <button
@@ -95,17 +91,8 @@ function go(nextIndex: number) {
   overflow: visible;
 }
 
-.viewport-stack {
-  display: grid;
-}
-
-.viewport-stack > * {
-  grid-area: 1 / 1;
-}
-
-.sizer-slide {
-  pointer-events: none;
-  visibility: hidden;
+.viewport-stage {
+  position: relative;
 }
 
 .viewport-stage,
@@ -113,9 +100,36 @@ function go(nextIndex: number) {
   min-height: 100%;
 }
 
+.chev-overlay {
+  height: 0;
+  inset-inline: 0;
+  pointer-events: none;
+  position: sticky;
+  top: calc(50vh - 20px);
+  z-index: 1;
+}
+
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 320ms ease;
+  backface-visibility: hidden;
+  transition-property: opacity;
+  will-change: opacity;
+}
+
+.fade-enter-active {
+  transition-duration: 3000ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+
+.fade-leave-active {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  transition-duration: 560ms;
+  transition-timing-function: ease-out;
+  width: 100%;
+  z-index: 0;
 }
 
 .fade-enter-from,
@@ -128,14 +142,15 @@ function go(nextIndex: number) {
   opacity: 1;
 }
 
-.fade-leave-active {
-  pointer-events: none;
+.active-slide {
+  transform: translateZ(0);
+  width: 100%;
 }
 
 .chev {
   align-items: center;
-  background: oklch(0.24 0 0 / 0.92);
-  border: 1px solid oklch(1 0 0 / 0.14);
+  background: oklch(0.24 0 0 / 0.3);
+  border: 1px solid oklch(1 0 0 / 0.05);
   border-radius: 999px;
   color: oklch(0.98 0 0);
   cursor: pointer;
@@ -143,10 +158,15 @@ function go(nextIndex: number) {
   height: 40px;
   justify-content: center;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  pointer-events: auto;
+  top: 0;
   width: 40px;
   z-index: 1;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: oklch(0.24 0 0 / 0.5);
+  }
 }
 
 .chev.left {
@@ -184,15 +204,23 @@ function go(nextIndex: number) {
 
 @media (prefers-color-scheme: light) {
   :global(html:not([data-theme='dark']) .chev) {
-    background: oklch(1 0 0 / 0.9);
+    background: oklch(1 0 0 / 0.45);
     border-color: oklch(0 0 0 / 0.08);
     color: oklch(0.2 0 0);
+
+    &:hover {
+      background: oklch(1 0 0 / 0.50);
+    }
   }
 }
 
 :global(html[data-theme='light'] .chev) {
-  background: oklch(0.9 0 0 / 0.9);
+  background: oklch(0.96 0 0 / 0.45);
   border-color: oklch(0 0 0 / 0.08);
   color: oklch(0.2 0 0);
+
+  &:hover {
+    background: oklch(0.96 0 0 / 0.50);
+  }
 }
 </style>

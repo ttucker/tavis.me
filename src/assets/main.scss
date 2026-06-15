@@ -198,6 +198,7 @@ html {
   font-family: PTSansCustom, 'Trebuchet MS', Geneva, 'Helvetica Neue', sans-serif;
   font-size: 14px;
   font-synthesis: weight style small-caps;
+  overflow-x: clip;
   text-rendering: auto;
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: auto;
@@ -205,6 +206,7 @@ html {
 
 body {
   min-width: 320px;
+  overflow-x: clip;
 }
 
 #app,
@@ -220,7 +222,6 @@ main {
 .route-stage {
   background-color: var(--hero-fallback-bg);
   min-height: 100vh;
-  overflow: hidden;
   position: relative;
 }
 
@@ -254,14 +255,30 @@ a {
 @media screen and (min-width: 768px) {
   html {
     background-color: var(--app-bg-desktop);
-    overflow-y: scroll;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #app,
+  .app-shell,
+  .route-stage,
+  .route-page {
+    height: 100vh;
   }
 
   main {
     height: 100vh;
     max-width: 800px;
+    overflow-y: auto;
     position: absolute;
     right: 0;
+    scrollbar-gutter: stable;
+    top: 0;
     width: 55%;
   }
 
