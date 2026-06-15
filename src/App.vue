@@ -8,7 +8,7 @@
         :duration="transitionDuration"
         @after-enter="handleAfterEnter"
       >
-        <component :is="Component" :key="route.fullPath" class="route-page" />
+        <component :is="Component" :key="route.fullPath" />
       </Transition>
     </RouterView>
   </div>

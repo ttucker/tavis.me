@@ -13,7 +13,6 @@ import HeroImage from '../components/HeroImage.vue'
 
 <style scoped>
 .page--home {
-  min-height: 100vh;
   position: relative;
 }
 

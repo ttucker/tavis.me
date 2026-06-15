@@ -83,6 +83,11 @@ function go(nextIndex: number) {
 
 <style scoped lang="scss">
 .carousel {
+  --carousel-chev-size: 40px;
+  --carousel-chev-sticky-top: calc(50vh - 20px);
+  --carousel-fade-enter-duration: 2000ms;
+  --carousel-fade-leave-duration: 500ms;
+
   outline: none;
   position: relative;
 }
@@ -105,7 +110,7 @@ function go(nextIndex: number) {
   inset-inline: 0;
   pointer-events: none;
   position: sticky;
-  top: calc(50vh - 20px);
+  top: var(--carousel-chev-sticky-top);
   z-index: 1;
 }
 
@@ -117,7 +122,7 @@ function go(nextIndex: number) {
 }
 
 .fade-enter-active {
-  transition-duration: 2000ms;
+  transition-duration: var(--carousel-fade-enter-duration);
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 1;
 }
@@ -126,7 +131,7 @@ function go(nextIndex: number) {
   inset: 0;
   pointer-events: none;
   position: absolute;
-  transition-duration: 500ms;
+  transition-duration: var(--carousel-fade-leave-duration);
   transition-timing-function: ease-out;
   width: 100%;
   z-index: 0;
@@ -155,12 +160,12 @@ function go(nextIndex: number) {
   color: var(--carousel-chev-color);
   cursor: pointer;
   display: flex;
-  height: 40px;
+  height: var(--carousel-chev-size);
   justify-content: center;
   position: absolute;
   pointer-events: auto;
   top: 0;
-  width: 40px;
+  width: var(--carousel-chev-size);
   z-index: 1;
   transition: background 0.3s ease;
 
