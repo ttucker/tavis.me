@@ -18,7 +18,7 @@ import HeroImage from '../components/HeroImage.vue'
 }
 
 .blockquote {
-  color: oklch(0.1913 0 0);
+  color: var(--blockquote-color);
   font-family: CardoCustom, Times, 'Times New Roman', serif;
   font-size: 20px;
   left: 50%;
@@ -69,13 +69,4 @@ import HeroImage from '../components/HeroImage.vue'
   }
 }
 
-@media (prefers-color-scheme: light) {
-  :global(html:not([data-theme='dark']) .blockquote) {
-    color: oklch(0 0 0 / 0.7);
-  }
-}
-
-:global(html[data-theme='light'] .blockquote) {
-  color: oklch(0 0 0 / 0.7);
-}
 </style>

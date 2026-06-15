@@ -52,7 +52,7 @@ const toggleMenu = () => {
 
 <style scoped lang="scss">
 .header {
-  background-color: oklch(0 0 0 / 0.5);
+  background-color: var(--header-bg);
   color: oklch(1 0 0);
   min-height: 62px;
   text-transform: uppercase;
@@ -68,12 +68,12 @@ const toggleMenu = () => {
   left: 10px;
   padding: 0;
   position: absolute;
-  text-shadow: 1px 1px oklch(0 0 0 / 0.1);
+  text-shadow: var(--header-link-shadow);
   top: 0;
 }
 
 .header > a * {
-  color: oklch(0.8452 0 0);
+  color: var(--header-link-color-mobile);
   margin: 0;
   text-align: center;
 }
@@ -111,7 +111,7 @@ const toggleMenu = () => {
 }
 
 .menu-toggle span {
-  background-color: oklch(0.8452 0 0);
+  background-color: var(--header-menu-toggle-color);
   border-radius: 1px;
   display: block;
   height: 2px;
@@ -136,7 +136,7 @@ const toggleMenu = () => {
   appearance: none;
   background: transparent;
   border: 0;
-  color: oklch(0.8452 0 0);
+  color: var(--header-theme-toggle-color-mobile);
   cursor: pointer;
   display: inline-flex;
   height: 40px;
@@ -165,12 +165,12 @@ const toggleMenu = () => {
 }
 
 .primary-nav {
-  background-color: oklch(0.58 0 0 / 0.25);
-  border-top-color: oklch(1 0 0 / 0.1);
-  border-bottom-color: oklch(1 0 0 / 0.25);
+  background-color: var(--primary-nav-bg-mobile);
+  border-top-color: var(--primary-nav-border-top);
+  border-bottom-color: var(--primary-nav-border-bottom);
   border-style: solid;
   border-width: 1px 0;
-  box-shadow: inset 0 0 55px 20px oklch(0 0 0 / 0.6);
+  box-shadow: var(--primary-nav-shadow-mobile);
   font-size: 13px;
   letter-spacing: 1px;
   display: none;
@@ -192,58 +192,6 @@ const toggleMenu = () => {
   padding: 14px 10px;
 }
 
-@media (prefers-color-scheme: light) {
-  :global(html:not([data-theme='dark']) .header) {
-    background-color: oklch(1 0 0 / 0.3);
-  }
-
-  :global(html:not([data-theme='dark']) .header > a) {
-    text-shadow: 1px 1px oklch(1 0 0 / 0.25);
-  }
-
-  :global(html:not([data-theme='dark']) .header > a *) {
-    color: oklch(0 0 0 / 0.7);
-  }
-
-  :global(html:not([data-theme='dark']) .menu-toggle span) {
-    background-color: oklch(0 0 0 / 0.7);
-  }
-
-  :global(html:not([data-theme='dark']) .theme-toggle) {
-    color: oklch(0 0 0 / 0.7);
-  }
-
-  :global(html:not([data-theme='dark']) .primary-nav) {
-    border-color: oklch(0 0 0 / 0.6);
-    box-shadow: inset 0 0 55px 20px oklch(0.53 0 0 / 0.4);
-  }
-}
-
-:global(html[data-theme='light'] .header) {
-  background-color: oklch(1 0 0 / 0.3);
-}
-
-:global(html[data-theme='light'] .header > a) {
-  text-shadow: 1px 1px oklch(1 0 0 / 0.25);
-}
-
-:global(html[data-theme='light'] .header > a *) {
-  color: oklch(0 0 0 / 0.7);
-}
-
-:global(html[data-theme='light'] .menu-toggle span) {
-  background-color: oklch(0 0 0 / 0.7);
-}
-
-:global(html[data-theme='light'] .theme-toggle) {
-  color: oklch(0 0 0 / 0.7);
-}
-
-:global(html[data-theme='light'] .primary-nav) {
-  border-color: oklch(0 0 0 / 0.6);
-  box-shadow: inset 0 0 55px 20px oklch(0.53 0 0 / 0.4);
-}
-
 @media screen and (min-width: 768px) {
   .header {
     box-shadow: inset 0 0 90px 30px oklch(0 0 0 / 0.25);
@@ -260,7 +208,7 @@ const toggleMenu = () => {
 
   .theme-toggle {
     bottom: 36px;
-    color: oklch(1 0 0 / 0.7);
+    color: var(--header-theme-toggle-color-desktop);
     left: 50%;
     right: auto;
     top: auto;
@@ -285,7 +233,7 @@ const toggleMenu = () => {
   }
 
   .header > a * {
-    color: oklch(1 0 0 / 0.7);
+    color: var(--header-link-color-desktop);
   }
 
   .header h2 {
@@ -295,9 +243,9 @@ const toggleMenu = () => {
 
   .primary-nav {
     display: block;
-    background-color: oklch(0 0 0 / 0.2);
+    background-color: var(--primary-nav-bg-desktop);
     border-color: oklch(1 0 0 / 0.25);
-    box-shadow: inset 0 0 40px 10px oklch(0 0 0 / 0.3);
+    box-shadow: var(--primary-nav-shadow-desktop);
     font-size: 14px;
     line-height: 32px;
     margin: 0 28px;
@@ -312,36 +260,6 @@ const toggleMenu = () => {
 
   .header li a {
     padding: 0 15px;
-  }
-
-  @media (prefers-color-scheme: light) {
-    :global(html:not([data-theme='dark']) .primary-nav) {
-      background-color: oklch(1 0 0 / 0.2);
-      box-shadow: inset 0 0 80px 0 oklch(0 0 0 / 0.3);
-    }
-
-    :global(html:not([data-theme='dark']) .header > a *) {
-      color: oklch(0 0 0 / 0.7);
-    }
-
-    :global(html:not([data-theme='dark']) .theme-toggle) {
-      color: oklch(0 0 0 / 0.7);
-    }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  :global(html[data-theme='light'] .primary-nav) {
-    background-color: oklch(1 0 0 / 0.2);
-    box-shadow: inset 0 0 80px 0 oklch(0 0 0 / 0.3);
-  }
-
-  :global(html[data-theme='light'] .header > a *) {
-    color: oklch(0 0 0 / 0.7);
-  }
-
-  :global(html[data-theme='light'] .theme-toggle) {
-    color: oklch(0 0 0 / 0.7);
   }
 }
 </style>

@@ -47,7 +47,7 @@ onMounted(() => {
 }
 
 .hero.visible {
-  opacity: 0.75;
+  opacity: var(--hero-visible-opacity);
 }
 
 .hero.hero--full-height {
@@ -73,13 +73,4 @@ onMounted(() => {
   }
 }
 
-@media (prefers-color-scheme: light) {
-  :global(html:not([data-theme='dark']) .hero.visible) {
-    opacity: 0.9;
-  }
-}
-
-:global(html[data-theme='light'] .hero.visible) {
-  opacity: 0.9;
-}
 </style>

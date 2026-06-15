@@ -1,24 +1,22 @@
 <template>
-  <div class="app-shell">
-    <SiteHeader />
-    <div class="route-stage">
-      <RouterView v-slot="{ Component, route }">
-        <Transition
-          :appear="!isMobileViewport"
-          :name="isBackNavigation ? 'back' : 'forward'"
-          :duration="transitionDuration"
-          @after-enter="handleAfterEnter"
-        >
-          <component :is="Component" :key="route.fullPath" class="route-page" />
-        </Transition>
-      </RouterView>
-    </div>
-    <SiteFooter />
+  <SiteHeader />
+  <div class="route-stage">
+    <RouterView v-slot="{ Component, route }">
+      <Transition
+        :appear="!isMobileViewport"
+        :name="isBackNavigation ? 'back' : 'forward'"
+        :duration="transitionDuration"
+        @after-enter="handleAfterEnter"
+      >
+        <component :is="Component" :key="route.fullPath" class="route-page" />
+      </Transition>
+    </RouterView>
   </div>
+  <SiteFooter />
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterView } from 'vue-router'
 
 import SiteFooter from './components/SiteFooter.vue'
@@ -27,6 +25,11 @@ import { HERO_IMAGE_SRCS } from './constants/navigation'
 import { isBackNavigation } from './router'
 
 const isMobileViewport = ref(false)
+let viewportQuery: MediaQueryList | null = null
+
+const syncViewportMode = () => {
+  isMobileViewport.value = viewportQuery?.matches ?? false
+}
 
 const preloadHeroImages = () => {
   for (const src of HERO_IMAGE_SRCS) {
@@ -38,7 +41,13 @@ const preloadHeroImages = () => {
 
 onMounted(() => {
   preloadHeroImages()
-  isMobileViewport.value = window.matchMedia('(max-width: 767px)').matches
+  viewportQuery = window.matchMedia('(max-width: 767px)')
+  syncViewportMode()
+  viewportQuery.addEventListener('change', syncViewportMode)
+})
+
+onBeforeUnmount(() => {
+  viewportQuery?.removeEventListener('change', syncViewportMode)
 })
 
 const transitionDuration = computed(() => {

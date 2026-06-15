@@ -19,7 +19,7 @@ const copyright = new Date().getFullYear()
 <style scoped>
 .footer {
   align-items: center;
-  border-top: 1px solid oklch(1 0 0 / 0.25);
+  border-top: 1px solid var(--footer-border-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -49,15 +49,15 @@ const copyright = new Date().getFullYear()
 }
 
 .footer small {
-  color: oklch(1 0 0 / 0.5);
+  color: var(--footer-small-color);
   font-size: 12px;
   line-height: 28px;
-  text-shadow: 1px 1px oklch(0 0 0 / 0.3);
+  text-shadow: var(--footer-small-shadow);
 }
 
 @media screen and (min-width: 768px) {
   .footer {
-    background-color: oklch(0.31 0 0 / 0.8);
+    background-color: var(--footer-bg-desktop);
     border-top: none;
     bottom: 0;
     flex-direction: row;
@@ -83,25 +83,4 @@ const copyright = new Date().getFullYear()
   }
 }
 
-@media (prefers-color-scheme: light) {
-  :global(html:not([data-theme='dark']) .footer) {
-    background-color: oklch(1 0 0 / 0.6);
-    border-color: oklch(0 0 0 / 0.6);
-  }
-
-  :global(html:not([data-theme='dark']) .footer small) {
-    color: oklch(0 0 0 / 0.5);
-    text-shadow: 1px 1px oklch(0.84 0 0 / 0.6);
-  }
-}
-
-:global(html[data-theme='light'] .footer) {
-  background-color: oklch(1 0 0 / 0.6);
-  border-color: oklch(0 0 0 / 0.6);
-}
-
-:global(html[data-theme='light'] .footer small) {
-  color: oklch(0 0 0 / 0.5);
-  text-shadow: 1px 1px oklch(0.84 0 0 / 0.6);
-}
 </style>

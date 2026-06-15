@@ -117,7 +117,7 @@ function go(nextIndex: number) {
 }
 
 .fade-enter-active {
-  transition-duration: 3000ms;
+  transition-duration: 2000ms;
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 1;
 }
@@ -126,7 +126,7 @@ function go(nextIndex: number) {
   inset: 0;
   pointer-events: none;
   position: absolute;
-  transition-duration: 560ms;
+  transition-duration: 500ms;
   transition-timing-function: ease-out;
   width: 100%;
   z-index: 0;
@@ -149,10 +149,10 @@ function go(nextIndex: number) {
 
 .chev {
   align-items: center;
-  background: oklch(0.24 0 0 / 0.3);
-  border: 1px solid oklch(1 0 0 / 0.05);
+  background: var(--carousel-chev-bg);
+  border: 1px solid var(--carousel-chev-border);
   border-radius: 999px;
-  color: oklch(0.98 0 0);
+  color: var(--carousel-chev-color);
   cursor: pointer;
   display: flex;
   height: 40px;
@@ -165,7 +165,7 @@ function go(nextIndex: number) {
   transition: background 0.3s ease;
 
   &:hover {
-    background: oklch(0.24 0 0 / 0.5);
+    background: var(--carousel-chev-bg-hover);
   }
 }
 
@@ -202,25 +202,4 @@ function go(nextIndex: number) {
   background: oklch(0 0 0 / 0.6);
 }
 
-@media (prefers-color-scheme: light) {
-  :global(html:not([data-theme='dark']) .chev) {
-    background: oklch(1 0 0 / 0.45);
-    border-color: oklch(0 0 0 / 0.08);
-    color: oklch(0.2 0 0);
-
-    &:hover {
-      background: oklch(1 0 0 / 0.50);
-    }
-  }
-}
-
-:global(html[data-theme='light'] .chev) {
-  background: oklch(0.96 0 0 / 0.45);
-  border-color: oklch(0 0 0 / 0.08);
-  color: oklch(0.2 0 0);
-
-  &:hover {
-    background: oklch(0.96 0 0 / 0.50);
-  }
-}
 </style>
