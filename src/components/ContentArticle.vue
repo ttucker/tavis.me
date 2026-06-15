@@ -83,7 +83,7 @@
   .article {
     font-size: 100%;
     line-height: 1.5;
-    padding: 20px 0 10px;
+    padding: 20px 0;
     position: absolute;
     top: 11%;
     transform: translateY(0);

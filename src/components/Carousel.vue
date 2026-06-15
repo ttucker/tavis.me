@@ -192,7 +192,7 @@ function go(nextIndex: number) {
   display: flex;
   gap: 6px;
   justify-content: center;
-  margin-block: 0.5rem;
+  margin-block: 10px 20px;
 }
 
 .dots button {
