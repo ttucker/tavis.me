@@ -39,9 +39,11 @@
   --blockquote-color: oklch(0.1913 0 0);
 
   --carousel-chev-bg: oklch(0.24 0 0 / 0.3);
-  --carousel-chev-bg-hover: oklch(0.24 0 0 / 0.5);
+  --carousel-chev-bg-hover: oklch(0.95 0 0 / 0.5);
   --carousel-chev-border: oklch(1 0 0 / 0.05);
+  --carousel-chev-border-hover: oklch(1 0 0 / 0.03);
   --carousel-chev-color: oklch(0.98 0 0);
+  --carousel-chev-color-hover: oklch(0.24 0 0 / 0.82);
 
   --header-bg: oklch(0 0 0 / 0.5);
   --header-link-shadow: 1px 1px oklch(0 0 0 / 0.1);
@@ -346,9 +348,11 @@ a {
     --blockquote-color: oklch(0 0 0 / 0.7);
 
     --carousel-chev-bg: oklch(1 0 0 / 0.45);
-    --carousel-chev-bg-hover: oklch(1 0 0 / 0.5);
+    --carousel-chev-bg-hover: oklch(0.26 0 0 / 0.12);
     --carousel-chev-border: oklch(0 0 0 / 0.08);
+    --carousel-chev-border-hover: oklch(0 0 0 / 0);
     --carousel-chev-color: oklch(0.2 0 0);
+    --carousel-chev-color-hover: oklch(0.98 0 0 / 0.92);
 
     --header-bg: oklch(1 0 0 / 0.3);
     --header-link-shadow: 1px 1px oklch(1 0 0 / 0.25);
@@ -394,9 +398,11 @@ a {
   --blockquote-color: oklch(0 0 0 / 0.7);
 
   --carousel-chev-bg: oklch(0.96 0 0 / 0.45);
-  --carousel-chev-bg-hover: oklch(0.96 0 0 / 0.5);
+  --carousel-chev-bg-hover: oklch(0.26 0 0 / 0.12);
   --carousel-chev-border: oklch(0 0 0 / 0.08);
+  --carousel-chev-border-hover: oklch(0 0 0 / 0);
   --carousel-chev-color: oklch(0.2 0 0);
+  --carousel-chev-color-hover: oklch(0.98 0 0 / 0.92);
 
   --header-bg: oklch(1 0 0 / 0.3);
   --header-link-shadow: 1px 1px oklch(1 0 0 / 0.25);

@@ -167,10 +167,12 @@ function go(nextIndex: number) {
   top: 0;
   width: var(--carousel-chev-size);
   z-index: 1;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
   &:hover {
     background: var(--carousel-chev-bg-hover);
+    border-color: var(--carousel-chev-border-hover);
+    color: var(--carousel-chev-color-hover);
   }
 }
 
