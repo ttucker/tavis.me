@@ -37,6 +37,6 @@ import HeroImage from '../components/HeroImage.vue'
 
 <style lang="scss" scoped>
 :deep(.hero img) { 
-  object-position: bottom;
+  object-position: center;
 }
 </style>

@@ -210,6 +210,6 @@ import Slide from '../components/Slide.vue'
 
 <style lang="scss" scoped>
 :deep(.hero img) { 
-  object-position: center;
+  object-position: bottom;
 }
 </style>
