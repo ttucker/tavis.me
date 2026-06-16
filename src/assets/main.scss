@@ -114,13 +114,28 @@
   --footer-small-shadow: 1px 1px oklch(0.84 0 0 / 0.6);
 }
 
-@mixin motion($name, $article-enter-from, $article-leave-to, $quote-enter-from, $quote-leave-to) {
+@mixin motion-layer($name) {
   .#{$name}-enter-active,
   .#{$name}-leave-active {
     inset: 0;
     position: absolute;
     width: 100%;
   }
+}
+
+@mixin motion-rest-state {
+  .article {
+    top: var(--article-rest-top) !important;
+    transform: translateY(0) !important;
+  }
+
+  .blockquote {
+    transform: translateY(0) !important;
+  }
+}
+
+@mixin motion($name, $article-enter-from, $article-leave-to, $quote-enter-from, $quote-leave-to) {
+  @include motion-layer($name);
 
   .#{$name}-enter-active {
     .article {
@@ -168,14 +183,7 @@
 
   .#{$name}-enter-to,
   .#{$name}-leave-from {
-    .article {
-      top: var(--article-rest-top) !important;
-      transform: translateY(0) !important;
-    }
-
-    .blockquote {
-      transform: translateY(0) !important;
-    }
+    @include motion-rest-state;
   }
 
   .#{$name}-leave-to {
@@ -195,12 +203,7 @@
 }
 
 @mixin motion-reduced($name) {
-  .#{$name}-enter-active,
-  .#{$name}-leave-active {
-    inset: 0;
-    position: absolute;
-    width: 100%;
-  }
+  @include motion-layer($name);
 
   .#{$name}-enter-active {
     .article,
@@ -242,14 +245,7 @@
   .#{$name}-enter-to,
   .#{$name}-leave-from,
   .#{$name}-leave-to {
-    .article {
-      top: var(--article-rest-top) !important;
-      transform: translateY(0) !important;
-    }
-
-    .blockquote {
-      transform: translateY(0) !important;
-    }
+    @include motion-rest-state;
   }
 }
 
