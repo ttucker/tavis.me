@@ -1,6 +1,6 @@
 <template>
   <div class="page page--content">
-    <HeroImage current-page="projects" img-src="/projects.jpg" />
+    <HeroImage current-page="projects" img-src="/projects.jpg" image-align="top" />
     <main>
       <ContentArticle>
         <h3>Projects</h3>

@@ -1,6 +1,6 @@
 <template>
   <div class="page page--content">
-    <HeroImage current-page="resume" img-src="/resume.jpg" object-position="bottom" />
+    <HeroImage current-page="resume" img-src="/resume.jpg" image-align="bottom" />
     <main>
       <ContentArticle>
         <h3>Resumé</h3>

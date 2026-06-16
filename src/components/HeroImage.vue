@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
 
+type HeroImageAlign = 'top' | 'bottom'
+
 interface HeroImageProps {
   currentPage?: string
   fullHeight?: boolean
   imgSrc: string
-  objectPosition?: string
+  imageAlign?: HeroImageAlign
 }
 
 const props = withDefaults(defineProps<HeroImageProps>(), {
@@ -14,25 +16,13 @@ const props = withDefaults(defineProps<HeroImageProps>(), {
 })
 
 const isVisible = ref(false)
-const resolvedObjectPosition = computed(() => {
-  if (props.objectPosition) {
-    return props.objectPosition
-  }
-
-  if (props.fullHeight) {
-    return 'center'
-  }
-
-  return undefined
-})
-
 const imageStyle = computed(() => {
-  if (!resolvedObjectPosition.value) {
+  if (!props.imageAlign) {
     return undefined
   }
 
   return {
-    objectPosition: resolvedObjectPosition.value,
+    objectPosition: props.imageAlign,
   }
 })
 
@@ -61,7 +51,6 @@ onMounted(() => {
     display: block;
     height: 100%;
     object-fit: cover;
-    object-position: top;
     width: 100%;
   }
 
@@ -81,10 +70,6 @@ onMounted(() => {
     inset: 0;
     position: fixed;
     width: 100%;
-
-    img {
-      object-position: center;
-    }
   }
 }
 
