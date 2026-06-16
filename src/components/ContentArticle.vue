@@ -4,12 +4,12 @@
   </article>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .article {
   background-color: var(--article-bg);
   color: var(--article-text-color);
   display: block;
-  padding: 10px 0;
+  padding: pxToRem(10) 0;
   width: 100%;
   will-change: transform;
 }
@@ -36,25 +36,25 @@
 .article :deep(dl),
 .article :deep(p),
 .article :deep(pre) {
-  margin: 0 10px 16px;
+  margin: 0 pxToRem(10) pxToRem(16);
 }
 
 .article :deep(h3),
 .article :deep(h4) {
-  font-size: 28px;
+  font-size: pxToRem(28);
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: pxToRem(10);
   text-transform: uppercase;
 }
 
 .article :deep(h4) {
-  font-size: 18px;
+  font-size: pxToRem(18);
   text-transform: none;
 }
 
 .article :deep(ol),
 .article :deep(ul) {
-  padding-left: 28px;
+  padding-left: pxToRem(28);
 }
 
 .article :deep(ul) {
@@ -63,7 +63,7 @@
 
 .article :deep(dl),
 .article :deep(dd ul) {
-  margin-top: 10px;
+  margin-top: pxToRem(10);
 }
 
 .article :deep(dd ul) {
@@ -83,7 +83,7 @@
   .article {
     font-size: 100%;
     line-height: 1.5;
-    padding: 20px 0;
+    padding: pxToRem(20) 0;
     position: absolute;
     top: 11%;
     transform: translateY(0);

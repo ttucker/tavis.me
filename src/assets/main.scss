@@ -240,7 +240,7 @@ html {
 }
 
 body {
-  min-width: 320px;
+  min-width: pxToRem(320);
   overflow-x: clip;
 }
 
@@ -306,7 +306,7 @@ a {
 
   main {
     height: 100vh;
-    max-width: 800px;
+    max-width: pxToRem(800);
     overflow-y: auto;
     position: absolute;
     right: 0;

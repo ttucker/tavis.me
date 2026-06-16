@@ -27,10 +27,10 @@ onMounted(() => {
   </figure>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .hero {
   background: var(--hero-fallback-bg);
-  height: 200px;
+  height: pxToRem(200);
   margin: 0;
   opacity: 0;
   position: relative;

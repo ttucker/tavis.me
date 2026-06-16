@@ -54,7 +54,7 @@ const toggleMenu = () => {
 .header {
   background-color: var(--header-bg);
   color: oklch(1 0 0);
-  min-height: 62px;
+  min-height: pxToRem(62);
   text-transform: uppercase;
   z-index: 5;
 }
@@ -63,9 +63,9 @@ const toggleMenu = () => {
   align-items: center;
   display: inline-flex;
   flex-direction: column;
-  height: 62px;
+  height: pxToRem(62);
   justify-content: center;
-  left: 10px;
+  left: pxToRem(10);
   padding: 0;
   position: absolute;
   text-shadow: var(--header-link-shadow);
@@ -80,16 +80,16 @@ const toggleMenu = () => {
 
 .header h1 {
   font-family: CardoCustom, Times, 'Times New Roman', serif;
-  font-size: 28px;
+  font-size: pxToRem(28);
   font-weight: 400;
-  letter-spacing: 3px;
-  line-height: 24px;
+  letter-spacing: pxToRem(3);
+  line-height: pxToRem(24);
 }
 
 .header h2 {
-  font-size: 11px;
+  font-size: pxToRem(11);
   font-weight: 400;
-  letter-spacing: 1.9px;
+  letter-spacing: pxToRem(1.9);
 }
 
 .menu-toggle {
@@ -100,27 +100,27 @@ const toggleMenu = () => {
   cursor: pointer;
   display: inline-flex;
   flex-direction: column;
-  gap: 5px;
+  gap: pxToRem(5);
   justify-content: center;
-  min-height: 40px;
-  min-width: 40px;
+  min-height: pxToRem(40);
+  min-width: pxToRem(40);
   padding: 0;
   position: absolute;
-  right: 10px;
-  top: 11px;
+  right: pxToRem(10);
+  top: pxToRem(11);
 }
 
 .menu-toggle span {
   background-color: var(--header-menu-toggle-color);
-  border-radius: 1px;
+  border-radius: pxToRem(1);
   display: block;
-  height: 2px;
+  height: pxToRem(2);
   transition: transform 0.2s ease, opacity 0.2s ease;
-  width: 22px;
+  width: pxToRem(22);
 }
 
 .is-menu-open .menu-toggle span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(pxToRem(7)) rotate(45deg);
 }
 
 .is-menu-open .menu-toggle span:nth-child(2) {
@@ -128,7 +128,7 @@ const toggleMenu = () => {
 }
 
 .is-menu-open .menu-toggle span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(pxToRem(-7)) rotate(-45deg);
 }
 
 .theme-toggle {
@@ -139,17 +139,17 @@ const toggleMenu = () => {
   color: var(--header-theme-toggle-color-mobile);
   cursor: pointer;
   display: inline-flex;
-  height: 40px;
+  height: pxToRem(40);
   justify-content: center;
   padding: 0;
   position: absolute;
-  right: 52px;
-  top: 11px;
-  width: 40px;
+  right: pxToRem(52);
+  top: pxToRem(11);
+  width: pxToRem(40);
 }
 
 .theme-icon {
-  font-size: 20px;
+  font-size: pxToRem(20);
   left: 50%;
   line-height: 1;
   opacity: 0;
@@ -171,11 +171,11 @@ const toggleMenu = () => {
   border-style: solid;
   border-width: 1px 0;
   box-shadow: var(--primary-nav-shadow-mobile);
-  font-size: 13px;
-  letter-spacing: 1px;
+  font-size: pxToRem(13);
+  letter-spacing: pxToRem(1);
   display: none;
-  margin-top: 62px;
-  padding: 8px 0 12px;
+  margin-top: pxToRem(62);
+  padding: pxToRem(8) 0 pxToRem(12);
 }
 
 .primary-nav.open {
@@ -189,17 +189,17 @@ const toggleMenu = () => {
 
 .header li a {
   display: block;
-  padding: 14px 10px;
+  padding: pxToRem(14) pxToRem(10);
 }
 
 @media screen and (min-width: 768px) {
   .header {
     box-shadow: inset 0 0 90px 30px oklch(0 0 0 / 0.25);
     height: 100vh;
-    left: 24px;
+    left: pxToRem(24);
     position: fixed;
     transition: left 0.225s ease-in;
-    width: 240px;
+    width: pxToRem(240);
   }
 
   .menu-toggle {
@@ -207,7 +207,7 @@ const toggleMenu = () => {
   }
 
   .theme-toggle {
-    bottom: 36px;
+    bottom: pxToRem(36);
     color: var(--header-theme-toggle-color-desktop);
     left: 50%;
     right: auto;
@@ -220,16 +220,16 @@ const toggleMenu = () => {
     display: block;
     height: auto;
     justify-content: initial;
-    margin: 32px 0 24px;
+    margin: pxToRem(32) 0 pxToRem(24);
     min-height: 0;
-    padding: 4px 0;
+    padding: pxToRem(4) 0;
     position: static;
     text-shadow: 1px 1px oklch(0 0 0 / 0.2);
   }
 
   .header h1 {
-    font-size: 30px;
-    line-height: 26px;
+    font-size: pxToRem(30);
+    line-height: pxToRem(26);
   }
 
   .header > a * {
@@ -237,8 +237,8 @@ const toggleMenu = () => {
   }
 
   .header h2 {
-    font-size: 11px;
-    letter-spacing: 2.25px;
+    font-size: pxToRem(11);
+    letter-spacing: pxToRem(2.25);
   }
 
   .primary-nav {
@@ -246,11 +246,11 @@ const toggleMenu = () => {
     background-color: var(--primary-nav-bg-desktop);
     border-color: oklch(1 0 0 / 0.25);
     box-shadow: var(--primary-nav-shadow-desktop);
-    font-size: 14px;
-    line-height: 32px;
-    margin: 0 28px;
+    font-size: pxToRem(14);
+    line-height: pxToRem(32);
+    margin: 0 pxToRem(28);
     margin-top: 0;
-    padding: 15px 25px;
+    padding: pxToRem(15) pxToRem(25);
   }
 
   .header li {
@@ -259,7 +259,7 @@ const toggleMenu = () => {
   }
 
   .header li a {
-    padding: 0 15px;
+    padding: 0 pxToRem(15);
   }
 }
 </style>

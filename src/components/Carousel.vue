@@ -156,7 +156,7 @@ function go(nextIndex: number) {
   align-items: center;
   background: var(--carousel-chev-bg);
   border: 1px solid var(--carousel-chev-border);
-  border-radius: 999px;
+  border-radius: pxToRem(999);
   color: var(--carousel-chev-color);
   cursor: pointer;
   display: flex;
@@ -190,9 +190,9 @@ function go(nextIndex: number) {
 
 .dots {
   display: flex;
-  gap: 6px;
+  gap: pxToRem(6);
   justify-content: center;
-  margin-block: 10px 20px;
+  margin-block: pxToRem(10) pxToRem(20);
 }
 
 .dots button {
@@ -200,9 +200,9 @@ function go(nextIndex: number) {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  height: 10px;
+  height: pxToRem(10);
   padding: 0;
-  width: 10px;
+  width: pxToRem(10);
 }
 
 .dots button.active {

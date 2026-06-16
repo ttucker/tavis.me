@@ -16,7 +16,7 @@ const copyright = new Date().getFullYear()
   </footer>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .footer {
   align-items: center;
   border-top: 1px solid var(--footer-border-color);
@@ -27,12 +27,12 @@ const copyright = new Date().getFullYear()
 }
 
 .footer * {
-  font-size: 12px;
-  line-height: 22px;
+  font-size: pxToRem(12);
+  line-height: pxToRem(22);
 }
 
 .footer nav {
-  letter-spacing: 1px;
+  letter-spacing: pxToRem(1);
   text-transform: uppercase;
   width: 100%;
 }
@@ -41,7 +41,7 @@ const copyright = new Date().getFullYear()
   align-items: center;
   display: flex;
   justify-content: space-evenly;
-  min-height: 30px;
+  min-height: pxToRem(30);
 }
 
 .footer li {
@@ -50,8 +50,8 @@ const copyright = new Date().getFullYear()
 
 .footer small {
   color: var(--footer-small-color);
-  font-size: 12px;
-  line-height: 28px;
+  font-size: pxToRem(12);
+  line-height: pxToRem(28);
   text-shadow: var(--footer-small-shadow);
 }
 
@@ -66,7 +66,7 @@ const copyright = new Date().getFullYear()
   }
 
   .footer * {
-    font-size: 11px;
+    font-size: pxToRem(11);
   }
 
   .footer nav {
@@ -75,11 +75,11 @@ const copyright = new Date().getFullYear()
   }
 
   .footer li {
-    margin-right: 30px;
+    margin-right: pxToRem(30);
   }
 
   .footer small {
-    margin-left: 30px;
+    margin-left: pxToRem(30);
   }
 }
 

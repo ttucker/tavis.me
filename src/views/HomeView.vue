@@ -11,7 +11,7 @@
 import HeroImage from '../components/HeroImage.vue'
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .page--home {
   position: relative;
 }
@@ -19,10 +19,10 @@ import HeroImage from '../components/HeroImage.vue'
 .blockquote {
   color: var(--blockquote-color);
   font-family: CardoCustom, Times, 'Times New Roman', serif;
-  font-size: 20px;
+  font-size: pxToRem(20);
   left: 50%;
-  letter-spacing: 2px;
-  line-height: 24px;
+  letter-spacing: pxToRem(2);
+  line-height: pxToRem(24);
   pointer-events: none;
   position: absolute;
   text-align: center;
@@ -30,41 +30,41 @@ import HeroImage from '../components/HeroImage.vue'
   text-transform: uppercase;
   top: 42%;
   transform: translate(-50%, -50%);
-  width: min(92vw, 640px);
+  width: min(92vw, pxToRem(640));
 }
 
 .blockquote i {
   display: block;
   font-style: italic;
   font-synthesis: style;
-  font-size: 42px;
+  font-size: pxToRem(42);
   letter-spacing: 0;
-  line-height: 40px;
+  line-height: pxToRem(40);
   text-transform: lowercase;
 }
 
 @media screen and (min-width: 768px) {
   .blockquote {
     bottom: 67%;
-    font-size: 25px;
+    font-size: pxToRem(25);
     left: 47%;
-    line-height: 25px;
+    line-height: pxToRem(25);
     top: auto;
     transform: none;
     width: auto;
   }
 
   .blockquote:first-letter {
-    margin-left: -200px;
+    margin-left: pxToRem(-200);
   }
 
   .blockquote i {
-    font-size: 50px;
-    line-height: 46px;
+    font-size: pxToRem(50);
+    line-height: pxToRem(46);
   }
 
   .blockquote i:first-letter {
-    margin-left: -125px;
+    margin-left: pxToRem(-125);
   }
 }
 
