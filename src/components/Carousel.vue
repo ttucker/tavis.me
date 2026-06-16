@@ -33,20 +33,9 @@
 </template>
 
 <script setup lang="ts">
-import { Comment, cloneVNode, computed, defineComponent, ref, useSlots, watchEffect, type PropType, type VNode } from 'vue'
+import { Comment, cloneVNode, computed, ref, useSlots, watchEffect, type VNode } from 'vue'
 
-const VNodeRenderer = defineComponent({
-  name: 'VNodeRenderer',
-  props: {
-    vnode: {
-      type: Object as PropType<VNode>,
-      required: true,
-    },
-  },
-  setup(props) {
-    return () => cloneVNode(props.vnode)
-  },
-})
+const VNodeRenderer = ({ vnode }: { vnode: VNode }) => cloneVNode(vnode)
 
 const slots = useSlots()
 const index = ref(0)
