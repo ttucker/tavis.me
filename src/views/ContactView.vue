@@ -1,6 +1,6 @@
 <template>
   <div class="page page--content">
-    <HeroImage current-page="contact" img-src="/contact.jpg" />
+    <HeroImage current-page="contact" img-src="/contact.jpg" object-position="center" />
     <main>
       <ContentArticle>
         <h3>Contact</h3>
@@ -22,9 +22,3 @@
 import ContentArticle from '../components/ContentArticle.vue'
 import HeroImage from '../components/HeroImage.vue'
 </script>
-
-<style lang="scss" scoped>
-:deep(.hero img) { 
-  object-position: center;
-}
-</style>

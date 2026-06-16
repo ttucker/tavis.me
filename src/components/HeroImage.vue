@@ -1,19 +1,24 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 interface HeroImageProps {
   currentPage?: string
   fullHeight?: boolean
   imgSrc: string
+  objectPosition?: string
 }
 
-withDefaults(defineProps<HeroImageProps>(), {
+const props = withDefaults(defineProps<HeroImageProps>(), {
   currentPage: 'home',
   fullHeight: false,
+  objectPosition: 'top',
 })
 
 const isMobile = ref(false)
 const isVisible = ref(false)
+const imageStyle = computed(() => ({
+  objectPosition: props.objectPosition,
+}))
 
 onMounted(() => {
   isMobile.value = window.matchMedia('(max-width: 768px)').matches
@@ -23,7 +28,7 @@ onMounted(() => {
 
 <template>
   <figure class="hero" :class="{ visible: isVisible, mobile: isMobile, 'hero--full-height': fullHeight }">
-    <img :src="imgSrc" :alt="currentPage" />
+    <img :src="imgSrc" :alt="currentPage" :style="imageStyle" />
   </figure>
 </template>
 
@@ -36,40 +41,43 @@ onMounted(() => {
   position: relative;
   transition: opacity 0.375s ease-in;
   will-change: opacity;
+
+  img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+  }
+
+  &.visible {
+    opacity: var(--hero-visible-opacity);
+  }
+
+  &.hero--full-height {
+    height: 100vh;
+    overflow: hidden;
+
+    img {
+      object-position: center;
+    }
+  }
 }
 
-.hero img {
-  display: block;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  width: 100%;
-}
-
-.hero.visible {
-  opacity: var(--hero-visible-opacity);
-}
-
-.hero.hero--full-height {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.hero.hero--full-height img {
-  object-fit: cover;
-  object-position: center;
-}
-
-@media screen and (min-width: 768px) {
+@include desktop-up {
   .hero {
     height: 100vh;
     inset: 0;
     position: fixed;
     width: 100%;
-  }
 
-  .hero img {
-    object-position: center;
+    img {
+      object-position: center;
+    }
+
+    &.hero--full-height img {
+      object-position: center;
+    }
   }
 }
 

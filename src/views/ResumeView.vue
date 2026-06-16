@@ -1,6 +1,6 @@
 <template>
   <div class="page page--content">
-    <HeroImage current-page="resume" img-src="/resume.jpg" />
+    <HeroImage current-page="resume" img-src="/resume.jpg" object-position="bottom" />
     <main>
       <ContentArticle>
         <h3>Resumé</h3>
@@ -207,9 +207,3 @@ import HeroImage from '../components/HeroImage.vue'
 import Carousel from '../components/Carousel.vue'
 import Slide from '../components/Slide.vue'
 </script>
-
-<style lang="scss" scoped>
-:deep(.hero img) { 
-  object-position: bottom;
-}
-</style>

@@ -65,6 +65,55 @@
   --footer-small-shadow: 1px 1px oklch(0 0 0 / 0.3);
 }
 
+@mixin light-theme-tokens {
+  --app-bg-mobile: oklch(0.84 0 0 / 0.6);
+  --app-bg-desktop: oklch(0.84 0 0 / 0.6);
+  --hero-fallback-bg: oklch(0.94 0.01 95 / 0.85);
+  --app-color-scheme: light;
+
+  --link-color: oklch(0.1776 0 0);
+  --link-color-hover: oklch(0.45 0 0 / 0.95);
+  --link-color-active: oklch(0.94 0 0);
+  --link-shadow: 1px 1px oklch(0.74 0 0 / 0.25);
+  --link-shadow-hover: 1px 1px oklch(0.53 0 0 / 0.2);
+  --link-shadow-active: 1px 1px oklch(0.74 0 0 / 0.25);
+
+  --article-bg: oklch(0.94 0 0 / 0.7);
+  --article-text-color: oklch(0.3904 0 0);
+  --article-link-color: oklch(0.43 0.18 29);
+  --article-link-hover-color: oklch(0.59 0.24 29);
+  --article-link-active-color: oklch(0.69 0.22 27);
+
+  --hero-visible-opacity: 0.9;
+  --blockquote-color: oklch(0 0 0 / 0.7);
+
+  --carousel-chev-bg: oklch(0.96 0 0 / 0.45);
+  --carousel-chev-bg-hover: oklch(0.26 0 0 / 0.12);
+  --carousel-chev-border: oklch(0 0 0 / 0.08);
+  --carousel-chev-border-hover: oklch(0 0 0 / 0);
+  --carousel-chev-color: oklch(0.2 0 0);
+  --carousel-chev-color-hover: oklch(0.98 0 0 / 0.92);
+
+  --header-bg: oklch(1 0 0 / 0.3);
+  --header-link-shadow: 1px 1px oklch(1 0 0 / 0.25);
+  --header-link-color-mobile: oklch(0 0 0 / 0.7);
+  --header-link-color-desktop: oklch(0 0 0 / 0.7);
+  --header-menu-toggle-color: oklch(0 0 0 / 0.7);
+  --header-theme-toggle-color-mobile: oklch(0 0 0 / 0.7);
+  --header-theme-toggle-color-desktop: oklch(0 0 0 / 0.7);
+  --primary-nav-bg-mobile: oklch(0.58 0 0 / 0.25);
+  --primary-nav-border-top: oklch(0 0 0 / 0.6);
+  --primary-nav-border-bottom: oklch(0 0 0 / 0.6);
+  --primary-nav-shadow-mobile: inset 0 0 55px 20px oklch(0.53 0 0 / 0.4);
+  --primary-nav-bg-desktop: oklch(1 0 0 / 0.2);
+  --primary-nav-shadow-desktop: inset 0 0 80px 0 oklch(0 0 0 / 0.3);
+
+  --footer-bg-desktop: oklch(1 0 0 / 0.6);
+  --footer-border-color: oklch(0 0 0 / 0.6);
+  --footer-small-color: oklch(0 0 0 / 0.5);
+  --footer-small-shadow: 1px 1px oklch(0.84 0 0 / 0.6);
+}
+
 @mixin motion($name, $article-enter-from, $article-leave-to, $quote-enter-from, $quote-leave-to) {
   .#{$name}-enter-active,
   .#{$name}-leave-active {
@@ -244,18 +293,8 @@ body {
   overflow-x: clip;
 }
 
-#app,
-main {
-  min-height: 100vh;
-}
-
-.page {
-  min-height: 100vh;
-}
-
 .route-stage {
   background-color: var(--hero-fallback-bg);
-  min-height: 100vh;
   position: relative;
 }
 
@@ -286,7 +325,7 @@ a {
   }
 }
 
-@media screen and (min-width: 768px) {
+@include desktop-up {
   html {
     background-color: var(--app-bg-desktop);
     height: 100%;
@@ -319,107 +358,19 @@ a {
   @include motion('back', -105%, 115%, -220vh, 220vh);
 }
 
-@media screen and (min-width: 768px) and (prefers-reduced-motion: reduce) {
+@include desktop-up-reduced-motion {
   @include motion-reduced('forward');
   @include motion-reduced('back');
 }
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme='dark']) {
-    --app-bg-mobile: oklch(0.84 0 0 / 0.6);
-    --app-bg-desktop: oklch(0.84 0 0 / 0.6);
-    --hero-fallback-bg: oklch(0.94 0.01 95 / 0.85);
-    --app-color-scheme: light;
-
-    --link-color: oklch(0.1776 0 0);
-    --link-color-hover: oklch(0.45 0 0 / 0.95);
-    --link-color-active: oklch(0.94 0 0);
-    --link-shadow: 1px 1px oklch(0.74 0 0 / 0.25);
-    --link-shadow-hover: 1px 1px oklch(0.53 0 0 / 0.2);
-    --link-shadow-active: 1px 1px oklch(0.74 0 0 / 0.25);
-
-    --article-bg: oklch(0.94 0 0 / 0.7);
-    --article-text-color: oklch(0.3904 0 0);
-    --article-link-color: oklch(0.43 0.18 29);
-    --article-link-hover-color: oklch(0.59 0.24 29);
-    --article-link-active-color: oklch(0.69 0.22 27);
-
-    --hero-visible-opacity: 0.9;
-    --blockquote-color: oklch(0 0 0 / 0.7);
+    @include light-theme-tokens;
 
     --carousel-chev-bg: oklch(1 0 0 / 0.45);
-    --carousel-chev-bg-hover: oklch(0.26 0 0 / 0.12);
-    --carousel-chev-border: oklch(0 0 0 / 0.08);
-    --carousel-chev-border-hover: oklch(0 0 0 / 0);
-    --carousel-chev-color: oklch(0.2 0 0);
-    --carousel-chev-color-hover: oklch(0.98 0 0 / 0.92);
-
-    --header-bg: oklch(1 0 0 / 0.3);
-    --header-link-shadow: 1px 1px oklch(1 0 0 / 0.25);
-    --header-link-color-mobile: oklch(0 0 0 / 0.7);
-    --header-link-color-desktop: oklch(0 0 0 / 0.7);
-    --header-menu-toggle-color: oklch(0 0 0 / 0.7);
-    --header-theme-toggle-color-mobile: oklch(0 0 0 / 0.7);
-    --header-theme-toggle-color-desktop: oklch(0 0 0 / 0.7);
-    --primary-nav-bg-mobile: oklch(0.58 0 0 / 0.25);
-    --primary-nav-border-top: oklch(0 0 0 / 0.6);
-    --primary-nav-border-bottom: oklch(0 0 0 / 0.6);
-    --primary-nav-shadow-mobile: inset 0 0 55px 20px oklch(0.53 0 0 / 0.4);
-    --primary-nav-bg-desktop: oklch(1 0 0 / 0.2);
-    --primary-nav-shadow-desktop: inset 0 0 80px 0 oklch(0 0 0 / 0.3);
-
-    --footer-bg-desktop: oklch(1 0 0 / 0.6);
-    --footer-border-color: oklch(0 0 0 / 0.6);
-    --footer-small-color: oklch(0 0 0 / 0.5);
-    --footer-small-shadow: 1px 1px oklch(0.84 0 0 / 0.6);
   }
 }
 
 :root[data-theme='light'] {
-  --app-bg-mobile: oklch(0.84 0 0 / 0.6);
-  --app-bg-desktop: oklch(0.84 0 0 / 0.6);
-  --hero-fallback-bg: oklch(0.94 0.01 95 / 0.85);
-  --app-color-scheme: light;
-
-  --link-color: oklch(0.1776 0 0);
-  --link-color-hover: oklch(0.45 0 0 / 0.95);
-  --link-color-active: oklch(0.94 0 0);
-  --link-shadow: 1px 1px oklch(0.74 0 0 / 0.25);
-  --link-shadow-hover: 1px 1px oklch(0.53 0 0 / 0.2);
-  --link-shadow-active: 1px 1px oklch(0.74 0 0 / 0.25);
-
-  --article-bg: oklch(0.94 0 0 / 0.7);
-  --article-text-color: oklch(0.3904 0 0);
-  --article-link-color: oklch(0.43 0.18 29);
-  --article-link-hover-color: oklch(0.59 0.24 29);
-  --article-link-active-color: oklch(0.69 0.22 27);
-
-  --hero-visible-opacity: 0.9;
-  --blockquote-color: oklch(0 0 0 / 0.7);
-
-  --carousel-chev-bg: oklch(0.96 0 0 / 0.45);
-  --carousel-chev-bg-hover: oklch(0.26 0 0 / 0.12);
-  --carousel-chev-border: oklch(0 0 0 / 0.08);
-  --carousel-chev-border-hover: oklch(0 0 0 / 0);
-  --carousel-chev-color: oklch(0.2 0 0);
-  --carousel-chev-color-hover: oklch(0.98 0 0 / 0.92);
-
-  --header-bg: oklch(1 0 0 / 0.3);
-  --header-link-shadow: 1px 1px oklch(1 0 0 / 0.25);
-  --header-link-color-mobile: oklch(0 0 0 / 0.7);
-  --header-link-color-desktop: oklch(0 0 0 / 0.7);
-  --header-menu-toggle-color: oklch(0 0 0 / 0.7);
-  --header-theme-toggle-color-mobile: oklch(0 0 0 / 0.7);
-  --header-theme-toggle-color-desktop: oklch(0 0 0 / 0.7);
-  --primary-nav-bg-mobile: oklch(0.58 0 0 / 0.25);
-  --primary-nav-border-top: oklch(0 0 0 / 0.6);
-  --primary-nav-border-bottom: oklch(0 0 0 / 0.6);
-  --primary-nav-shadow-mobile: inset 0 0 55px 20px oklch(0.53 0 0 / 0.4);
-  --primary-nav-bg-desktop: oklch(1 0 0 / 0.2);
-  --primary-nav-shadow-desktop: inset 0 0 80px 0 oklch(0 0 0 / 0.3);
-
-  --footer-bg-desktop: oklch(1 0 0 / 0.6);
-  --footer-border-color: oklch(0 0 0 / 0.6);
-  --footer-small-color: oklch(0 0 0 / 0.5);
-  --footer-small-shadow: 1px 1px oklch(0.84 0 0 / 0.6);
+  @include light-theme-tokens;
 }

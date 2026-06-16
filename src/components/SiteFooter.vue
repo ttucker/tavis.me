@@ -24,38 +24,38 @@ const copyright = new Date().getFullYear()
   flex-direction: column;
   justify-content: space-between;
   z-index: 5;
+
+  * {
+    font-size: pxToRem(12);
+    line-height: pxToRem(22);
+  }
+
+  nav {
+    letter-spacing: pxToRem(1);
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+  ul {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    min-height: pxToRem(30);
+  }
+
+  li {
+    display: inline-flex;
+  }
+
+  small {
+    color: var(--footer-small-color);
+    font-size: pxToRem(12);
+    line-height: pxToRem(28);
+    text-shadow: var(--footer-small-shadow);
+  }
 }
 
-.footer * {
-  font-size: pxToRem(12);
-  line-height: pxToRem(22);
-}
-
-.footer nav {
-  letter-spacing: pxToRem(1);
-  text-transform: uppercase;
-  width: 100%;
-}
-
-.footer ul {
-  align-items: center;
-  display: flex;
-  justify-content: space-evenly;
-  min-height: pxToRem(30);
-}
-
-.footer li {
-  display: inline-flex;
-}
-
-.footer small {
-  color: var(--footer-small-color);
-  font-size: pxToRem(12);
-  line-height: pxToRem(28);
-  text-shadow: var(--footer-small-shadow);
-}
-
-@media screen and (min-width: 768px) {
+@include desktop-up {
   .footer {
     background-color: var(--footer-bg-desktop);
     border-top: none;
@@ -63,23 +63,23 @@ const copyright = new Date().getFullYear()
     flex-direction: row;
     position: fixed;
     width: 100%;
-  }
 
-  .footer * {
-    font-size: pxToRem(11);
-  }
+    * {
+      font-size: pxToRem(11);
+    }
 
-  .footer nav {
-    order: 1;
-    width: auto;
-  }
+    nav {
+      order: 1;
+      width: auto;
+    }
 
-  .footer li {
-    margin-right: pxToRem(30);
-  }
+    li {
+      margin-right: pxToRem(30);
+    }
 
-  .footer small {
-    margin-left: pxToRem(30);
+    small {
+      margin-left: pxToRem(30);
+    }
   }
 }
 

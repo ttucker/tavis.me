@@ -12,74 +12,72 @@
   padding: pxToRem(10) 0;
   width: 100%;
   will-change: transform;
+
+  :deep(a) {
+    color: var(--article-link-color);
+    text-shadow: none;
+
+    &:hover {
+      color: var(--article-link-hover-color);
+    }
+
+    &:active {
+      color: var(--article-link-active-color);
+    }
+  }
+
+  :deep(h3),
+  :deep(h4),
+  :deep(ol),
+  :deep(ul),
+  :deep(dl),
+  :deep(p),
+  :deep(pre) {
+    margin: 0 pxToRem(10) pxToRem(16);
+  }
+
+  :deep(h3),
+  :deep(h4) {
+    font-size: pxToRem(28);
+    font-weight: 400;
+    margin-bottom: pxToRem(10);
+    text-transform: uppercase;
+  }
+
+  :deep(h4) {
+    font-size: pxToRem(18);
+    text-transform: none;
+  }
+
+  :deep(ol),
+  :deep(ul) {
+    padding-left: pxToRem(28);
+  }
+
+  :deep(ul) {
+    list-style-type: square;
+  }
+
+  :deep(dl),
+  :deep(dd ul) {
+    margin-top: pxToRem(10);
+  }
+
+  :deep(dd ul) {
+    margin-left: 0;
+  }
+
+  :deep(dt) {
+    clear: right;
+    float: right;
+  }
+
+  :deep(sup) {
+    line-height: 0;
+  }
 }
 
-.article :deep(a),
-.article :deep(a:hover),
-.article :deep(a:active) {
-  color: var(--article-link-color);
-  text-shadow: none;
-}
-
-.article :deep(a:hover) {
-  color: var(--article-link-hover-color);
-}
-
-.article :deep(a:active) {
-  color: var(--article-link-active-color);
-}
-
-.article :deep(h3),
-.article :deep(h4),
-.article :deep(ol),
-.article :deep(ul),
-.article :deep(dl),
-.article :deep(p),
-.article :deep(pre) {
-  margin: 0 pxToRem(10) pxToRem(16);
-}
-
-.article :deep(h3),
-.article :deep(h4) {
-  font-size: pxToRem(28);
-  font-weight: 400;
-  margin-bottom: pxToRem(10);
-  text-transform: uppercase;
-}
-
-.article :deep(h4) {
-  font-size: pxToRem(18);
-  text-transform: none;
-}
-
-.article :deep(ol),
-.article :deep(ul) {
-  padding-left: pxToRem(28);
-}
-
-.article :deep(ul) {
-  list-style-type: square;
-}
-
-.article :deep(dl),
-.article :deep(dd ul) {
-  margin-top: pxToRem(10);
-}
-
-.article :deep(dd ul) {
-  margin-left: 0;
-}
-
-.article :deep(dt) {
-  clear: right;
-  float: right;
-}
-
-.article :deep(sup) {
-  line-height: 0;
-}
-
-@media screen and (min-width: 768px) {
+@include desktop-up {
   .article {
     font-size: 100%;
     line-height: 1.5;
@@ -87,17 +85,17 @@
     position: absolute;
     top: 11%;
     transform: translateY(0);
-  }
 
-  .article :deep(h3),
-  .article :deep(h4),
-  .article :deep(ol),
-  .article :deep(ul),
-  .article :deep(dl),
-  .article :deep(p),
-  .article :deep(pre) {
-    margin-left: 5%;
-    margin-right: 3%;
+    :deep(h3),
+    :deep(h4),
+    :deep(ol),
+    :deep(ul),
+    :deep(dl),
+    :deep(p),
+    :deep(pre) {
+      margin-left: 5%;
+      margin-right: 3%;
+    }
   }
 }
 

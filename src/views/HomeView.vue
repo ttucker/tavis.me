@@ -28,23 +28,21 @@ import HeroImage from '../components/HeroImage.vue'
   text-align: center;
   text-shadow: 1px 1px oklch(1 0 0 / 0.2);
   text-transform: uppercase;
-  top: 42%;
+  top: 33%;
   transform: translate(-50%, -50%);
   width: min(92vw, pxToRem(640));
-}
 
-.blockquote i {
-  display: block;
-  font-style: italic;
-  font-synthesis: style;
-  font-size: pxToRem(42);
-  letter-spacing: 0;
-  line-height: pxToRem(40);
-  text-transform: lowercase;
-}
+  i {
+    display: block;
+    font-size: pxToRem(42);
+    font-style: italic;
+    font-synthesis: style;
+    letter-spacing: 0;
+    line-height: pxToRem(40);
+    text-transform: lowercase;
+  }
 
-@media screen and (min-width: 768px) {
-  .blockquote {
+  @include desktop-up {
     bottom: 67%;
     font-size: pxToRem(25);
     left: 47%;
@@ -52,19 +50,19 @@ import HeroImage from '../components/HeroImage.vue'
     top: auto;
     transform: none;
     width: auto;
-  }
 
-  .blockquote:first-letter {
-    margin-left: pxToRem(-200);
-  }
+    &:first-letter {
+      margin-left: pxToRem(-200);
+    }
 
-  .blockquote i {
-    font-size: pxToRem(50);
-    line-height: pxToRem(46);
-  }
+    i {
+      font-size: pxToRem(50);
+      line-height: pxToRem(46);
 
-  .blockquote i:first-letter {
-    margin-left: pxToRem(-125);
+      &:first-letter {
+        margin-left: pxToRem(-125);
+      }
+    }
   }
 }
 

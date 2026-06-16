@@ -90,123 +90,120 @@ function go(nextIndex: number) {
 
   outline: none;
   position: relative;
-}
 
-.viewport {
-  overflow: visible;
-}
-
-.viewport-stage {
-  position: relative;
-}
-
-.viewport-stage,
-.active-slide {
-  min-height: 100%;
-}
-
-.chev-overlay {
-  height: 0;
-  inset-inline: 0;
-  pointer-events: none;
-  position: sticky;
-  top: var(--carousel-chev-sticky-top);
-  z-index: 1;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  backface-visibility: hidden;
-  transition-property: opacity;
-  will-change: opacity;
-}
-
-.fade-enter-active {
-  transition-duration: var(--carousel-fade-enter-duration);
-  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-  z-index: 1;
-}
-
-.fade-leave-active {
-  inset: 0;
-  pointer-events: none;
-  position: absolute;
-  transition-duration: var(--carousel-fade-leave-duration);
-  transition-timing-function: ease-out;
-  width: 100%;
-  z-index: 0;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-to,
-.fade-leave-from {
-  opacity: 1;
-}
-
-.active-slide {
-  transform: translateZ(0);
-  width: 100%;
-}
-
-.chev {
-  align-items: center;
-  background: var(--carousel-chev-bg);
-  border: 1px solid var(--carousel-chev-border);
-  border-radius: pxToRem(999);
-  color: var(--carousel-chev-color);
-  cursor: pointer;
-  display: flex;
-  height: var(--carousel-chev-size);
-  justify-content: center;
-  position: absolute;
-  pointer-events: auto;
-  top: 0;
-  width: var(--carousel-chev-size);
-  z-index: 1;
-  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-
-  &:hover {
-    background: var(--carousel-chev-bg-hover);
-    border-color: var(--carousel-chev-border-hover);
-    color: var(--carousel-chev-color-hover);
+  .viewport {
+    overflow: visible;
   }
-}
 
-.chev.left {
-  left: 0;
-}
+  .viewport-stage {
+    min-height: 100%;
+    position: relative;
+  }
 
-.chev.right {
-  right: 0;
-}
+  .active-slide {
+    min-height: 100%;
+    transform: translateZ(0);
+    width: 100%;
+  }
 
-.chev svg {
-  display: block;
-}
+  .chev-overlay {
+    height: 0;
+    inset-inline: 0;
+    pointer-events: none;
+    position: sticky;
+    top: var(--carousel-chev-sticky-top);
+    z-index: 1;
+  }
 
-.dots {
-  display: flex;
-  gap: pxToRem(6);
-  justify-content: center;
-  margin-block: pxToRem(10) pxToRem(20);
-}
+  .fade-enter-active,
+  .fade-leave-active {
+    backface-visibility: hidden;
+    transition-property: opacity;
+    will-change: opacity;
+  }
 
-.dots button {
-  background: oklch(0 0 0 / 0.15);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  height: pxToRem(10);
-  padding: 0;
-  width: pxToRem(10);
-}
+  .fade-enter-active {
+    transition-duration: var(--carousel-fade-enter-duration);
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 1;
+  }
 
-.dots button.active {
-  background: oklch(0 0 0 / 0.6);
+  .fade-leave-active {
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    transition-duration: var(--carousel-fade-leave-duration);
+    transition-timing-function: ease-out;
+    width: 100%;
+    z-index: 0;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .fade-enter-to,
+  .fade-leave-from {
+    opacity: 1;
+  }
+
+  .chev {
+    align-items: center;
+    background: var(--carousel-chev-bg);
+    border: 1px solid var(--carousel-chev-border);
+    border-radius: pxToRem(999);
+    color: var(--carousel-chev-color);
+    cursor: pointer;
+    display: flex;
+    height: var(--carousel-chev-size);
+    justify-content: center;
+    position: absolute;
+    pointer-events: auto;
+    top: 0;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    width: var(--carousel-chev-size);
+    z-index: 1;
+
+    &:hover {
+      background: var(--carousel-chev-bg-hover);
+      border-color: var(--carousel-chev-border-hover);
+      color: var(--carousel-chev-color-hover);
+    }
+
+    &.left {
+      left: 0;
+    }
+
+    &.right {
+      right: 0;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  .dots {
+    display: flex;
+    gap: pxToRem(6);
+    justify-content: center;
+    margin-block: pxToRem(10) pxToRem(20);
+
+    button {
+      background: oklch(0 0 0 / 0.15);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      height: pxToRem(10);
+      padding: 0;
+      width: pxToRem(10);
+
+      &.active {
+        background: oklch(0 0 0 / 0.6);
+      }
+    }
+  }
 }
 
 </style>

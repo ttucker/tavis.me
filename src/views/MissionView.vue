@@ -1,6 +1,6 @@
 <template>
   <div class="page page--content">
-    <HeroImage current-page="mission" img-src="/mission.jpg" />
+    <HeroImage current-page="mission" img-src="/mission.jpg" object-position="center" />
     <main>
       <ContentArticle>
         <h3>Mission</h3>
@@ -31,9 +31,3 @@ import { RouterLink } from 'vue-router'
 import ContentArticle from '../components/ContentArticle.vue'
 import HeroImage from '../components/HeroImage.vue'
 </script>
-
-<style lang="scss" scoped>
-:deep(.hero img) { 
-  object-position: center;
-}
-</style>
