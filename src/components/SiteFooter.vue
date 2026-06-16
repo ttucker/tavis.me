@@ -22,13 +22,10 @@ const copyright = new Date().getFullYear()
   border-top: 1px solid var(--footer-border-color);
   display: flex;
   flex-direction: column;
+  font-size: pxToRem(12);
   justify-content: space-between;
+  line-height: pxToRem(22);
   z-index: 5;
-
-  * {
-    font-size: pxToRem(12);
-    line-height: pxToRem(22);
-  }
 
   nav {
     letter-spacing: pxToRem(1);
@@ -61,12 +58,9 @@ const copyright = new Date().getFullYear()
     border-top: none;
     bottom: 0;
     flex-direction: row;
+    font-size: pxToRem(11);
     position: fixed;
     width: 100%;
-
-    * {
-      font-size: pxToRem(11);
-    }
 
     nav {
       order: 1;

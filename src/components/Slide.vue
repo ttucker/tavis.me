@@ -7,6 +7,3 @@
 <script setup lang="ts">
 // simple wrapper component for carousel slides
 </script>
-
-<style scoped lang="scss">
-</style>

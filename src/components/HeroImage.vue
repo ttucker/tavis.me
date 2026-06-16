@@ -11,23 +11,38 @@ interface HeroImageProps {
 const props = withDefaults(defineProps<HeroImageProps>(), {
   currentPage: 'home',
   fullHeight: false,
-  objectPosition: 'top',
 })
 
-const isMobile = ref(false)
 const isVisible = ref(false)
-const imageStyle = computed(() => ({
-  objectPosition: props.objectPosition,
-}))
+const resolvedObjectPosition = computed(() => {
+  if (props.objectPosition) {
+    return props.objectPosition
+  }
+
+  if (props.fullHeight) {
+    return 'center'
+  }
+
+  return undefined
+})
+
+const imageStyle = computed(() => {
+  if (!resolvedObjectPosition.value) {
+    return undefined
+  }
+
+  return {
+    objectPosition: resolvedObjectPosition.value,
+  }
+})
 
 onMounted(() => {
-  isMobile.value = window.matchMedia('(max-width: 768px)').matches
   isVisible.value = true
 })
 </script>
 
 <template>
-  <figure class="hero" :class="{ visible: isVisible, mobile: isMobile, 'hero--full-height': fullHeight }">
+  <figure class="hero" :class="{ visible: isVisible, 'hero--full-height': fullHeight }">
     <img :src="imgSrc" :alt="currentPage" :style="imageStyle" />
   </figure>
 </template>
@@ -57,10 +72,6 @@ onMounted(() => {
   &.hero--full-height {
     height: 100vh;
     overflow: hidden;
-
-    img {
-      object-position: center;
-    }
   }
 }
 
@@ -72,10 +83,6 @@ onMounted(() => {
     width: 100%;
 
     img {
-      object-position: center;
-    }
-
-    &.hero--full-height img {
       object-position: center;
     }
   }

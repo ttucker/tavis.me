@@ -326,13 +326,9 @@ a {
 }
 
 @include desktop-up {
-  html {
-    background-color: var(--app-bg-desktop);
-    height: 100%;
-    overflow: hidden;
-  }
-
+  html,
   body {
+    background-color: var(--app-bg-desktop);
     height: 100%;
     overflow: hidden;
   }

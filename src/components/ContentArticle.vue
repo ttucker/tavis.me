@@ -8,7 +8,6 @@
 .article {
   background-color: var(--article-bg);
   color: var(--article-text-color);
-  display: block;
   padding: pxToRem(10) 0;
   width: 100%;
   will-change: transform;
