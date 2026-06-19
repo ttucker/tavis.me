@@ -1,8 +1,6 @@
 <template>
-  <div class="page page--content">
-    <HeroImage current-page="projects" img-src="/projects.jpg" image-align="top" />
-    <main>
-      <ContentArticle>
+  <HeroImage current-page="projects" img-src="/projects.jpg" image-align="top" />
+  <ContentArticle>
         <h3>Projects</h3>
 
         <Carousel>
@@ -151,9 +149,7 @@
             </dl>
           </CarouselSlide>
         </Carousel>
-      </ContentArticle>
-    </main>
-  </div>
+  </ContentArticle>
 </template>
 
 <script setup lang="ts">

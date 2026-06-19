@@ -1,10 +1,8 @@
 <template>
-  <div class="page page--home">
-    <HeroImage img-src="/home.jpg" current-page="home" :full-height="true" />
-    <blockquote class="blockquote">
-      Hello and <i>welcome</i> to my website
-    </blockquote>
-  </div>
+  <HeroImage img-src="/home.jpg" current-page="home" :full-height="true" />
+  <blockquote>
+    Hello and <i>welcome</i> to my website
+  </blockquote>
 </template>
 
 <script setup lang="ts">
@@ -12,11 +10,7 @@ import HeroImage from '../components/HeroImage.vue'
 </script>
 
 <style scoped lang="scss">
-.page--home {
-  position: relative;
-}
-
-.blockquote {
+blockquote {
   color: var(--blockquote-color);
   font-family: CardoCustom, Times, 'Times New Roman', serif;
   font-size: pxToRem(20);

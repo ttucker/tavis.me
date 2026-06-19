@@ -1,8 +1,6 @@
 <template>
-  <div class="page page--content">
-    <HeroImage current-page="mission" img-src="/mission.jpg" />
-    <main>
-      <ContentArticle>
+  <HeroImage current-page="mission" img-src="/mission.jpg" />
+  <ContentArticle>
         <h3>Mission</h3>
         <h4>Make a difference.</h4>
         <p>
@@ -20,9 +18,7 @@
           <RouterLink to="/projects">skills</RouterLink> to the table, so if you have an opportunity that might be of
           interest, please <RouterLink to="/contact">get in touch</RouterLink>.
         </p>
-      </ContentArticle>
-    </main>
-  </div>
+  </ContentArticle>
 </template>
 
 <script setup lang="ts">

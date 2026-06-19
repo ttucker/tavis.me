@@ -1,8 +1,6 @@
 <template>
-  <div class="page page--content">
-    <HeroImage current-page="contact" img-src="/contact.jpg" />
-    <main>
-      <ContentArticle>
+  <HeroImage current-page="contact" img-src="/contact.jpg" />
+  <ContentArticle>
         <h3>Contact</h3>
         <h4>Please do get in touch.</h4>
         <p>
@@ -13,9 +11,7 @@
           <li><a href="https://discord.com/users/1043695714024312872" target="_blank" rel="noreferrer">Discord</a></li>
           <li><a href="https://www.linkedin.com/in/tavistucker" target="_blank" rel="noreferrer">LinkedIn</a></li>
         </ol>
-      </ContentArticle>
-    </main>
-  </div>
+  </ContentArticle>
 </template>
 
 <script setup lang="ts">

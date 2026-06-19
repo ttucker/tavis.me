@@ -1,11 +1,11 @@
 <template>
-  <article class="article">
+  <article>
     <slot />
   </article>
 </template>
 
 <style scoped lang="scss">
-.article {
+article {
   background-color: var(--article-bg);
   color: var(--article-text-color);
   padding: pxToRem(10) 0;
@@ -77,7 +77,7 @@
 }
 
 @include desktop-up {
-  .article {
+  article {
     font-size: 100%;
     line-height: 1.5;
     padding: pxToRem(20) 0;

@@ -1,8 +1,6 @@
 <template>
-  <div class="page page--content">
-    <HeroImage current-page="resume" img-src="/resume.jpg" image-align="bottom" />
-    <main>
-      <ContentArticle>
+  <HeroImage current-page="resume" img-src="/resume.jpg" image-align="bottom" />
+  <ContentArticle>
         <h3>Resumé</h3>
 
         <Carousel>
@@ -194,9 +192,7 @@
             </p>
           </CarouselSlide>
         </Carousel>
-      </ContentArticle>
-    </main>
-  </div>
+  </ContentArticle>
 </template>
 
 <script setup lang="ts">

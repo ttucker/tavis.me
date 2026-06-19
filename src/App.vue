@@ -1,8 +1,9 @@
 <template>
   <SiteHeader />
-  <div class="route-stage">
     <RouterView v-slot="{ Component, route }">
-      <component v-if="isMobileViewport" :is="Component" :key="route.fullPath" />
+      <SiteContent v-if="isMobileViewport" :key="route.fullPath">
+        <component :is="Component" />
+      </SiteContent>
       <Transition
         v-else
         :appear="true"
@@ -10,10 +11,11 @@
         :duration="transitionDuration"
         @after-enter="handleAfterEnter"
       >
-        <component :is="Component" :key="route.fullPath" />
+        <SiteContent :key="route.fullPath">
+          <component :is="Component" />
+        </SiteContent>
       </Transition>
     </RouterView>
-  </div>
   <SiteFooter />
 </template>
 
@@ -21,6 +23,7 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterView } from 'vue-router'
 
+import SiteContent from './components/SiteContent.vue'
 import SiteFooter from './components/SiteFooter.vue'
 import SiteHeader from './components/SiteHeader.vue'
 import { HERO_IMAGE_SRCS } from './constants/navigation'

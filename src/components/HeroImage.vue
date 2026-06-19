@@ -32,13 +32,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <figure class="hero" :class="{ visible: isVisible, 'hero--full-height': fullHeight }">
+  <figure :class="{ visible: isVisible, 'hero--full-height': fullHeight }">
     <img :src="imgSrc" :alt="currentPage" :style="imageStyle" />
   </figure>
 </template>
 
 <style scoped lang="scss">
-.hero {
+figure {
   background: var(--hero-fallback-bg);
   height: pxToRem(200);
   margin: 0;
@@ -65,7 +65,7 @@ onMounted(() => {
 }
 
 @include desktop-up {
-  .hero {
+  figure {
     height: 100vh;
     inset: 0;
     position: fixed;

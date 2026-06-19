@@ -1,8 +1,6 @@
 <template>
-  <div class="page page--content">
-    <HeroImage current-page="bio" img-src="/bio.jpg" />
-    <main>
-      <ContentArticle>
+  <HeroImage current-page="bio" img-src="/bio.jpg" />
+  <ContentArticle>
         <h3>Bio</h3>
         <h4>My name is Tavis Tucker, and tavis.me is my portfolio site.</h4>
         <p>
@@ -51,9 +49,7 @@
           grateful for the amazing people I worked with and the opportunities I had to grow my skillset and
           responsibilities, but now, I'm <RouterLink to="/mission">ready to move on</RouterLink>.
         </p>
-      </ContentArticle>
-    </main>
-  </div>
+  </ContentArticle>
 </template>
 
 <script setup lang="ts">

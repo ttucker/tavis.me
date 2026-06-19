@@ -119,108 +119,105 @@
 @mixin motion-layer($name) {
   .#{$name}-enter-active,
   .#{$name}-leave-active {
-    inset: 0;
+    bottom: 0;
     position: absolute;
-    width: 100%;
+    right: 0;
+    top: 0;
   }
 }
 
-@mixin motion-rest-state {
-  .article {
-    top: var(--article-rest-top) !important;
-    transform: translateY(0) !important;
+@mixin motion-rest-state($name) {
+  main.#{$name}-enter-to article,
+  main.#{$name}-leave-from article {
+    top: var(--article-rest-top);
+    transform: translateY(0);
   }
 
-  .blockquote {
-    transform: translateY(0) !important;
+  main.#{$name}-enter-to blockquote,
+  main.#{$name}-leave-from blockquote {
+    transform: translateY(0);
   }
 }
 
-@mixin hero-transition-hidden {
-  .hero {
-    opacity: 0 !important;
+@mixin hero-transition-hidden($name, $phase) {
+  main.#{$name}-#{$phase} figure {
+    opacity: 0;
   }
 }
 
 @mixin motion($name, $article-enter-from, $article-leave-to, $quote-enter-from, $quote-leave-to) {
   @include motion-layer($name);
 
-  .#{$name}-enter-active {
-    main {
-      overflow-y: hidden;
-    }
+  main.#{$name}-enter-active {
+    overflow-y: hidden;
+    scrollbar-gutter: stable;
 
-    .article {
+    article {
       transition: transform var(--article-enter-duration) var(--enter-curve);
     }
 
-    .blockquote {
+    blockquote {
       transition: transform var(--quote-enter-duration) var(--enter-curve) var(--quote-enter-delay);
     }
 
-    .hero {
+    figure {
       transition: opacity var(--hero-enter-duration) var(--enter-curve);
     }
   }
 
-  .#{$name}-leave-active {
+  main.#{$name}-leave-active {
     pointer-events: none;
+    overflow-y: hidden;
+    scrollbar-gutter: stable;
 
-    main {
-      overflow-y: hidden;
-    }
-
-    .article {
+    article {
       transition: transform var(--article-leave-duration) var(--leave-curve);
     }
 
-    .blockquote {
+    blockquote {
       transition: transform var(--quote-leave-duration) var(--leave-curve);
     }
 
-    .hero {
+    figure {
       transition: opacity var(--hero-leave-duration) var(--leave-curve);
     }
   }
 
-  .#{$name}-enter-from {
-    .article {
-      transform: translateY($article-enter-from) !important;
+  main.#{$name}-enter-from {
+    article {
+      transform: translateY($article-enter-from);
     }
 
-    .blockquote {
-      transform: translateY($quote-enter-from) !important;
+    blockquote {
+      transform: translateY($quote-enter-from);
     }
-
-    @include hero-transition-hidden;
   }
 
-  .#{$name}-enter-to,
-  .#{$name}-leave-from {
-    @include motion-rest-state;
-  }
+  @include hero-transition-hidden($name, 'enter-from');
 
-  .#{$name}-leave-to {
-    .article {
-      top: var(--article-rest-top) !important;
-      transform: translateY($article-leave-to) !important;
+  @include motion-rest-state($name);
+
+  main.#{$name}-leave-to {
+    article {
+      top: var(--article-rest-top);
+      transform: translateY($article-leave-to);
     }
 
-    .blockquote {
-      transform: translateY($quote-leave-to) !important;
+    blockquote {
+      transform: translateY($quote-leave-to);
     }
-
-    @include hero-transition-hidden;
   }
+
+  @include hero-transition-hidden($name, 'leave-to');
 }
 
 @mixin motion-reduced($name) {
   @include motion-layer($name);
 
   .#{$name}-enter-active {
-    .article,
-    .blockquote,
-    .hero {
+    article,
+    blockquote,
+    figure {
       transition: opacity var(--reduced-fade-enter-duration) ease-out;
     }
   }
@@ -228,37 +225,32 @@
   .#{$name}-leave-active {
     pointer-events: none;
 
-    .article,
-    .blockquote,
-    .hero {
+    article,
+    blockquote,
+    figure {
       transition: opacity var(--reduced-fade-leave-duration) ease-in;
     }
   }
 
-  .#{$name}-enter-from,
-  .#{$name}-leave-to {
-    .article,
-    .blockquote,
-    .hero {
-      opacity: 0 !important;
+  main.#{$name}-enter-from,
+  main.#{$name}-leave-to {
+    article,
+    blockquote,
+    figure {
+      opacity: 0;
     }
   }
 
-  .#{$name}-enter-to,
-  .#{$name}-leave-from {
-    .article,
-    .blockquote,
-    .hero {
-      opacity: 1 !important;
+  main.#{$name}-enter-to,
+  main.#{$name}-leave-from {
+    article,
+    blockquote,
+    figure {
+      opacity: 1;
     }
   }
 
-  .#{$name}-enter-from,
-  .#{$name}-enter-to,
-  .#{$name}-leave-from,
-  .#{$name}-leave-to {
-    @include motion-rest-state;
-  }
+  @include motion-rest-state($name);
 }
 
 // Global base styles
@@ -302,12 +294,8 @@ body {
   overflow-x: clip;
 }
 
-.route-stage {
-  background-color: var(--hero-fallback-bg);
-  position: relative;
-}
-
 main {
+  position: relative;
   width: 100%;
 }
 
@@ -344,8 +332,7 @@ a {
   }
 
   #app,
-  .route-stage,
-  .page {
+  main {
     height: 100vh;
   }
 

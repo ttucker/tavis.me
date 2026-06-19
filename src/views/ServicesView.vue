@@ -1,8 +1,6 @@
 <template>
-  <div class="page page--content">
-    <HeroImage current-page="services" img-src="/services.jpg" />
-    <main>
-      <ContentArticle>
+  <HeroImage current-page="services" img-src="/services.jpg" />
+  <ContentArticle>
         <h3>Services</h3>
         <h4>Here's how I can help you.</h4>
         <p>
@@ -23,9 +21,7 @@
         <p>
           Need help? <RouterLink to="/contact">Get in touch</RouterLink> and let's start a conversation!
         </p>
-      </ContentArticle>
-    </main>
-  </div>
+  </ContentArticle>
 </template>
 
 <script setup lang="ts">
