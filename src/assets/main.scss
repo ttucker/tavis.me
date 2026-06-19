@@ -1,3 +1,4 @@
+// Base theme tokens
 :root {
   --app-bg-mobile: oklch(0.37 0.01 285 / 0.8);
   --app-bg-desktop: oklch(0.33 0 0);
@@ -65,6 +66,7 @@
   --footer-small-shadow: 1px 1px oklch(0 0 0 / 0.3);
 }
 
+// Shared mixins
 @mixin light-theme-tokens {
   --app-bg-mobile: oklch(0.84 0 0 / 0.6);
   --app-bg-desktop: oklch(0.84 0 0 / 0.6);
@@ -134,6 +136,12 @@
   }
 }
 
+@mixin hero-transition-hidden {
+  .hero {
+    opacity: 0 !important;
+  }
+}
+
 @mixin motion($name, $article-enter-from, $article-leave-to, $quote-enter-from, $quote-leave-to) {
   @include motion-layer($name);
 
@@ -176,9 +184,7 @@
       transform: translateY($quote-enter-from) !important;
     }
 
-    .hero {
-      opacity: 0 !important;
-    }
+    @include hero-transition-hidden;
   }
 
   .#{$name}-enter-to,
@@ -196,9 +202,7 @@
       transform: translateY($quote-leave-to) !important;
     }
 
-    .hero {
-      opacity: 0 !important;
-    }
+    @include hero-transition-hidden;
   }
 }
 
@@ -249,6 +253,7 @@
   }
 }
 
+// Global base styles
 @font-face {
   font-family: PTSansCustom;
   font-style: normal;
@@ -321,6 +326,7 @@ a {
   }
 }
 
+// Desktop layout and route motion
 @include desktop-up {
   html,
   body {
@@ -355,6 +361,7 @@ a {
   @include motion-reduced('back');
 }
 
+// Theme overrides
 @media (prefers-color-scheme: light) {
   :root:not([data-theme='dark']) {
     @include light-theme-tokens;

@@ -2,8 +2,10 @@
   <SiteHeader />
   <div class="route-stage">
     <RouterView v-slot="{ Component, route }">
+      <component v-if="isMobileViewport" :is="Component" :key="route.fullPath" />
       <Transition
-        :appear="!isMobileViewport"
+        v-else
+        :appear="true"
         :name="isBackNavigation ? 'back' : 'forward'"
         :duration="transitionDuration"
         @after-enter="handleAfterEnter"
@@ -16,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterView } from 'vue-router'
 
 import SiteFooter from './components/SiteFooter.vue'
@@ -50,13 +52,7 @@ onBeforeUnmount(() => {
   viewportQuery?.removeEventListener('change', syncViewportMode)
 })
 
-const transitionDuration = computed(() => {
-  if (isMobileViewport.value) {
-    return { enter: 0, leave: 0 }
-  }
-
-  return { enter: 800, leave: 500 }
-})
+const transitionDuration = { enter: 800, leave: 500 }
 
 const handleAfterEnter = () => {
   isBackNavigation.value = false
