@@ -3,7 +3,7 @@ const copyright = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="footer">
+  <footer>
     <nav aria-label="External links">
       <ul>
         <li><a href="mailto:tavis.tucker@gmail.com?subject=Getting in touch...">Email</a></li>
@@ -17,7 +17,7 @@ const copyright = new Date().getFullYear()
 </template>
 
 <style scoped lang="scss">
-.footer {
+footer {
   align-items: center;
   border-top: 1px solid var(--footer-border-color);
   display: flex;
@@ -53,7 +53,7 @@ const copyright = new Date().getFullYear()
 }
 
 @include desktop-up {
-  .footer {
+  footer {
     background-color: var(--footer-bg-desktop);
     border-top: none;
     bottom: 0;

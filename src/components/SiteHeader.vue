@@ -13,13 +13,17 @@ const themeToggleLabel = computed(() => {
   return isDarkTheme.value ? 'Switch to light theme' : 'Switch to dark theme'
 })
 
+const themeToggleIcon = computed(() => {
+  return isDarkTheme.value ? '☀' : '☽'
+})
+
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 </script>
 
 <template>
-  <header class="header" :class="{ 'is-menu-open': isMenuOpen }">
+  <header :class="{ 'is-menu-open': isMenuOpen }">
     <RouterLink to="/">
       <h1>tavis.me</h1>
       <h2>The Curriculum Vitae</h2>
@@ -36,11 +40,14 @@ const toggleMenu = () => {
       <span></span>
       <span></span>
     </button>
-    <button :aria-label="themeToggleLabel" class="theme-toggle" type="button" @click="toggleTheme">
-      <span class="theme-icon sun" :class="{ active: isDarkTheme }" aria-hidden="true">☀</span>
-      <span class="theme-icon moon" :class="{ active: !isDarkTheme }" aria-hidden="true">☽</span>
-    </button>
-    <nav id="primary-navigation" aria-label="Primary" class="primary-nav" :class="{ open: isMenuOpen }">
+    <button
+      :aria-label="themeToggleLabel"
+      class="theme-toggle"
+      :class="isDarkTheme ? 'theme-toggle--sun' : 'theme-toggle--moon'"
+      type="button"
+      @click="toggleTheme"
+    >{{ themeToggleIcon }}</button>
+    <nav id="primary-navigation" aria-label="Primary" :class="{ open: isMenuOpen }">
       <ul>
         <li v-for="item in MAIN_NAV_ITEMS" :key="item.to">
           <RouterLink :to="item.to" :class="{ current: route.path === item.to }">{{ item.label }}</RouterLink>
@@ -51,7 +58,7 @@ const toggleMenu = () => {
 </template>
 
 <style scoped lang="scss">
-.header {
+header {
   background-color: var(--header-bg);
   color: oklch(1 0 0);
   min-height: pxToRem(62);
@@ -124,7 +131,7 @@ const toggleMenu = () => {
     border-radius: pxToRem(1);
     display: block;
     height: pxToRem(2);
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     width: pxToRem(22);
   }
 }
@@ -146,6 +153,7 @@ const toggleMenu = () => {
 }
 
 .theme-toggle {
+  --theme-toggle-x: 0;
   align-items: center;
   appearance: none;
   background: transparent;
@@ -155,30 +163,25 @@ const toggleMenu = () => {
   display: inline-flex;
   height: pxToRem(40);
   justify-content: center;
+  line-height: 1;
   padding: 0;
   position: absolute;
   right: pxToRem(52);
+  font-size: pxToRem(28);
   top: pxToRem(11);
+  transition: transform 0.5s ease;
   width: pxToRem(40);
 }
 
-.theme-icon {
-  font-size: pxToRem(20);
-  left: 50%;
-  line-height: 1;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(90deg) scale(0.85);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-
-  &.active {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(0deg) scale(1);
-  }
+.theme-toggle--moon {
+  transform: translateX(var(--theme-toggle-x)) rotate(45deg);
 }
 
-.primary-nav {
+.theme-toggle--sun {
+  transform: translateX(var(--theme-toggle-x)) rotate(270deg);
+}
+
+nav {
   background-color: var(--primary-nav-bg-mobile);
   border-top-color: var(--primary-nav-border-top);
   border-bottom-color: var(--primary-nav-border-bottom);
@@ -197,7 +200,7 @@ const toggleMenu = () => {
 }
 
 @include desktop-up {
-  .header {
+  header {
     box-shadow: inset 0 0 90px 30px oklch(0 0 0 / 0.25);
     height: 100vh;
     left: pxToRem(24);
@@ -246,15 +249,16 @@ const toggleMenu = () => {
   }
 
   .theme-toggle {
+    --theme-toggle-x: -50%;
     bottom: pxToRem(36);
     color: var(--header-theme-toggle-color-desktop);
+    font-size: pxToRem(36);
     left: 50%;
     right: auto;
     top: auto;
-    transform: translateX(-50%);
   }
 
-  .primary-nav {
+  nav {
     background-color: var(--primary-nav-bg-desktop);
     border-color: oklch(1 0 0 / 0.25);
     box-shadow: var(--primary-nav-shadow-desktop);
