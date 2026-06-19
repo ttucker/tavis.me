@@ -140,7 +140,7 @@
 }
 
 @mixin hero-transition-hidden($name, $phase) {
-  main.#{$name}-#{$phase} figure {
+  main.#{$name}-#{$phase} figure.visible {
     opacity: 0;
   }
 }
@@ -236,7 +236,7 @@
   main.#{$name}-leave-to {
     article,
     blockquote,
-    figure {
+    figure.visible {
       opacity: 0;
     }
   }
@@ -245,7 +245,7 @@
   main.#{$name}-leave-from {
     article,
     blockquote,
-    figure {
+    figure.visible {
       opacity: 1;
     }
   }
