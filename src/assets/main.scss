@@ -146,6 +146,10 @@
   @include motion-layer($name);
 
   .#{$name}-enter-active {
+    main {
+      overflow-y: hidden;
+    }
+
     .article {
       transition: transform var(--article-enter-duration) var(--enter-curve);
     }
@@ -161,6 +165,10 @@
 
   .#{$name}-leave-active {
     pointer-events: none;
+
+    main {
+      overflow-y: hidden;
+    }
 
     .article {
       transition: transform var(--article-leave-duration) var(--leave-curve);
