@@ -6,7 +6,7 @@
         <h3>Resumé</h3>
 
         <Carousel>
-          <Slide>
+          <CarouselSlide>
             <h4>About</h4>
             <p>
               Seasoned internet technology expert with 20+ years experience, specializing in frontend development,
@@ -45,9 +45,9 @@
               </li>
               <li><b>Facebook Booking Engine</b> - Created hotel availability search app with Facebook Developer API and generated over $250K in profit in under 2 years with 12:1 ROI</li>
             </ul>
-          </Slide>
+          </CarouselSlide>
 
-          <Slide>
+          <CarouselSlide>
             <h4>Experience</h4>
             <dl>
               <dt>May 2016 - December 2022</dt>
@@ -84,9 +84,9 @@
                 </ul>
               </dd>
             </dl>
-          </Slide>
+          </CarouselSlide>
 
-          <Slide>
+          <CarouselSlide>
             <h4>Experience</h4>
             <dl>
               <dt>October 2013 - March 2015</dt>
@@ -119,9 +119,9 @@
                 </ul>
               </dd>
             </dl>
-          </Slide>
+          </CarouselSlide>
 
-          <Slide>
+          <CarouselSlide>
             <h4>Experience</h4>
             <dl>
               <dt>January 2005 - June 2006</dt>
@@ -153,9 +153,9 @@
                 </ul>
               </dd>
             </dl>
-          </Slide>
+          </CarouselSlide>
 
-          <Slide>
+          <CarouselSlide>
             <h4>Education</h4>
             <dl>
               <dt>September 2001 - December 2002</dt>
@@ -192,7 +192,7 @@
                 <a href="/Tavis Tucker - resume.pdf" rel="nofollow"> printable version</a> for your convenience.
               </i>
             </p>
-          </Slide>
+          </CarouselSlide>
         </Carousel>
       </ContentArticle>
     </main>
@@ -202,8 +202,8 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 
+import Carousel from '../components/Carousel.vue'
+import CarouselSlide from '../components/CarouselSlide.vue'
 import ContentArticle from '../components/ContentArticle.vue'
 import HeroImage from '../components/HeroImage.vue'
-import Carousel from '../components/Carousel.vue'
-import Slide from '../components/Slide.vue'
 </script>

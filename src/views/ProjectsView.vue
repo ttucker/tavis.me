@@ -6,7 +6,7 @@
         <h3>Projects</h3>
 
         <Carousel>
-          <Slide>
+          <CarouselSlide>
             <h4>@Tenable</h4>
             <p>I was fortunate to have many opportunities at Tenable to bootstrap several new features and applications.</p>
             <dl>
@@ -38,9 +38,9 @@
                 </ul>
               </dd>
             </dl>
-          </Slide>
+          </CarouselSlide>
 
-          <Slide>
+          <CarouselSlide>
             <h4>@Apptio</h4>
             <p>Most of my tenure was devoted to helping build Apptio's latest product.</p>
             <dl>
@@ -57,9 +57,9 @@
                 </ul>
               </dd>
             </dl>
-          </Slide>
+          </CarouselSlide>
 
-          <Slide>
+          <CarouselSlide>
             <h4>@Sabre</h4>
             <p>These are some projects I developed at Sabre Hospitality Solutions, though most have since been redeveloped.</p>
             <dl>
@@ -101,9 +101,9 @@
                 </ul>
               </dd>
             </dl>
-          </Slide>
+          </CarouselSlide>
 
-          <Slide>
+          <CarouselSlide>
             <h4>@Independent Consulting</h4>
             <p>Note: websites below have undergone redevelopment since my involvement, so I take no credit for them in their current state! Sample code can be provided if requested.</p>
             <dl>
@@ -149,7 +149,7 @@
                 </ul>
               </dd>
             </dl>
-          </Slide>
+          </CarouselSlide>
         </Carousel>
       </ContentArticle>
     </main>
@@ -157,9 +157,9 @@
 </template>
 
 <script setup lang="ts">
+import Carousel from '../components/Carousel.vue'
+import CarouselSlide from '../components/CarouselSlide.vue'
 import ContentArticle from '../components/ContentArticle.vue'
 import HeroImage from '../components/HeroImage.vue'
-import Carousel from '../components/Carousel.vue'
-import Slide from '../components/Slide.vue'
 
 </script>
