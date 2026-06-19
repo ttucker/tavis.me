@@ -1,5 +1,5 @@
 <template>
-  <HeroImage img-src="/home.jpg" current-page="home" :full-height="true" />
+  <HeroImage img-src="/home.jpg" current-page="home" />
   <blockquote>
     Hello and <i>welcome</i> to my website
   </blockquote>
@@ -10,6 +10,14 @@ import HeroImage from '../components/HeroImage.vue'
 </script>
 
 <style scoped lang="scss">
+figure {
+  height: 80vh;
+
+  @include desktop-up {
+    height: 100vh;
+  }
+}
+
 blockquote {
   color: var(--blockquote-color);
   font-family: CardoCustom, Times, 'Times New Roman', serif;
@@ -22,7 +30,7 @@ blockquote {
   text-align: center;
   text-shadow: 1px 1px oklch(1 0 0 / 0.2);
   text-transform: uppercase;
-  top: 33%;
+  top: 30%;
   transform: translate(-50%, -50%);
   width: min(92vw, pxToRem(640));
 
@@ -39,7 +47,7 @@ blockquote {
   @include desktop-up {
     bottom: 67%;
     font-size: pxToRem(25);
-    left: 47%;
+    left: 17%;
     line-height: pxToRem(25);
     top: auto;
     transform: none;

@@ -5,14 +5,12 @@ type HeroImageAlign = 'top' | 'bottom'
 
 interface HeroImageProps {
   currentPage?: string
-  fullHeight?: boolean
   imgSrc: string
   imageAlign?: HeroImageAlign
 }
 
 const props = withDefaults(defineProps<HeroImageProps>(), {
   currentPage: 'home',
-  fullHeight: false,
 })
 
 const isVisible = ref(false)
@@ -32,7 +30,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <figure :class="{ visible: isVisible, 'hero--full-height': fullHeight }">
+  <figure :class="{ visible: isVisible }">
     <img :src="imgSrc" :alt="currentPage" :style="imageStyle" />
   </figure>
 </template>
@@ -56,11 +54,6 @@ figure {
 
   &.visible {
     opacity: var(--hero-visible-opacity);
-  }
-
-  &.hero--full-height {
-    height: 100vh;
-    overflow: hidden;
   }
 }
 
