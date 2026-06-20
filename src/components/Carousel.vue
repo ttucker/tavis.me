@@ -147,11 +147,11 @@ function go(nextIndex: number) {
     }
 
     &.left {
-      left: 0;
+      left: pxToRem(-15);
     }
 
     &.right {
-      right: 0;
+      right: pxToRem(-15);
     }
 
     svg {

@@ -82,8 +82,10 @@ article {
     line-height: 1.5;
     padding: pxToRem(20) 0;
     position: absolute;
+    right: pxToRem(15);
     top: 11%;
     transform: translateY(0);
+    width: 55%;
 
     :deep(h3),
     :deep(h4),
