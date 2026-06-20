@@ -161,6 +161,16 @@ html {
   -webkit-font-smoothing: auto;
 }
 
+@include desktop-up {
+  html,
+  body,
+  #app {
+    background-color: var(--app-bg-desktop);
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
 ul,
 ol {
   list-style-position: outside;
@@ -184,17 +194,3 @@ a {
   }
 }
 
-@include desktop-up {
-  html,
-  body,
-  #app {
-    background-color: var(--app-bg-desktop);
-    height: 100%;
-    overflow: hidden;
-  }
-}
-
-@include desktop-up-reduced-motion {
-  @include motion-reduced('forward');
-  @include motion-reduced('back');
-}

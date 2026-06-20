@@ -11,6 +11,13 @@ main {
 }
 
 @include desktop-up {
+  html,
+  body,
+  #app {
+    background-color: var(--app-bg-desktop);
+    height: 100%;
+    overflow: hidden;
+  }
   main {
     height: 100vh;
     overflow-y: auto;
@@ -20,4 +27,8 @@ main {
   @include motion('back', -105%, 115%, -220vh, 220vh);
 }
 
+@include desktop-up-reduced-motion {
+  @include motion-reduced('forward');
+  @include motion-reduced('back');
+}
 </style>
