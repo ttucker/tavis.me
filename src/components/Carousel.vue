@@ -73,11 +73,8 @@ function go(nextIndex: number) {
 <style scoped lang="scss">
 .carousel {
   --carousel-chev-size: 40px;
-  --carousel-chev-sticky-top: calc(50vh - 20px);
   --carousel-fade-enter-duration: 2000ms;
   --carousel-fade-leave-duration: 500ms;
-
-  outline: none;
   position: relative;
 
   .viewport {
@@ -91,30 +88,12 @@ function go(nextIndex: number) {
 
   .active-slide {
     min-height: 100%;
-    transform: translateZ(0);
     width: 100%;
-  }
-
-  .chev-overlay {
-    height: 0;
-    inset-inline: 0;
-    pointer-events: none;
-    position: sticky;
-    top: var(--carousel-chev-sticky-top);
-    z-index: 1;
-  }
-
-  .fade-enter-active,
-  .fade-leave-active {
-    backface-visibility: hidden;
-    transition-property: opacity;
-    will-change: opacity;
   }
 
   .fade-enter-active {
     transition-duration: var(--carousel-fade-enter-duration);
     transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-    z-index: 1;
   }
 
   .fade-leave-active {
@@ -124,7 +103,6 @@ function go(nextIndex: number) {
     transition-duration: var(--carousel-fade-leave-duration);
     transition-timing-function: ease-out;
     width: 100%;
-    z-index: 0;
   }
 
   .fade-enter-from,
@@ -135,6 +113,15 @@ function go(nextIndex: number) {
   .fade-enter-to,
   .fade-leave-from {
     opacity: 1;
+  }
+
+  .chev-overlay {
+    height: 0;
+    inset-inline: 0;
+    pointer-events: none;
+    position: sticky;
+    top: 45vh;
+    z-index: 1;
   }
 
   .chev {
@@ -152,7 +139,6 @@ function go(nextIndex: number) {
     top: 0;
     transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     width: var(--carousel-chev-size);
-    z-index: 1;
 
     &:hover {
       background: var(--carousel-chev-bg-hover);

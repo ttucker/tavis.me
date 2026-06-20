@@ -142,9 +142,7 @@
   src: url('/Cardo-Regular.woff2') format('woff2');
 }
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -156,21 +154,11 @@ html {
   color-scheme: var(--app-color-scheme);
   font-family: PTSansCustom, 'Trebuchet MS', Geneva, 'Helvetica Neue', sans-serif;
   font-size: 14px;
-  font-synthesis: weight style small-caps;
+  min-width: pxToRem(320);
   overflow-x: clip;
   text-rendering: auto;
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: auto;
-}
-
-body {
-  min-width: pxToRem(320);
-  overflow-x: clip;
-}
-
-main {
-  position: relative;
-  width: 100%;
 }
 
 ul,
@@ -196,10 +184,10 @@ a {
   }
 }
 
-// Desktop layout and route motion
 @include desktop-up {
   html,
-  body {
+  body,
+  #app {
     background-color: var(--app-bg-desktop);
     height: 100%;
     overflow: hidden;
