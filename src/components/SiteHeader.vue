@@ -28,25 +28,27 @@ const toggleMenu = () => {
       <h1>tavis.me</h1>
       <h2>The Curriculum Vitae</h2>
     </RouterLink>
-    <button
-      aria-controls="primary-navigation"
-      :aria-expanded="isMenuOpen"
-      aria-label="Toggle navigation menu"
-      class="menu-toggle"
-      type="button"
-      @click="toggleMenu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <button
-      :aria-label="themeToggleLabel"
-      class="theme-toggle"
-      :class="isDarkTheme ? 'theme-toggle--sun' : 'theme-toggle--moon'"
-      type="button"
-      @click="toggleTheme"
-    >{{ themeToggleIcon }}</button>
+    <div class="header-controls">
+      <button
+        :aria-label="themeToggleLabel"
+        class="theme-toggle"
+        :class="isDarkTheme ? 'theme-toggle--sun' : 'theme-toggle--moon'"
+        type="button"
+        @click="toggleTheme"
+      >{{ themeToggleIcon }}</button>
+      <button
+        aria-controls="primary-navigation"
+        :aria-expanded="isMenuOpen"
+        aria-label="Toggle navigation menu"
+        class="menu-toggle"
+        type="button"
+        @click="toggleMenu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
     <nav id="primary-navigation" aria-label="Primary" :class="{ open: isMenuOpen }">
       <ul>
         <li v-for="item in MAIN_NAV_ITEMS" :key="item.to">
@@ -59,23 +61,22 @@ const toggleMenu = () => {
 
 <style scoped lang="scss">
 header {
+  align-items: center;
   background-color: var(--header-bg);
   color: oklch(1 0 0);
-  min-height: pxToRem(62);
+  display: flex;
+  flex-wrap: wrap;
   text-transform: uppercase;
+  justify-content: space-between;
   z-index: 5;
 
   > a {
     align-items: center;
     display: inline-flex;
     flex-direction: column;
-    height: pxToRem(62);
     justify-content: center;
-    left: pxToRem(10);
-    padding: 0;
-    position: absolute;
+    padding: pxToRem(10);
     text-shadow: var(--header-link-shadow);
-    top: 0;
 
     * {
       color: var(--header-link-color-mobile);
@@ -109,6 +110,10 @@ header {
   }
 }
 
+.header-controls {
+  display: flex;
+}
+
 .menu-toggle {
   align-items: center;
   appearance: none;
@@ -122,9 +127,6 @@ header {
   min-height: pxToRem(40);
   min-width: pxToRem(40);
   padding: 0;
-  position: absolute;
-  right: pxToRem(10);
-  top: pxToRem(11);
 
   span {
     background-color: var(--header-menu-toggle-color);
@@ -153,7 +155,6 @@ header {
 }
 
 .theme-toggle {
-  --theme-toggle-x: 0;
   align-items: center;
   appearance: none;
   background: transparent;
@@ -165,20 +166,17 @@ header {
   justify-content: center;
   line-height: 1;
   padding: 0;
-  position: absolute;
-  right: pxToRem(52);
   font-size: pxToRem(28);
-  top: pxToRem(11);
   transition: transform 0.5s ease;
   width: pxToRem(40);
 }
 
 .theme-toggle--moon {
-  transform: translateX(var(--theme-toggle-x)) rotate(45deg);
+  transform: rotate(30deg);
 }
 
 .theme-toggle--sun {
-  transform: translateX(var(--theme-toggle-x)) rotate(270deg);
+  transform: rotate(270deg);
 }
 
 nav {
@@ -189,9 +187,9 @@ nav {
   border-width: 1px 0;
   box-shadow: var(--primary-nav-shadow-mobile);
   display: none;
+  flex-basis: 100%;
   font-size: pxToRem(13);
   letter-spacing: pxToRem(1);
-  margin-top: pxToRem(62);
   padding: pxToRem(8) 0 pxToRem(12);
 
   &.open {
@@ -201,7 +199,10 @@ nav {
 
 @include desktop-up {
   header {
+    align-items: stretch;
     box-shadow: inset 0 0 90px 30px oklch(0 0 0 / 0.25);
+    flex-direction: column;
+    flex-wrap: nowrap;
     height: 100vh;
     left: pxToRem(24);
     position: fixed;
@@ -209,14 +210,10 @@ nav {
     width: pxToRem(240);
 
     > a {
-      align-items: initial;
       display: block;
       height: auto;
-      justify-content: initial;
       margin: pxToRem(32) 0 pxToRem(24);
-      min-height: 0;
       padding: pxToRem(4) 0;
-      position: static;
       text-shadow: 1px 1px oklch(0 0 0 / 0.2);
 
       * {
@@ -244,18 +241,21 @@ nav {
     }
   }
 
+  .header-controls {
+    align-self: center;
+    flex-direction: column;
+    gap: 0;
+    margin: auto 0 pxToRem(36);
+    order: 3;
+  }
+
   .menu-toggle {
     display: none;
   }
 
   .theme-toggle {
-    --theme-toggle-x: -50%;
-    bottom: pxToRem(36);
     color: var(--header-theme-toggle-color-desktop);
-    font-size: pxToRem(36);
-    left: 50%;
-    right: auto;
-    top: auto;
+    font-size: pxToRem(32);
   }
 
   nav {
@@ -263,11 +263,14 @@ nav {
     border-color: oklch(1 0 0 / 0.25);
     box-shadow: var(--primary-nav-shadow-desktop);
     display: block;
+    flex-basis: auto;
     font-size: pxToRem(14);
     line-height: pxToRem(32);
     margin: 0 pxToRem(28);
     margin-top: 0;
+    order: 2;
     padding: pxToRem(15) pxToRem(25);
+    width: auto;
   }
 }
 </style>
