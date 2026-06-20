@@ -66,7 +66,6 @@
   --footer-small-shadow: 1px 1px oklch(0 0 0 / 0.3);
 }
 
-// Shared mixins
 @mixin light-theme-tokens {
   --app-bg-mobile: oklch(0.84 0 0 / 0.6);
   --app-bg-desktop: oklch(0.84 0 0 / 0.6);
@@ -116,141 +115,16 @@
   --footer-small-shadow: 1px 1px oklch(0.84 0 0 / 0.6);
 }
 
-@mixin motion-layer($name) {
-  .#{$name}-enter-active,
-  .#{$name}-leave-active {
-    bottom: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
+// Theme overrides
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    @include light-theme-tokens;
+    --carousel-chev-bg: oklch(1 0 0 / 0.45);
   }
 }
 
-@mixin motion-rest-state($name) {
-  main.#{$name}-enter-to article,
-  main.#{$name}-leave-from article {
-    top: var(--article-rest-top);
-    transform: translateY(0);
-  }
-
-  main.#{$name}-enter-to blockquote,
-  main.#{$name}-leave-from blockquote {
-    transform: translateY(0);
-  }
-}
-
-@mixin hero-transition-hidden($name, $phase) {
-  main.#{$name}-#{$phase} figure.visible {
-    opacity: 0;
-  }
-}
-
-@mixin motion($name, $article-enter-from, $article-leave-to, $quote-enter-from, $quote-leave-to) {
-  @include motion-layer($name);
-
-  main.#{$name}-enter-active {
-    overflow-y: hidden;
-    scrollbar-gutter: stable;
-
-    article {
-      transition: transform var(--article-enter-duration) var(--enter-curve);
-    }
-
-    blockquote {
-      transition: transform var(--quote-enter-duration) var(--enter-curve) var(--quote-enter-delay);
-    }
-
-    figure {
-      transition: opacity var(--hero-enter-duration) var(--enter-curve);
-    }
-  }
-
-  main.#{$name}-leave-active {
-    pointer-events: none;
-    overflow-y: hidden;
-    scrollbar-gutter: stable;
-
-    article {
-      transition: transform var(--article-leave-duration) var(--leave-curve);
-    }
-
-    blockquote {
-      transition: transform var(--quote-leave-duration) var(--leave-curve);
-    }
-
-    figure {
-      transition: opacity var(--hero-leave-duration) var(--leave-curve);
-    }
-  }
-
-  main.#{$name}-enter-from {
-    article {
-      transform: translateY($article-enter-from);
-    }
-
-    blockquote {
-      transform: translateY($quote-enter-from);
-    }
-  }
-
-  @include hero-transition-hidden($name, 'enter-from');
-
-  @include motion-rest-state($name);
-
-  main.#{$name}-leave-to {
-    article {
-      top: var(--article-rest-top);
-      transform: translateY($article-leave-to);
-    }
-
-    blockquote {
-      transform: translateY($quote-leave-to);
-    }
-  }
-
-  @include hero-transition-hidden($name, 'leave-to');
-}
-
-@mixin motion-reduced($name) {
-  @include motion-layer($name);
-
-  .#{$name}-enter-active {
-    article,
-    blockquote,
-    figure {
-      transition: opacity var(--reduced-fade-enter-duration) ease-out;
-    }
-  }
-
-  .#{$name}-leave-active {
-    pointer-events: none;
-
-    article,
-    blockquote,
-    figure {
-      transition: opacity var(--reduced-fade-leave-duration) ease-in;
-    }
-  }
-
-  main.#{$name}-enter-from,
-  main.#{$name}-leave-to {
-    article,
-    blockquote,
-    figure.visible {
-      opacity: 0;
-    }
-  }
-
-  main.#{$name}-enter-to,
-  main.#{$name}-leave-from {
-    article,
-    blockquote,
-    figure.visible {
-      opacity: 1;
-    }
-  }
-
-  @include motion-rest-state($name);
+:root[data-theme='light'] {
+  @include light-theme-tokens;
 }
 
 // Global base styles
@@ -330,41 +204,9 @@ a {
     height: 100%;
     overflow: hidden;
   }
-
-  #app,
-  main {
-    height: 100vh;
-  }
-
-  main {
-    height: 100vh;
-    max-width: pxToRem(800);
-    overflow-y: auto;
-    position: absolute;
-    right: 0;
-    scrollbar-gutter: stable;
-    top: 0;
-    width: 55%;
-  }
-
-  @include motion('forward', 105%, -115%, -220vh, -220vh);
-  @include motion('back', -105%, 115%, -220vh, 220vh);
 }
 
 @include desktop-up-reduced-motion {
   @include motion-reduced('forward');
   @include motion-reduced('back');
-}
-
-// Theme overrides
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme='dark']) {
-    @include light-theme-tokens;
-
-    --carousel-chev-bg: oklch(1 0 0 / 0.45);
-  }
-}
-
-:root[data-theme='light'] {
-  @include light-theme-tokens;
 }

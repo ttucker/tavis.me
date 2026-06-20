@@ -23,3 +23,140 @@
     @content;
   }
 }
+
+@mixin motion($name, $article-enter-from, $article-leave-to, $quote-enter-from, $quote-leave-to) {
+  @include motion-layer($name);
+
+  main.#{$name}-enter-active {
+    overflow-y: hidden;
+    scrollbar-gutter: stable;
+
+    article {
+      transition: transform var(--article-enter-duration) var(--enter-curve);
+    }
+
+    blockquote {
+      transition: transform var(--quote-enter-duration) var(--enter-curve) var(--quote-enter-delay);
+    }
+
+    figure {
+      transition: opacity var(--hero-enter-duration) var(--enter-curve);
+    }
+  }
+
+  main.#{$name}-leave-active {
+    pointer-events: none;
+    overflow-y: hidden;
+    scrollbar-gutter: stable;
+
+    article {
+      transition: transform var(--article-leave-duration) var(--leave-curve);
+    }
+
+    blockquote {
+      transition: transform var(--quote-leave-duration) var(--leave-curve);
+    }
+
+    figure {
+      transition: opacity var(--hero-leave-duration) var(--leave-curve);
+    }
+  }
+
+  main.#{$name}-enter-from {
+    article {
+      transform: translateY($article-enter-from);
+    }
+
+    blockquote {
+      transform: translateY($quote-enter-from);
+    }
+  }
+
+  @include hero-transition-hidden($name, 'enter-from');
+
+  @include motion-rest-state($name);
+
+  main.#{$name}-leave-to {
+    article {
+      top: var(--article-rest-top);
+      transform: translateY($article-leave-to);
+    }
+
+    blockquote {
+      transform: translateY($quote-leave-to);
+    }
+  }
+
+  @include hero-transition-hidden($name, 'leave-to');
+}
+
+@mixin motion-layer($name) {
+  .#{$name}-enter-active,
+  .#{$name}-leave-active {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+@mixin motion-rest-state($name) {
+  main.#{$name}-enter-to article,
+  main.#{$name}-leave-from article {
+    top: var(--article-rest-top);
+    transform: translateY(0);
+  }
+
+  main.#{$name}-enter-to blockquote,
+  main.#{$name}-leave-from blockquote {
+    transform: translateY(0);
+  }
+}
+
+@mixin hero-transition-hidden($name, $phase) {
+  main.#{$name}-#{$phase} figure.visible {
+    opacity: 0;
+  }
+}
+
+@mixin motion-reduced($name) {
+  @include motion-layer($name);
+
+  .#{$name}-enter-active {
+    article,
+    blockquote,
+    figure {
+      transition: opacity var(--reduced-fade-enter-duration) ease-out;
+    }
+  }
+
+  .#{$name}-leave-active {
+    pointer-events: none;
+
+    article,
+    blockquote,
+    figure {
+      transition: opacity var(--reduced-fade-leave-duration) ease-in;
+    }
+  }
+
+  main.#{$name}-enter-from,
+  main.#{$name}-leave-to {
+    article,
+    blockquote,
+    figure.visible {
+      opacity: 0;
+    }
+  }
+
+  main.#{$name}-enter-to,
+  main.#{$name}-leave-from {
+    article,
+    blockquote,
+    figure.visible {
+      opacity: 1;
+    }
+  }
+
+  @include motion-rest-state($name);
+}
