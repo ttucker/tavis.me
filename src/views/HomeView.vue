@@ -22,13 +22,14 @@ blockquote {
   color: var(--blockquote-color);
   font-family: CardoCustom, Times, 'Times New Roman', serif;
   font-size: pxToRem(20);
+  font-weight: 700;
   left: 50%;
   letter-spacing: pxToRem(2);
   line-height: pxToRem(24);
   pointer-events: none;
   position: absolute;
   text-align: center;
-  text-shadow: 1px 1px oklch(1 0 0 / 0.2);
+  text-shadow: 1px 1px oklch(1 0 0 / 0.1);
   text-transform: uppercase;
   top: 30%;
   transform: translate(-50%, -50%);
@@ -47,7 +48,7 @@ blockquote {
   @include desktop-up {
     bottom: 67%;
     font-size: pxToRem(25);
-    left: 17%;
+    left: 13%;
     line-height: pxToRem(25);
     top: auto;
     transform: none;
