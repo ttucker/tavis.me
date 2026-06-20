@@ -48,7 +48,7 @@ blockquote {
   @include desktop-up {
     bottom: 67%;
     font-size: pxToRem(25);
-    left: 13%;
+    left: 53%;
     line-height: pxToRem(25);
     top: auto;
     transform: none;
