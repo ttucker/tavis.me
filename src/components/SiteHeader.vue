@@ -185,7 +185,7 @@ nav {
   border-bottom-color: var(--primary-nav-border-bottom);
   border-style: solid;
   border-width: 1px 0;
-  box-shadow: var(--primary-nav-shadow-mobile);
+  box-shadow: inset 0 0 55px 20px var(--primary-nav-shadow-mobile);
   display: none;
   flex-basis: 100%;
   font-size: pxToRem(13);
@@ -200,7 +200,7 @@ nav {
 @include desktop-up {
   header {
     align-items: stretch;
-    box-shadow: inset 0 0 90px 30px oklch(0 0 0 / 0.25);
+    box-shadow: inset 0 0 80px 0 var(--primary-nav-shadow-desktop);
     flex-direction: column;
     flex-wrap: nowrap;
     height: 100vh;

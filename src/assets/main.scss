@@ -30,7 +30,7 @@
   --reduced-fade-enter-duration: 0.35s;
   --reduced-fade-leave-duration: 0.25s;
 
-  --article-bg: oklch(0.32 0 0 / 0.7);
+  --article-bg: oklch(0.22 0 0 / 0.7);
   --article-text-color: oklch(0.8452 0 0);
   --article-link-color: oklch(0.67 0.24 25);
   --article-link-hover-color: oklch(0.75 0.17 25);
@@ -56,7 +56,7 @@
   --primary-nav-bg-mobile: oklch(0.58 0 0 / 0.25);
   --primary-nav-border-top: oklch(1 0 0 / 0.1);
   --primary-nav-border-bottom: oklch(1 0 0 / 0.25);
-  --primary-nav-shadow-mobile: inset 0 0 55px 20px oklch(0 0 0 / 0.6);
+  --primary-nav-shadow-mobile: oklch(0 0 0 / 0.6);
   --primary-nav-bg-desktop: oklch(0 0 0 / 0.2);
   --primary-nav-shadow-desktop: inset 0 0 40px 10px oklch(0 0 0 / 0.3);
 
@@ -102,12 +102,12 @@
   --header-menu-toggle-color: oklch(0 0 0 / 0.7);
   --header-theme-toggle-color-mobile: oklch(0 0 0 / 0.7);
   --header-theme-toggle-color-desktop: oklch(0 0 0 / 0.7);
-  --primary-nav-bg-mobile: oklch(0.58 0 0 / 0.25);
-  --primary-nav-border-top: oklch(0 0 0 / 0.6);
-  --primary-nav-border-bottom: oklch(0 0 0 / 0.6);
-  --primary-nav-shadow-mobile: inset 0 0 55px 20px oklch(0.53 0 0 / 0.4);
+  --primary-nav-bg-mobile: oklch(1 0 0 / 0.34);
+  --primary-nav-border-top: oklch(0 0 0 / 0.18);
+  --primary-nav-border-bottom: oklch(0 0 0 / 0.24);
+  --primary-nav-shadow-mobile: oklch(0 0 0 / 0.24);
   --primary-nav-bg-desktop: oklch(1 0 0 / 0.2);
-  --primary-nav-shadow-desktop: inset 0 0 80px 0 oklch(0 0 0 / 0.3);
+  --primary-nav-shadow-desktop: oklch(0 0 0 / 0.3);
 
   --footer-bg-desktop: oklch(1 0 0 / 0.6);
   --footer-border-color: oklch(0 0 0 / 0.6);
