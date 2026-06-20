@@ -61,6 +61,7 @@ figure {
   figure {
     height: 100vh;
     inset: 0;
+    pointer-events: none;
     position: fixed;
     width: 100%;
   }
