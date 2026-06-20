@@ -73,8 +73,8 @@ function go(nextIndex: number) {
 <style scoped lang="scss">
 .carousel {
   --carousel-chev-size: 40px;
-  --carousel-fade-enter-duration: 2000ms;
-  --carousel-fade-leave-duration: 500ms;
+  --carousel-fade-enter-duration: 2s;
+  --carousel-fade-leave-duration: 0.5s;
   position: relative;
 
   .viewport {

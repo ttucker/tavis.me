@@ -206,7 +206,7 @@ nav {
     height: 100vh;
     left: pxToRem(24);
     position: fixed;
-    transition: left 0.225s ease-in;
+    transition: left 0.25s ease-in;
     width: pxToRem(240);
 
     > a {

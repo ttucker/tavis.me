@@ -42,7 +42,7 @@ figure {
   margin: 0;
   opacity: 0;
   position: relative;
-  transition: opacity 0.375s ease-in;
+  transition: opacity 0.25s ease-in;
   will-change: opacity;
 
   img {
