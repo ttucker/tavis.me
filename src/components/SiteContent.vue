@@ -11,13 +11,6 @@ main {
 }
 
 @include desktop-up {
-  html,
-  body,
-  #app {
-    background-color: var(--app-bg-desktop);
-    height: 100%;
-    overflow: hidden;
-  }
   main {
     height: 100vh;
     overflow-y: auto;
