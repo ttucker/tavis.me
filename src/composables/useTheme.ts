@@ -8,7 +8,6 @@ const hasUserPreference = ref(false)
 
 let initialized = false
 let mediaQuery: MediaQueryList | null = null
-let removeMediaListener: (() => void) | null = null
 
 const getSystemTheme = (): Theme => {
   return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
@@ -23,6 +22,15 @@ const getBootstrappedTheme = (): Theme | null => {
 const applyTheme = (value: Theme) => {
   document.documentElement.dataset.theme = value
   document.documentElement.style.colorScheme = value
+}
+
+const handleSystemThemeChange = (event: MediaQueryListEvent) => {
+  if (hasUserPreference.value) {
+    return
+  }
+
+  theme.value = event.matches ? 'light' : 'dark'
+  applyTheme(theme.value)
 }
 
 const readStoredTheme = (): Theme | null => {
@@ -56,17 +64,7 @@ export const initTheme = () => {
   applyTheme(theme.value)
 
   mediaQuery = window.matchMedia('(prefers-color-scheme: light)')
-  const handleSystemThemeChange = (event: MediaQueryListEvent) => {
-    if (hasUserPreference.value) {
-      return
-    }
-
-    theme.value = event.matches ? 'light' : 'dark'
-    applyTheme(theme.value)
-  }
-
   mediaQuery.addEventListener('change', handleSystemThemeChange)
-  removeMediaListener = () => mediaQuery?.removeEventListener('change', handleSystemThemeChange)
 }
 
 export const useTheme = () => {
@@ -98,6 +96,6 @@ export const useTheme = () => {
 }
 
 export const disposeTheme = () => {
-  removeMediaListener?.()
-  removeMediaListener = null
+  mediaQuery?.removeEventListener('change', handleSystemThemeChange)
+  mediaQuery = null
 }

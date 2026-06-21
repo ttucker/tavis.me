@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="dots" v-if="slidesCount > 1">
+    <div class="dots" v-if="slides.length > 1">
       <button
         v-for="(_, i) in slides"
         :key="i"
@@ -40,32 +40,31 @@ const VNodeRenderer = ({ vnode }: { vnode: VNode }) => cloneVNode(vnode)
 const slots = useSlots()
 const index = ref(0)
 const slides = computed(() => (slots.default?.() ?? []).filter((node) => node.type !== Comment))
-const slidesCount = computed(() => slides.value.length)
 const activeSlide = computed(() => slides.value[index.value] ?? null)
 
 watchEffect(() => {
-  if (!slidesCount.value) {
+  if (!slides.value.length) {
     index.value = 0
     return
   }
 
-  if (index.value >= slidesCount.value) {
-    index.value = slidesCount.value - 1
+  if (index.value >= slides.value.length) {
+    index.value = slides.value.length - 1
   }
 })
 
 function prev() {
-  if (!slidesCount.value) return
-  index.value = (index.value - 1 + slidesCount.value) % slidesCount.value
+  if (!slides.value.length) return
+  index.value = (index.value - 1 + slides.value.length) % slides.value.length
 }
 
 function next() {
-  if (!slidesCount.value) return
-  index.value = (index.value + 1) % slidesCount.value
+  if (!slides.value.length) return
+  index.value = (index.value + 1) % slides.value.length
 }
 
 function go(nextIndex: number) {
-  if (!slidesCount.value) return
+  if (!slides.value.length) return
   index.value = nextIndex
 }
 </script>

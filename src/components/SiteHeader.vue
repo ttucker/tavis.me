@@ -9,12 +9,18 @@ const route = useRoute()
 const isMenuOpen = ref(true)
 const { isDarkTheme, toggleTheme } = useTheme()
 
-const themeToggleLabel = computed(() => {
-  return isDarkTheme.value ? 'Switch to light theme' : 'Switch to dark theme'
-})
-
-const themeToggleIcon = computed(() => {
-  return isDarkTheme.value ? '☀' : '☽'
+const themeToggleState = computed(() => {
+  return isDarkTheme.value
+    ? {
+        className: 'theme-toggle--sun',
+        icon: '☀',
+        label: 'Switch to light theme',
+      }
+    : {
+        className: 'theme-toggle--moon',
+        icon: '☽',
+        label: 'Switch to dark theme',
+      }
 })
 
 const toggleMenu = () => {
@@ -30,12 +36,12 @@ const toggleMenu = () => {
     </RouterLink>
     <div class="header-controls">
       <button
-        :aria-label="themeToggleLabel"
+        :aria-label="themeToggleState.label"
         class="theme-toggle"
-        :class="isDarkTheme ? 'theme-toggle--sun' : 'theme-toggle--moon'"
+        :class="themeToggleState.className"
         type="button"
         @click="toggleTheme"
-      >{{ themeToggleIcon }}</button>
+      >{{ themeToggleState.icon }}</button>
       <button
         aria-controls="primary-navigation"
         :aria-expanded="isMenuOpen"

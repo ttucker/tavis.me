@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 type HeroImageAlign = 'top' | 'bottom'
 
@@ -14,15 +14,6 @@ const props = withDefaults(defineProps<HeroImageProps>(), {
 })
 
 const isVisible = ref(false)
-const imageStyle = computed(() => {
-  if (!props.imageAlign) {
-    return undefined
-  }
-
-  return {
-    objectPosition: props.imageAlign,
-  }
-})
 
 onMounted(() => {
   isVisible.value = true
@@ -31,7 +22,11 @@ onMounted(() => {
 
 <template>
   <figure :class="{ visible: isVisible }">
-    <img :src="imgSrc" :alt="currentPage" :style="imageStyle" />
+    <img
+      :src="imgSrc"
+      :alt="currentPage"
+      :style="props.imageAlign ? { objectPosition: props.imageAlign } : undefined"
+    />
   </figure>
 </template>
 
