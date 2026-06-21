@@ -1,6 +1,6 @@
 # Vue Migration of tavis.me
 
-This workspace contains a Vue 3 migration of the original Next.js/React site. It is set up with Vite, TypeScript, Vue Router, Pinia, ESLint, Prettier, and Yarn project policy configuration.
+This workspace contains a Vue 3 migration of the original Next.js/React site. It is set up with Vite, TypeScript, Vue Router, ESLint, Prettier, and Yarn project policy configuration.
 
 Status: verified locally with `yarn install`, `yarn build`, and `yarn dev`.
 
