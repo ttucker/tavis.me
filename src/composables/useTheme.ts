@@ -2,7 +2,7 @@ import { computed, ref } from 'vue'
 
 type Theme = 'light' | 'dark'
 
-const STORAGE_KEY = 'tavis-theme-preference'
+const STORAGE_KEY = 'theme-preference'
 const theme = ref<Theme>('dark')
 const hasUserPreference = ref(false)
 
@@ -12,6 +12,12 @@ let removeMediaListener: (() => void) | null = null
 
 const getSystemTheme = (): Theme => {
   return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+}
+
+const getBootstrappedTheme = (): Theme | null => {
+  const value = document.documentElement.dataset.theme
+
+  return value === 'light' || value === 'dark' ? value : null
 }
 
 const applyTheme = (value: Theme) => {
@@ -36,10 +42,13 @@ export const initTheme = () => {
   initialized = true
 
   const storedTheme = readStoredTheme()
+  const bootstrappedTheme = getBootstrappedTheme()
 
   if (storedTheme) {
     hasUserPreference.value = true
     theme.value = storedTheme
+  } else if (bootstrappedTheme) {
+    theme.value = bootstrappedTheme
   } else {
     theme.value = getSystemTheme()
   }
