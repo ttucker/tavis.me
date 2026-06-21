@@ -30,11 +30,6 @@ import { HERO_IMAGE_SRCS } from './constants/navigation'
 import { isBackNavigation } from './router'
 
 const isMobileViewport = ref(false)
-let viewportQuery: MediaQueryList | null = null
-
-const syncViewportMode = () => {
-  isMobileViewport.value = viewportQuery?.matches ?? false
-}
 
 const preloadHeroImages = () => {
   for (const src of HERO_IMAGE_SRCS) {
@@ -44,15 +39,19 @@ const preloadHeroImages = () => {
   }
 }
 
+const viewportQuery = window.matchMedia('(max-width: 767px)')
+const syncViewportMode = () => {
+  isMobileViewport.value = viewportQuery.matches
+}
+
 onMounted(() => {
   preloadHeroImages()
-  viewportQuery = window.matchMedia('(max-width: 767px)')
   syncViewportMode()
   viewportQuery.addEventListener('change', syncViewportMode)
 })
 
 onBeforeUnmount(() => {
-  viewportQuery?.removeEventListener('change', syncViewportMode)
+  viewportQuery.removeEventListener('change', syncViewportMode)
 })
 
 const transitionDuration = { enter: 800, leave: 500 }
