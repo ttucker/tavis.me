@@ -9,7 +9,7 @@ const copyright = new Date().getFullYear()
         <li><a href="mailto:tavis.tucker@gmail.com?subject=Getting in touch...">Email</a></li>
         <li><a href="https://discord.com/users/1043695714024312872" target="_blank" rel="noreferrer">Discord</a></li>
         <li><a href="https://www.linkedin.com/in/tavistucker" target="_blank" rel="noreferrer">LinkedIn</a></li>
-        <li><a href="https://github.com/ttucker/tavis.me" target="_blank" rel="noreferrer">Github</a></li>
+        <li><a href="https://github.com/ttucker/tavis.me" target="_blank" rel="noreferrer">GitHub</a></li>
       </ul>
     </nav>
     <small>© {{ copyright }} Tavis Tucker</small>
