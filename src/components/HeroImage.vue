@@ -4,14 +4,11 @@ import { onMounted, ref } from 'vue'
 type HeroImageAlign = 'top' | 'bottom'
 
 interface HeroImageProps {
-  currentPage?: string
   imgSrc: string
   imageAlign?: HeroImageAlign
 }
 
-const props = withDefaults(defineProps<HeroImageProps>(), {
-  currentPage: 'home',
-})
+const props = defineProps<HeroImageProps>()
 
 const isVisible = ref(false)
 
@@ -24,7 +21,8 @@ onMounted(() => {
   <figure :class="{ visible: isVisible }">
     <img
       :src="imgSrc"
-      :alt="currentPage"
+      alt=""
+      aria-hidden="true"
       :style="props.imageAlign ? { objectPosition: props.imageAlign } : undefined"
     />
   </figure>

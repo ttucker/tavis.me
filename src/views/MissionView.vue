@@ -1,5 +1,5 @@
 <template>
-  <HeroImage current-page="mission" img-src="/mission.jpg" />
+  <HeroImage img-src="/mission.jpg" />
   <ContentArticle>
         <h3>Mission</h3>
         <h4>Make a difference.</h4>

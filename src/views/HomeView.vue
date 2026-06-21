@@ -1,5 +1,5 @@
 <template>
-  <HeroImage img-src="/home.jpg" current-page="home" />
+  <HeroImage img-src="/home.jpg" />
   <blockquote>
     Hello and <i>welcome</i> to my website
   </blockquote>

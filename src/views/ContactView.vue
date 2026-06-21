@@ -1,5 +1,5 @@
 <template>
-  <HeroImage current-page="contact" img-src="/contact.jpg" />
+  <HeroImage img-src="/contact.jpg" />
   <ContentArticle>
         <h3>Contact</h3>
         <h4>Please do get in touch.</h4>
