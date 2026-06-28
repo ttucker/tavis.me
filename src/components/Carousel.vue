@@ -165,16 +165,17 @@ function go(nextIndex: number) {
     margin-block: pxToRem(10) pxToRem(20);
 
     button {
-      background: oklch(0 0 0 / 0.15);
-      border: none;
+      background: var(--carousel-dot-bg);
+      border: 1px solid var(--carousel-dot-border);
       border-radius: 50%;
       cursor: pointer;
       height: pxToRem(10);
       padding: 0;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
       width: pxToRem(10);
 
       &.active {
-        background: oklch(0 0 0 / 0.6);
+        background: var(--carousel-dot-bg-active);
       }
     }
   }
