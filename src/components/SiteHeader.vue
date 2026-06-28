@@ -13,12 +13,10 @@ const themeToggleState = computed(() => {
   return isDarkTheme.value
     ? {
         className: 'theme-toggle--sun',
-        icon: '☀',
         label: 'Switch to light theme',
       }
     : {
         className: 'theme-toggle--moon',
-        icon: '☽',
         label: 'Switch to dark theme',
       }
 })
@@ -41,7 +39,36 @@ const toggleMenu = () => {
         :class="themeToggleState.className"
         type="button"
         @click="toggleTheme"
-      >{{ themeToggleState.icon }}</button>
+      >
+        <span class="theme-toggle-icon" aria-hidden="true">
+          <svg
+            v-if="isDarkTheme"
+            class="theme-toggle-glyph"
+            viewBox="0 0 24 24"
+            focusable="false"
+          >
+            <circle cx="12" cy="12" r="4" fill="yellow" />
+            <path
+              d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"
+              fill="yellow"
+              stroke="yellow"
+              stroke-linecap="round"
+              stroke-width="1"
+            />
+          </svg>
+          <svg
+            v-else
+            class="theme-toggle-glyph"
+            viewBox="0 0 24 24"
+            focusable="false"
+          >
+            <path
+              d="M18.6 1.7C11.6 2 6.2 6.6 6.2 12s5.4 10 12.4 10.3c-4.5-2.2-7.5-6.3-7.5-10.3s3-8.1 7.5-10.3Z"
+              fill="rebeccapurple"
+            />
+          </svg>
+        </span>
+      </button>
       <button
         aria-controls="primary-navigation"
         :aria-expanded="isMenuOpen"
@@ -163,6 +190,7 @@ header {
 .theme-toggle {
   align-items: center;
   appearance: none;
+  backface-visibility: hidden;
   background: transparent;
   border: 0;
   color: var(--header-theme-toggle-color-mobile);
@@ -172,17 +200,32 @@ header {
   justify-content: center;
   line-height: 1;
   padding: 0;
-  font-size: pxToRem(28);
   transition: transform 0.5s ease;
+  transform-origin: 50% 50%;
   width: pxToRem(40);
 }
 
+.theme-toggle-icon {
+  align-items: center;
+  display: inline-flex;
+  height: pxToRem(24);
+  justify-content: center;
+  line-height: 0;
+  width: pxToRem(24);
+}
+
+.theme-toggle-glyph {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 .theme-toggle--moon {
-  transform: rotate(30deg);
+  transform: rotate(-155deg);
 }
 
 .theme-toggle--sun {
-  transform: rotate(270deg);
+  transform: rotate(90deg);
 }
 
 nav {
@@ -261,7 +304,11 @@ nav {
 
   .theme-toggle {
     color: var(--header-theme-toggle-color-desktop);
-    font-size: pxToRem(32);
+  }
+
+  .theme-toggle-icon {
+    height: pxToRem(28);
+    width: pxToRem(28);
   }
 
   nav {
