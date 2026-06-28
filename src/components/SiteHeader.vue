@@ -53,7 +53,7 @@ const toggleMenu = () => {
               fill="none"
               stroke="currentColor"
               stroke-linecap="round"
-              stroke-width="2"
+              stroke-width="1.25"
             />
           </svg>
           <svg
