@@ -47,13 +47,13 @@ const toggleMenu = () => {
             viewBox="0 0 24 24"
             focusable="false"
           >
-            <circle cx="12" cy="12" r="4" fill="yellow" />
+            <circle cx="12" cy="12" r="4" fill="currentColor" />
             <path
               d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"
-              fill="yellow"
-              stroke="yellow"
+              fill="none"
+              stroke="currentColor"
               stroke-linecap="round"
-              stroke-width="1"
+              stroke-width="2"
             />
           </svg>
           <svg
@@ -64,7 +64,7 @@ const toggleMenu = () => {
           >
             <path
               d="M18.6 1.7C11.6 2 6.2 6.6 6.2 12s5.4 10 12.4 10.3c-4.5-2.2-7.5-6.3-7.5-10.3s3-8.1 7.5-10.3Z"
-              fill="rebeccapurple"
+              fill="currentColor"
             />
           </svg>
         </span>
@@ -193,7 +193,7 @@ header {
   backface-visibility: hidden;
   background: transparent;
   border: 0;
-  color: var(--header-theme-toggle-color-mobile);
+  color: var(--header-theme-toggle-color);
   cursor: pointer;
   display: inline-flex;
   height: pxToRem(40);
@@ -225,7 +225,7 @@ header {
 }
 
 .theme-toggle--sun {
-  transform: rotate(90deg);
+  transform: rotate(45deg);
 }
 
 nav {
@@ -300,10 +300,6 @@ nav {
 
   .menu-toggle {
     display: none;
-  }
-
-  .theme-toggle {
-    color: var(--header-theme-toggle-color-desktop);
   }
 
   .theme-toggle-icon {
