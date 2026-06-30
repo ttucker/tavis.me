@@ -5,6 +5,7 @@ const copyright = new Date().getFullYear()
 <template>
   <footer>
     <nav aria-label="External links">
+      <ul>
         <li><a href="mailto:tavis.tucker@gmail.com?subject=Getting%20in%20touch...">Email</a></li>
       </ul>
     </nav>
