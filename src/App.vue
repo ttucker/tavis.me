@@ -29,7 +29,8 @@ import SiteHeader from './components/SiteHeader.vue'
 import { HERO_IMAGE_SRCS } from './constants/navigation'
 import { isBackNavigation } from './router'
 
-const isMobileViewport = ref(false)
+const viewportQuery = window.matchMedia('(max-width: 767px)')
+const isMobileViewport = ref(viewportQuery.matches)
 
 const preloadHeroImages = () => {
   for (const src of HERO_IMAGE_SRCS) {
@@ -39,7 +40,6 @@ const preloadHeroImages = () => {
   }
 }
 
-const viewportQuery = window.matchMedia('(max-width: 767px)')
 const syncViewportMode = () => {
   isMobileViewport.value = viewportQuery.matches
 }
