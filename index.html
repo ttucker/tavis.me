@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      ;(() => {
+        try {
+          const theme =
+            window.localStorage.getItem('theme-preference') ??
+            (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+
+          if (theme === 'light' || theme === 'dark') {
+            document.documentElement.dataset.theme = theme
+            document.documentElement.style.colorScheme = theme
+          }
+        } catch {
+          // Ignore storage access failures and keep default dark theme.
+        }
+      })()
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>tavis.me | Tavis Tucker</title>
+    <meta
+      name="description"
+      content="This is tavis.me, the professional portfolio of Tavis Tucker. The intent is to showcase skills, highlight project experience, and provide ways to get in touch."
+    />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B0SGJGWJ42"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B0SGJGWJ42');
+</script>
+  </body>
+</html>
