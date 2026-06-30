@@ -1,13 +1,13 @@
 <template>
   <div class="carousel" @keydown.left.prevent="prev" @keydown.right.prevent="next" tabindex="0">
   <div class="chev-overlay">
-      <button class="chev left" @click="prev" aria-label="Previous slide">
-        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" /></svg>
-      </button>
+    <button class="chev left" type="button" @click="prev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" /></svg>
+    </button>
 
-      <button class="chev right" @click="next" aria-label="Next slide">
-        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" /></svg>
-      </button>
+    <button class="chev right" type="button" @click="next" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" /></svg>
+    </button>
     </div>
 
     <div class="viewport">
