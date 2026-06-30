@@ -17,11 +17,13 @@
       </Transition>
     </RouterView>
   <SiteFooter />
+  <SpeedInsights />
 </template>
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterView } from 'vue-router'
+import { SpeedInsights } from '@vercel/speed-insights/vue'
 
 import SiteContent from './components/SiteContent.vue'
 import SiteFooter from './components/SiteFooter.vue'
