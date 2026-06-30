@@ -27,7 +27,7 @@
             <h4>Accomplishments</h4>
             <ul>
               <li>
-                <a href="https://www.tenable.com/products/tenable-sc" target="_blank" rel="noreferrer">Tenable.sc</a> -
+                <a href="https://www.tenable.com/products/tenable-sc" target="_blank" rel="noopener noreferrer">Tenable.sc</a> -
                 Accomplished major redesign of application and all UI components using design system tokens for first major
                 version release of SecurityCenter in 8 years
               </li>

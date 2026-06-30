@@ -5,7 +5,7 @@
         <h4>My name is Tavis Tucker, and tavis.me is my portfolio site.</h4>
         <p>
           I attended Western Maryland College (now
-          <a href="https://www.mcdaniel.edu" target="_blank" rel="noreferrer">McDaniel College</a>) where I
+          <a href="https://www.mcdaniel.edu" target="_blank" rel="noopener noreferrer">McDaniel College</a>) where I
           graduated <i>cum laude</i> with a Math major and Secondary Education minor, but also studied programming,
           physics and the required liberal arts subjects too. After college, I taught Math to 7<sup>th</sup> and
           8<sup>th</sup> grade students for two years before deciding to return to school, study web development and

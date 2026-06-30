@@ -8,7 +8,7 @@
             <h4>@Tenable</h4>
             <p>I was fortunate to have many opportunities at Tenable to bootstrap several new features and applications.</p>
             <dl>
-              <dt><a href="https://www.tenable.com/products/tenable-io" target="_blank" rel="noreferrer">Product Marketing Page</a></dt>
+              <dt><a href="https://www.tenable.com/products/tenable-io" target="_blank" rel="noopener noreferrer">Product Marketing Page</a></dt>
               <dd>Tenable.io</dd>
               <dd>
                 <ul>
