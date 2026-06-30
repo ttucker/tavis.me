@@ -24,6 +24,7 @@
       <button
         v-for="(_, i) in slides"
         :key="i"
+        type="button"
         :class="{ active: i === index }"
         :aria-label="`Go to slide ${i + 1}`"
         @click="go(i)"
