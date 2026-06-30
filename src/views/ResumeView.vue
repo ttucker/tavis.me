@@ -185,10 +185,7 @@
               </i>
             </p>
             <p>
-              <i>
-                I normally try to save trees, but here's a semi-hidden
-                <a href="/Tavis Tucker - resume.pdf" rel="nofollow"> printable version</a> for your convenience.
-              </i>
+                <a href="/Tavis%20Tucker%20-%20resume.pdf" rel="nofollow">printable version</a> for your convenience.
             </p>
           </CarouselSlide>
         </Carousel>
