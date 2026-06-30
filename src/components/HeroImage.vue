@@ -20,7 +20,7 @@ onMounted(() => {
 <template>
   <figure :class="{ visible: isVisible }">
     <img
-      :src="imgSrc"
+      :src="props.imgSrc"
       alt=""
       aria-hidden="true"
       :style="props.imageAlign ? { objectPosition: props.imageAlign } : undefined"
