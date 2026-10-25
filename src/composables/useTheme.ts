@@ -34,12 +34,12 @@ const handleSystemThemeChange = (event: MediaQueryListEvent) => {
 }
 
 const readStoredTheme = (): Theme | null => {
-  const stored = window.localStorage.getItem(STORAGE_KEY)
-  if (stored === 'light' || stored === 'dark') {
-    return stored
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY)
+    return stored === 'light' || stored === 'dark' ? stored : null
+  } catch {
+    return null
   }
-
-  return null
 }
 
 export const initTheme = () => {
