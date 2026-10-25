@@ -1,5 +1,5 @@
 <template>
-  <HeroImage img-src="/bio.jpg" />
+  <HeroImage img-src="/bio.jpg" image-align="top" />
   <ContentArticle>
         <h3>Bio</h3>
         <h4>My name is Tavis Tucker, and tavis.me is my portfolio site.</h4>

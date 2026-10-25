@@ -1,5 +1,5 @@
 <template>
-  <HeroImage img-src="/resume.jpg" image-align="bottom" />
+  <HeroImage img-src="/resume.jpg" />
   <ContentArticle>
         <h3>Resumé</h3>
 
