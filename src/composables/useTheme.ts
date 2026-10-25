@@ -68,29 +68,23 @@ export const initTheme = () => {
 }
 
 export const useTheme = () => {
-  const setTheme = (value: Theme) => {
-    theme.value = value
-    hasUserPreference.value = true
-    window.localStorage.setItem(STORAGE_KEY, value)
-    applyTheme(value)
-  }
-
   const toggleTheme = () => {
-    setTheme(theme.value === 'dark' ? 'light' : 'dark')
-  }
+    const nextTheme = theme.value === 'dark' ? 'light' : 'dark'
 
-  const clearThemePreference = () => {
-    hasUserPreference.value = false
-    window.localStorage.removeItem(STORAGE_KEY)
-    theme.value = getSystemTheme()
-    applyTheme(theme.value)
+    theme.value = nextTheme
+    hasUserPreference.value = true
+
+    try {
+      window.localStorage.setItem(STORAGE_KEY, nextTheme)
+    } catch {
+      // Ignore storage failures and keep the in-memory preference.
+    }
+
+    applyTheme(nextTheme)
   }
 
   return {
-    clearThemePreference,
     isDarkTheme: computed(() => theme.value === 'dark'),
-    setTheme,
-    theme,
     toggleTheme,
   }
 }
