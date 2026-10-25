@@ -120,7 +120,7 @@ function go(nextIndex: number) {
     inset-inline: 0;
     pointer-events: none;
     position: sticky;
-    top: 45vh;
+    top: 30vh;
     z-index: 1;
   }
 
